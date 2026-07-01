@@ -1,431 +1,968 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Neel Vadlamudi | Data Scientist</title>
-<meta name="description" content="Data Scientist specializing in AI, data engineering, and analytics for regulated environments. UMBC Data Science, Meta AI Research collaboration.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --bg:#0a0f0d;
-  --card:#111916;
-  --teal:#00bfa5;
-  --teal-dim:#00897b;
-  --cyan:#4dd0e1;
-  --white:#f0f4f2;
-  --gray:#8a9b94;
-  --font:'DM Sans',sans-serif;
-  --mono:'Space Mono',monospace;
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{background:var(--bg);color:var(--white);font-family:var(--font);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Neel Vittal Bharath Vadlamudi - Data-to-ML Engineer in Boston building applied ML, data engineering, risk analytics, and public-sector AI systems.">
+  <meta name="author" content="Neel Vittal Bharath Vadlamudi">
+  <meta property="og:title" content="Neel Vadlamudi | Data-to-ML Engineer">
+  <meta property="og:description" content="Applied ML, data engineering, fintech risk analytics, and public-sector AI systems.">
+  <meta property="og:type" content="website">
+  <title>Neel Vadlamudi | Data-to-ML Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f9fb;
+      --surface: #ffffff;
+      --surface-2: #eef4f8;
+      --ink: #101820;
+      --muted: #526272;
+      --line: #d8e1e8;
+      --teal: #087f8c;
+      --blue: #1d4ed8;
+      --amber: #b45309;
+      --green: #047857;
+      --shadow: 0 18px 50px rgba(16, 24, 32, 0.08);
+      --radius: 8px;
+      --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+    }
 
-/* ── GRAIN OVERLAY ── */
-body::after{
-  content:'';position:fixed;top:0;left:0;width:100%;height:100%;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events:none;z-index:9999;opacity:0.3;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-/* ── SCROLLBAR ── */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--teal-dim);border-radius:2px}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* ── LAYOUT ── */
-.container{max-width:480px;margin:0 auto;padding:0 20px}
-section{padding:48px 0}
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-/* ── HERO ── */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative}
-.hero::before{
-  content:'';position:absolute;top:-20%;right:-30%;width:500px;height:500px;
-  background:radial-gradient(circle,rgba(0,191,165,0.08) 0%,transparent 70%);
-  pointer-events:none;
-}
-.hero-tag{
-  font-family:var(--mono);font-size:0.75rem;color:var(--teal);
-  letter-spacing:3px;text-transform:uppercase;margin-bottom:16px;
-  opacity:0;animation:fadeUp 0.6s ease 0.2s forwards;
-}
-.hero-name{
-  font-size:2.2rem;font-weight:700;line-height:1.15;margin-bottom:12px;
-  opacity:0;animation:fadeUp 0.6s ease 0.4s forwards;
-}
-.hero-name span{color:var(--teal)}
-.hero-sub{
-  font-size:1rem;color:var(--gray);line-height:1.6;margin-bottom:32px;
-  opacity:0;animation:fadeUp 0.6s ease 0.6s forwards;
-}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp 0.6s ease 0.8s forwards}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;padding:12px 24px;
-  border-radius:8px;font-size:0.85rem;font-weight:600;
-  text-decoration:none;transition:all 0.3s ease;font-family:var(--font);
-}
-.btn-primary{background:var(--teal);color:var(--bg)}
-.btn-primary:hover{background:var(--cyan);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,191,165,0.25)}
-.btn-ghost{border:1.5px solid var(--teal-dim);color:var(--teal)}
-.btn-ghost:hover{border-color:var(--teal);background:rgba(0,191,165,0.08)}
+    a {
+      color: inherit;
+    }
 
-/* ── METRICS STRIP ── */
-.metrics{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:2px;
-  background:var(--card);border-radius:12px;overflow:hidden;
-  border:1px solid rgba(0,191,165,0.1);
-}
-.metric{
-  padding:24px 16px;text-align:center;
-  background:var(--bg);position:relative;
-  opacity:0;transform:translateY(20px);
-}
-.metric.visible{opacity:1;transform:translateY(0);transition:all 0.5s ease}
-.metric-val{
-  font-family:var(--mono);font-size:1.6rem;font-weight:700;color:var(--teal);
-  margin-bottom:4px;
-}
-.metric-label{font-size:0.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:1.5px;line-height:1.4}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-/* ── SECTION HEADERS ── */
-.section-tag{
-  font-family:var(--mono);font-size:0.7rem;color:var(--teal);
-  letter-spacing:3px;text-transform:uppercase;margin-bottom:8px;
-}
-.section-title{font-size:1.5rem;font-weight:700;margin-bottom:24px}
+    .shell {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
 
-/* ── EXPERIENCE TIMELINE ── */
-.timeline{position:relative;padding-left:24px}
-.timeline::before{
-  content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1.5px;
-  background:linear-gradient(to bottom,var(--teal),var(--teal-dim),transparent);
-}
-.tl-item{
-  position:relative;margin-bottom:32px;
-  opacity:0;transform:translateX(-16px);
-}
-.tl-item.visible{opacity:1;transform:translateX(0);transition:all 0.5s ease}
-.tl-item::before{
-  content:'';position:absolute;left:-21px;top:8px;width:9px;height:9px;
-  border-radius:50%;background:var(--teal);
-  box-shadow:0 0 12px rgba(0,191,165,0.4);
-}
-.tl-company{font-family:var(--mono);font-size:0.7rem;color:var(--teal);letter-spacing:1px;text-transform:uppercase}
-.tl-role{font-size:1.05rem;font-weight:700;margin:4px 0}
-.tl-date{font-size:0.78rem;color:var(--gray);margin-bottom:8px}
-.tl-desc{font-size:0.85rem;color:var(--gray);line-height:1.6}
-.tl-highlight{color:var(--white);font-weight:500}
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 249, 251, 0.92);
+      border-bottom: 1px solid rgba(216, 225, 232, 0.75);
+      backdrop-filter: blur(18px);
+    }
 
-/* ── SKILLS ── */
-.skill-grid{display:flex;flex-direction:column;gap:16px}
-.skill-cat{
-  background:var(--card);border-radius:10px;padding:16px;
-  border:1px solid rgba(0,191,165,0.06);
-  opacity:0;transform:translateY(12px);
-}
-.skill-cat.visible{opacity:1;transform:translateY(0);transition:all 0.4s ease}
-.skill-cat-name{
-  font-family:var(--mono);font-size:0.68rem;color:var(--teal);
-  letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;
-}
-.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
-.skill-tag{
-  padding:5px 10px;border-radius:6px;font-size:0.75rem;
-  background:rgba(0,191,165,0.08);color:var(--white);
-  border:1px solid rgba(0,191,165,0.1);
-}
-.skill-tag.core{background:rgba(0,191,165,0.15);border-color:rgba(0,191,165,0.25);font-weight:600}
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-/* ── PROJECTS ── */
-.project-card{
-  background:var(--card);border-radius:12px;padding:20px;margin-bottom:14px;
-  border:1px solid rgba(0,191,165,0.06);
-  position:relative;overflow:hidden;
-  opacity:0;transform:translateY(16px);
-}
-.project-card.visible{opacity:1;transform:translateY(0);transition:all 0.5s ease}
-.project-card::before{
-  content:'';position:absolute;top:0;left:0;width:3px;height:100%;
-  background:linear-gradient(to bottom,var(--teal),var(--cyan));
-}
-.project-name{font-size:0.95rem;font-weight:700;margin-bottom:4px}
-.project-stack{font-family:var(--mono);font-size:0.68rem;color:var(--teal);margin-bottom:8px}
-.project-desc{font-size:0.82rem;color:var(--gray);line-height:1.6}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+    }
 
-/* ── FOOTER / CONTACT ── */
-.contact-section{text-align:center;padding:48px 0 64px}
-.contact-line{
-  font-size:0.85rem;color:var(--gray);margin-bottom:6px;
-}
-.contact-line a{color:var(--teal);text-decoration:none}
-.contact-line a:hover{text-decoration:underline}
-.contact-tag{
-  display:inline-block;margin-top:16px;padding:8px 20px;
-  border-radius:20px;font-size:0.72rem;font-family:var(--mono);
-  background:rgba(0,191,165,0.08);color:var(--teal);
-  letter-spacing:1.5px;text-transform:uppercase;
-  border:1px solid rgba(0,191,165,0.15);
-}
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      background: var(--ink);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
 
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
 
-/* ── RESPONSIVE ── */
-@media(min-width:600px){
-  .container{max-width:560px}
-  .hero-name{font-size:2.8rem}
-  .metrics{grid-template-columns:repeat(4,1fr)}
-}
-</style>
+    .nav-links a {
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 44px;
+      padding: 0 18px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-size: 0.94rem;
+      font-weight: 700;
+      background: var(--surface);
+      color: var(--ink);
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: #b9c7d2;
+      box-shadow: 0 10px 26px rgba(16, 24, 32, 0.08);
+    }
+
+    .button.primary {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+
+    .button.primary:hover {
+      background: #172434;
+    }
+
+    .button svg {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 auto;
+    }
+
+    .hero {
+      padding: 68px 0 44px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0) 78%),
+        var(--bg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 14px;
+      max-width: 720px;
+      font-size: 3.25rem;
+      line-height: 1.04;
+      font-weight: 800;
+    }
+
+    .hero-title {
+      margin: 0 0 22px;
+      max-width: 660px;
+      font-size: 1.38rem;
+      line-height: 1.36;
+      color: #263341;
+      font-weight: 600;
+    }
+
+    .hero-copy {
+      margin: 0 0 28px;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.04rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 99px;
+      background: var(--teal);
+    }
+
+    .hero-visual {
+      overflow: hidden;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+      margin-top: 34px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--line);
+    }
+
+    .metric {
+      min-height: 116px;
+      padding: 20px 18px;
+      background: var(--surface);
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 6px;
+      font-family: var(--mono);
+      font-size: 1.48rem;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .metric span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.35;
+      font-weight: 600;
+    }
+
+    section {
+      padding: 70px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section.alt {
+      background: var(--surface);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.84fr 1fr;
+      gap: 36px;
+      margin-bottom: 30px;
+      align-items: end;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-size: 2rem;
+      line-height: 1.16;
+      font-weight: 800;
+    }
+
+    .section-head p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .evidence-table {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .evidence-row {
+      display: grid;
+      grid-template-columns: 270px 1fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .evidence-row:last-child {
+      border-bottom: 0;
+    }
+
+    .evidence-label {
+      padding: 22px;
+      background: var(--surface-2);
+      border-right: 1px solid var(--line);
+      font-weight: 800;
+    }
+
+    .evidence-copy {
+      padding: 22px;
+      color: var(--muted);
+    }
+
+    .evidence-copy strong {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .lane-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .lane {
+      min-height: 230px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .lane h3,
+    .project h3,
+    .experience h3 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+      line-height: 1.25;
+    }
+
+    .lane p,
+    .project p,
+    .experience p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .lane-token {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--teal);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      min-height: 280px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .project .stack {
+      margin: 0 0 16px;
+      color: var(--teal);
+      font-family: var(--mono);
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    .project .result {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .project a {
+      margin-top: auto;
+      padding-top: 20px;
+      color: var(--blue);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .project a:hover {
+      text-decoration: underline;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .experience {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 28px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .experience-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .experience-meta strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+
+    .bullet-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .bullet-list li {
+      margin-bottom: 8px;
+    }
+
+    .bullet-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .skill-box {
+      min-height: 178px;
+      padding: 22px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .skill-box h3 {
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .skill-box p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .education-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .edu {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+    }
+
+    .edu h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .edu p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .contact {
+      padding: 58px 0;
+      background: var(--ink);
+      color: #fff;
+      border-bottom: 0;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .contact h2 {
+      margin-bottom: 12px;
+      color: #fff;
+    }
+
+    .contact p {
+      margin-bottom: 0;
+      max-width: 760px;
+      color: #c8d3dc;
+    }
+
+    .contact-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .contact .button {
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .contact .button.primary {
+      background: #fff;
+      color: var(--ink);
+      border-color: #fff;
+    }
+
+    .footer {
+      padding: 24px 0;
+      background: #0b1118;
+      color: #aab6c2;
+      font-size: 0.88rem;
+    }
+
+    .footer .shell {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .section-head,
+      .experience,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .lane-grid,
+      .skills {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .evidence-row {
+        grid-template-columns: 1fr;
+      }
+
+      .evidence-label {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .contact-actions {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .shell {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav {
+        min-height: auto;
+        padding: 14px 0;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.84rem;
+      }
+
+      .nav-links a:nth-child(2),
+      .nav-links a:nth-child(3) {
+        display: none;
+      }
+
+      .hero {
+        padding: 44px 0 32px;
+      }
+
+      h1 {
+        font-size: 2.38rem;
+      }
+
+      .hero-title {
+        font-size: 1.12rem;
+      }
+
+      section {
+        padding: 48px 0;
+      }
+
+      h2 {
+        font-size: 1.58rem;
+      }
+
+      .metrics,
+      .project-grid,
+      .lane-grid,
+      .skills,
+      .education-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        min-height: 96px;
+      }
+
+      .project,
+      .lane,
+      .experience,
+      .skill-box,
+      .edu {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="Neel Vadlamudi home">
+        <span class="brand-mark">NV</span>
+        <span>Neel Vadlamudi</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#evidence">Evidence</a>
+        <a href="#fit">Fit</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<!-- ═══ HERO ═══ -->
-<section class="hero">
-<div class="container">
-  <div class="hero-tag">Data Scientist / Baltimore, MD</div>
-  <h1 class="hero-name">Neel <span>Vadlamudi</span></h1>
-  <p class="hero-sub">I build data pipelines and AI systems for regulated, data-intensive environments. UMBC Data Science (May 2026). Previously at HDFC Bank. Research with Meta AI.</p>
-  <div class="hero-cta">
-    <a href="mailto:v.n.v.bharath@gmail.com" class="btn btn-primary">
-      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      Email Me
-    </a>
-    <a href="https://linkedin.com/in/neel109" target="_blank" class="btn btn-ghost">
-      <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      LinkedIn
-    </a>
-  </div>
-</div>
-</section>
+  <main id="top">
+    <section class="hero">
+      <div class="shell">
+        <div class="hero-grid">
+          <div>
+            <h1>Neel Vittal Bharath Vadlamudi</h1>
+            <p class="hero-title">Data-to-ML Engineer for applied ML, data engineering, and risk analytics teams.</p>
+            <p class="hero-copy">I build production-minded data and ML systems: regulatory pipelines, research-grade model evaluation, cloud workspaces, and full-stack analytics products that turn noisy real-world data into decisions.</p>
+            <div class="hero-actions">
+              <a class="button primary" href="Neel_Vadlamudi_Resume.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+                Resume
+              </a>
+              <a class="button" href="https://github.com/NeelVadlamudi" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.08 1.83 2.82 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.66-.31-5.46-1.34-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.54.12-3.18 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.48 5.92.44.38.82 1.12.82 2.26v3.35c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"></path></svg>
+                GitHub
+              </a>
+              <a class="button" href="mailto:v.n.v.bharath@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+                Email
+              </a>
+            </div>
+            <div class="hero-meta">
+              <span><span class="dot"></span>Boston, MA</span>
+              <span><span class="dot"></span>M.P.S. Data Science, UMBC, May 2026</span>
+              <span><span class="dot"></span>GitHub: NeelVadlamudi</span>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <img src="assets/data-ml-systems.png" alt="">
+          </div>
+        </div>
 
-<!-- ═══ METRICS ═══ -->
-<section>
-<div class="container">
-  <div class="metrics">
-    <div class="metric" data-animate>
-      <div class="metric-val" data-count="2.1" data-prefix="$" data-suffix="M">$0M</div>
-      <div class="metric-label">Data Failures Prevented</div>
-    </div>
-    <div class="metric" data-animate>
-      <div class="metric-val" data-count="500" data-suffix="K+">0K+</div>
-      <div class="metric-label">Daily Records Processed</div>
-    </div>
-    <div class="metric" data-animate>
-      <div class="metric-val" data-count="99.7" data-suffix="%">0%</div>
-      <div class="metric-label">Cloud Uptime</div>
-    </div>
-    <div class="metric" data-animate>
-      <div class="metric-val" data-count="15" data-suffix="%">0%</div>
-      <div class="metric-label">ML Accuracy Gain</div>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- ═══ EXPERIENCE ═══ -->
-<section>
-<div class="container">
-  <div class="section-tag">Experience</div>
-  <h2 class="section-title">Where I've Built Things</h2>
-  <div class="timeline">
-    <div class="tl-item" data-animate>
-      <div class="tl-company">AI Institute of South Carolina</div>
-      <div class="tl-role">Data Infrastructure Research Assistant</div>
-      <div class="tl-date">May 2025 - Aug 2025</div>
-      <div class="tl-desc">Engineered <span class="tl-highlight">Python + Apache Spark ETL pipelines</span> consolidating 2.3M+ records from 5 agencies into a unified data lakehouse. Deployed <span class="tl-highlight">Azure Databricks + Kubernetes</span> infrastructure at 99.7% uptime for PhD research teams.</div>
-    </div>
-    <div class="tl-item" data-animate>
-      <div class="tl-company">UMBC + Meta AI Research</div>
-      <div class="tl-role">Machine Learning Research Assistant</div>
-      <div class="tl-date">Dec 2024 - Feb 2025</div>
-      <div class="tl-desc">Fine-tuned <span class="tl-highlight">transformer architectures (PyTorch + HuggingFace)</span> with rigorous evaluation frameworks. Improved model accuracy by <span class="tl-highlight">15%</span> through reproducible benchmarking. Cut reporting turnaround from 5 days to 8 hours.</div>
-    </div>
-    <div class="tl-item" data-animate>
-      <div class="tl-company">HDFC Bank</div>
-      <div class="tl-role">Business Analyst</div>
-      <div class="tl-date">Jun 2023 - Jul 2024</div>
-      <div class="tl-desc">Architected ETL pipelines across <span class="tl-highlight">8 source systems (500K+ daily records)</span> with automated validation that prevented <span class="tl-highlight">$2.1M in data integrity failures</span>. Built Monte Carlo + VaR/CVaR risk models running 1M+ daily scenarios. Automated 15+ analyst-hours/week.</div>
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- ═══ SKILLS ═══ -->
-<section>
-<div class="container">
-  <div class="section-tag">Technical Stack</div>
-  <h2 class="section-title">What I Work With</h2>
-  <div class="skill-grid">
-    <div class="skill-cat" data-animate>
-      <div class="skill-cat-name">Data Engineering &amp; Cloud</div>
-      <div class="skill-tags">
-        <span class="skill-tag core">Python</span>
-        <span class="skill-tag core">SQL</span>
-        <span class="skill-tag core">Apache Spark</span>
-        <span class="skill-tag core">Azure Databricks</span>
-        <span class="skill-tag">PySpark</span>
-        <span class="skill-tag">ETL/ELT</span>
-        <span class="skill-tag">Kubernetes</span>
-        <span class="skill-tag">REST APIs</span>
-        <span class="skill-tag">Flask</span>
-        <span class="skill-tag">CI/CD</span>
-        <span class="skill-tag">Git</span>
+        <div class="metrics" aria-label="Selected impact metrics">
+          <div class="metric">
+            <strong>$2.1M</strong>
+            <span>Exposure prevented through data-quality automation</span>
+          </div>
+          <div class="metric">
+            <strong>500K+</strong>
+            <span>Daily banking records across 8 source systems</span>
+          </div>
+          <div class="metric">
+            <strong>2.3M+</strong>
+            <span>Multi-agency records processed in Databricks</span>
+          </div>
+          <div class="metric">
+            <strong>99.7%</strong>
+            <span>Kubernetes workspace uptime for research users</span>
+          </div>
+          <div class="metric">
+            <strong>15%</strong>
+            <span>Accuracy improvement in transformer experiments</span>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="skill-cat" data-animate>
-      <div class="skill-cat-name">AI / ML / NLP</div>
-      <div class="skill-tags">
-        <span class="skill-tag core">PyTorch</span>
-        <span class="skill-tag core">HuggingFace</span>
-        <span class="skill-tag core">LLMs</span>
-        <span class="skill-tag">RAG</span>
-        <span class="skill-tag">Multi-Agent AI</span>
-        <span class="skill-tag">LSTM</span>
-        <span class="skill-tag">XGBoost</span>
-        <span class="skill-tag">Anomaly Detection</span>
+    </section>
+
+    <section id="evidence" class="alt">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Hiring evidence, not slogans.</h2>
+          <p>The profile is strongest when judged as data-to-ML engineering: pipelines, evaluation, explainability, dashboards, and delivery in regulated or research-heavy environments.</p>
+        </div>
+        <div class="evidence-table">
+          <div class="evidence-row">
+            <div class="evidence-label">Financial data systems</div>
+            <div class="evidence-copy">At <strong>HDFC Bank, Mumbai</strong>, supported Automated Data Flow across 8 source systems and 500K+ daily records, reducing reconciliation errors 60% and preventing $2.1M in exposure.</div>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-label">Data infrastructure</div>
+            <div class="evidence-copy">At the <strong>AI Institute of South Carolina</strong>, built Azure Databricks Bronze/Silver/Gold workflows across 2.3M+ records from 5 agencies and reduced runtime from 14h to 8h.</div>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-label">Applied ML research</div>
+            <div class="evidence-copy">In <strong>UMBC research with Meta AI collaboration</strong>, fine-tuned BERT/GPT/T5 across 12+ datasets, improved accuracy 15%, and surfaced 3 systematic bias issues through adversarial evaluation.</div>
+          </div>
+          <div class="evidence-row">
+            <div class="evidence-label">End-to-end ML product</div>
+            <div class="evidence-copy">Built <strong>SBDR</strong>, a customer risk intelligence system over 30,000 customers with 93.4% accuracy, 0.990 AUC-ROC, SHAP/LIME explainability, and demographic fairness auditing.</div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="skill-cat" data-animate>
-      <div class="skill-cat-name">Analytics &amp; Visualization</div>
-      <div class="skill-tags">
-        <span class="skill-tag core">Power BI</span>
-        <span class="skill-tag core">Tableau</span>
-        <span class="skill-tag">Monte Carlo</span>
-        <span class="skill-tag">A/B Testing</span>
-        <span class="skill-tag">Causal Inference</span>
-        <span class="skill-tag">Statistical Modeling</span>
-        <span class="skill-tag">Pandas</span>
-        <span class="skill-tag">NumPy</span>
+    </section>
+
+    <section id="fit">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Best-fit lanes.</h2>
+          <p>The same foundation maps into four hiring lanes: applied ML, data engineering, fintech risk, and public-sector analytics.</p>
+        </div>
+        <div class="lane-grid">
+          <article class="lane">
+            <span class="lane-token">Applied ML</span>
+            <h3>Applied Data Scientist / ML Engineer</h3>
+            <p>SBDR, CDC Outbreak AI, transformer evaluation, explainability, forecasting, and benchmark-driven model improvement.</p>
+          </article>
+          <article class="lane">
+            <span class="lane-token">Data Engineering</span>
+            <h3>Data Engineer / Analytics Engineer</h3>
+            <p>Databricks, PySpark, medallion ETL, HDFC reconciliation pipelines, multi-source quality checks, and runtime optimization.</p>
+          </article>
+          <article class="lane">
+            <span class="lane-token">Fintech</span>
+            <h3>Risk Analytics / Financial Data</h3>
+            <p>Regulatory automation, customer risk modeling, portfolio analytics, anomaly detection, and executive reporting.</p>
+          </article>
+          <article class="lane">
+            <span class="lane-token">Public Sector</span>
+            <h3>Healthcare / Civic AI</h3>
+            <p>CDC surveillance analytics, IoT air-quality forecasting, transportation safety analytics, and client-facing dashboards.</p>
+          </article>
+        </div>
       </div>
-    </div>
-    <div class="skill-cat" data-animate>
-      <div class="skill-cat-name">Data Integrity &amp; Compliance</div>
-      <div class="skill-tags">
-        <span class="skill-tag core">Automated Validation</span>
-        <span class="skill-tag core">Data Reconciliation</span>
-        <span class="skill-tag">Quality Monitoring</span>
-        <span class="skill-tag">Reproducible Research</span>
-        <span class="skill-tag">Audit Traceability</span>
-        <span class="skill-tag">Process Monitoring</span>
+    </section>
+
+    <section id="projects" class="alt">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Featured systems.</h2>
+          <p>Selected systems that show how I move from problem definition to pipelines, models, evaluation, and delivery.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project">
+            <h3>CDC Outbreak AI Dashboard</h3>
+            <p class="stack">React, FastAPI, Python, DuckDB, CDC SODA API, LSTM, Plotly, WebGL</p>
+            <p>Converts public-health outbreak data into searchable, forecastable intelligence with time-series modeling, DuckDB analytics, uncertainty estimates, and plain-English access.</p>
+            <p class="result">Outcome: outbreak monitoring workflow with forecasting, analytics, and stakeholder-friendly exploration.</p>
+            <a href="https://github.com/NeelVadlamudi/cdc-outbreak-dashboard" target="_blank" rel="noopener">View repository</a>
+          </article>
+          <article class="project">
+            <h3>SBDR: Sentimental-Behavioral Debt Recovery</h3>
+            <p class="stack">FinBERT, BiLSTM, XGBoost, SHAP, LIME, Streamlit</p>
+            <p>Classifies customer recovery risk with explainable ML instead of static repayment rules, combining distress signals, anomaly detection, ensemble modeling, and fairness review.</p>
+            <p class="result">Outcome: 93.4% accuracy, 0.990 AUC-ROC, 26.1% SHAP signal across 30,000 customers.</p>
+          </article>
+          <article class="project">
+            <h3>UMBC SmartShuttle</h3>
+            <p class="stack">Apache Spark, Spark SQL, MLlib, Databricks, Python</p>
+            <p>Predicts shuttle demand and supports event-aware campus transportation decisions through route clustering, peak-load analysis, and sustainability metrics.</p>
+            <p class="result">Outcome: 85% decision-tree accuracy with scalable ridership analytics.</p>
+            <a href="https://github.com/NeelVadlamudi/UMBC-SmartShuttle" target="_blank" rel="noopener">View repository</a>
+          </article>
+          <article class="project">
+            <h3>AI Portfolio Risk Analytics Platform</h3>
+            <p class="stack">Python, Flask, SQLite, pandas, scikit-learn, scipy</p>
+            <p>Turns portfolio and market data into risk, return, drawdown, optimization, and reporting metrics for finance-facing analysis workflows.</p>
+            <p class="result">Outcome: VaR/CVaR, Sharpe/Sortino, Monte Carlo simulation, NLP sentiment, and reporting API.</p>
+            <a href="https://github.com/NeelVadlamudi/banking_analytics" target="_blank" rel="noopener">View repository</a>
+          </article>
+          <article class="project">
+            <h3>Breathe Easy AQI Forecasting</h3>
+            <p class="stack">NodeMCU, PMS5003, MQ-7, LSTM, XGBoost, Python</p>
+            <p>Converts sensor streams into air-quality forecasts and monitoring dashboards with a documented weekly refresh cadence.</p>
+            <p class="result">Outcome: 92%+ forecasting accuracy against pollution-board data.</p>
+          </article>
+        </div>
       </div>
+    </section>
+
+    <section id="experience">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Experience.</h2>
+          <p>Banking, research, and public-sector data work with quantified delivery across pipelines, ML evaluation, dashboards, and team execution.</p>
+        </div>
+        <div class="experience-list">
+          <article class="experience">
+            <div class="experience-meta">
+              <strong>AI Institute of South Carolina</strong>
+              Data Infrastructure Research Assistant, Term Appointment<br>
+              Remote | May 2025 to Aug 2025
+            </div>
+            <ul class="bullet-list">
+              <li>Built Bronze/Silver/Gold medallion ETL on Azure Databricks over 2.3M+ records across 5 state agencies.</li>
+              <li>Reduced runtime 43% from 14h to 8h and supported Kubernetes infrastructure with 99.7% uptime for research teams.</li>
+              <li>Delivered client-facing dashboards and presentations for road-safety analytics research.</li>
+            </ul>
+          </article>
+          <article class="experience">
+            <div class="experience-meta">
+              <strong>UMBC in collaboration with Meta AI Research</strong>
+              ML Research Assistant, Term Appointment<br>
+              Baltimore, MD | Dec 2024 to Feb 2025
+            </div>
+            <ul class="bullet-list">
+              <li>Extended transformer-based mathematical reasoning findings with Meta AI Research collaboration.</li>
+              <li>Fine-tuned BERT/GPT/T5 across 12+ datasets, improving classification accuracy 15%.</li>
+              <li>Designed adversarial evaluation protocols that surfaced 3 systematic bias issues.</li>
+            </ul>
+          </article>
+          <article class="experience">
+            <div class="experience-meta">
+              <strong>HDFC Bank</strong>
+              Business Analyst, promoted to Project Lead<br>
+              Mumbai, India | Jun 2023 to Jul 2024
+            </div>
+            <ul class="bullet-list">
+              <li>Supported RBI Automated Data Flow across 500K+ daily records and 8 source systems.</li>
+              <li>Automated anomaly detection and same-day reconciliation, reducing errors 60% and preventing $2.1M exposure.</li>
+              <li>Led CLMS delivery across legal, compliance, QA, vendor, operations, and IT teams with VP IT BSG reporting.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="alt">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Technical stack.</h2>
+          <p>Tools are grouped by the work they support: pipelines, ML systems, applications, infrastructure, and analytics delivery.</p>
+        </div>
+        <div class="skills">
+          <article class="skill-box">
+            <h3>Data Engineering</h3>
+            <p>Python, SQL, PySpark, Databricks, Spark SQL, DuckDB, pandas, ETL/ELT, data quality checks, pipeline optimization.</p>
+          </article>
+          <article class="skill-box">
+            <h3>Machine Learning</h3>
+            <p>PyTorch, Hugging Face, scikit-learn, XGBoost, LSTM, Transformers, SHAP, LIME, forecasting, model evaluation.</p>
+          </article>
+          <article class="skill-box">
+            <h3>Applications</h3>
+            <p>FastAPI, Flask, Streamlit, React, Plotly, Power BI, Tableau, REST APIs, stakeholder-facing dashboards.</p>
+          </article>
+          <article class="skill-box">
+            <h3>Cloud and Systems</h3>
+            <p>Kubernetes, Azure Databricks, reproducible cloud workspaces, API-backed analytics systems, Git workflows.</p>
+          </article>
+          <article class="skill-box">
+            <h3>Analytics</h3>
+            <p>Financial risk, anomaly detection, Monte Carlo simulation, VaR/CVaR, scenario analysis, reporting automation.</p>
+          </article>
+          <article class="skill-box">
+            <h3>Domains</h3>
+            <p>Fintech risk, healthcare surveillance, road safety, transportation analytics, IoT sensor forecasting, public-sector data.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="shell">
+        <div class="section-head">
+          <h2>Education.</h2>
+          <p>Graduate training in data science with a computer science foundation from NIT Delhi.</p>
+        </div>
+        <div class="education-panel">
+          <article class="edu">
+            <h3>University of Maryland, Baltimore County</h3>
+            <p>M.P.S. Data Science | GPA: 3.7/4.0 | Full-time STEM graduate program | May 2026</p>
+          </article>
+          <article class="edu">
+            <h3>National Institute of Technology Delhi</h3>
+            <p>B.Tech Computer Science and Engineering | GPA: 3.0/4.0 | May 2023</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="shell contact-grid">
+        <div>
+          <h2>Useful for teams that need data moved, modeled, tested, and explained.</h2>
+          <p>Best fit: Applied Data Scientist, ML Engineer, Data Engineer, Analytics Engineer, and AI Engineer roles on product, platform, healthcare, public-sector, or fintech teams.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:v.n.v.bharath@gmail.com">Email Neel</a>
+          <a class="button" href="https://linkedin.com/in/neel109" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell">
+      <span>Neel Vittal Bharath Vadlamudi</span>
+      <span>Boston, MA | v.n.v.bharath@gmail.com | github.com/NeelVadlamudi</span>
     </div>
-  </div>
-</div>
-</section>
-
-<!-- ═══ PROJECTS ═══ -->
-<section>
-<div class="container">
-  <div class="section-tag">Projects</div>
-  <h2 class="section-title">What I've Built</h2>
-
-  <div class="project-card" data-animate>
-    <div class="project-name">CDC Epidemiological Intelligence Platform</div>
-    <div class="project-stack">RAG + LLMs + LSTM + Apache Spark</div>
-    <div class="project-desc">Public health analytics combining Retrieval-Augmented Generation with time-series forecasting on CDC datasets. Natural language queries against epidemiological data with automated outbreak pattern recognition.</div>
-  </div>
-
-  <div class="project-card" data-animate>
-    <div class="project-name">Multi-Agent AI Prediction Platform</div>
-    <div class="project-stack">LLMs + REST API + Python</div>
-    <div class="project-desc">Specialized LLM agents collaborating through auditable workflows to generate validated predictions with full reasoning traceability and REST API integration.</div>
-  </div>
-
-  <div class="project-card" data-animate>
-    <div class="project-name">Real-Time IoT Process Monitoring</div>
-    <div class="project-stack">LSTM + XGBoost + Streaming Data</div>
-    <div class="project-desc">Continuous sensor pipeline through ensemble models for automated anomaly detection, predictive alerting, and threshold-based escalation workflows.</div>
-  </div>
-
-  <div class="project-card" data-animate>
-    <div class="project-name">Cloud Operations Analytics</div>
-    <div class="project-stack">Azure Databricks + Power BI + ML</div>
-    <div class="project-desc">Databricks-based platform with ML classification models and Power BI dashboards for cross-functional KPI monitoring and data-driven decision support.</div>
-  </div>
-</div>
-</section>
-
-<!-- ═══ EDUCATION ═══ -->
-<section>
-<div class="container">
-  <div class="section-tag">Education</div>
-  <h2 class="section-title">Foundation</h2>
-  <div class="tl-item visible" style="opacity:1;transform:none;margin-bottom:20px">
-    <div class="tl-company">University of Maryland, Baltimore County</div>
-    <div class="tl-role">M.P.S. Data Science</div>
-    <div class="tl-date">Expected May 2026 | GPA: 3.67</div>
-  </div>
-  <div class="tl-item visible" style="opacity:1;transform:none">
-    <div class="tl-company">National Institute of Technology Delhi</div>
-    <div class="tl-role">B.Tech Computer Science and Engineering</div>
-    <div class="tl-date">May 2023</div>
-  </div>
-</div>
-</section>
-
-<!-- ═══ CONTACT ═══ -->
-<section class="contact-section">
-<div class="container">
-  <div class="section-tag">Let's Connect</div>
-  <h2 class="section-title" style="margin-bottom:16px">Get In Touch</h2>
-  <div class="contact-line"><a href="mailto:v.n.v.bharath@gmail.com">v.n.v.bharath@gmail.com</a></div>
-  <div class="contact-line"><a href="tel:+16674331109">(667) 433-1109</a></div>
-  <div class="contact-line"><a href="https://linkedin.com/in/neel109" target="_blank">linkedin.com/in/neel109</a></div>
-  <div class="contact-line" style="margin-top:4px"><a href="https://github.com/neelvadlamudi" target="_blank">github.com/neelvadlamudi</a></div>
-  <div class="contact-tag">Baltimore, MD &mdash; Available May 2026</div>
-</div>
-</section>
-
-<script>
-// ── Intersection Observer for scroll animations ──
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-
-document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
-
-// ── Counting animation for metrics ──
-function animateCount(el) {
-  const target = parseFloat(el.dataset.count);
-  const prefix = el.dataset.prefix || '';
-  const suffix = el.dataset.suffix || '';
-  const duration = 1600;
-  const start = performance.now();
-  const isDecimal = target % 1 !== 0;
-
-  function tick(now) {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const ease = 1 - Math.pow(1 - progress, 3);
-    const current = target * ease;
-    el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
-    if (progress < 1) requestAnimationFrame(tick);
-  }
-  requestAnimationFrame(tick);
-}
-
-const metricObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const valEl = entry.target.querySelector('.metric-val');
-      if (valEl && valEl.dataset.count) animateCount(valEl);
-      metricObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.metric').forEach(el => metricObserver.observe(el));
-</script>
+  </footer>
 </body>
 </html>
