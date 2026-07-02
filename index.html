@@ -3,29 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Neel Vittal Bharath Vadlamudi - Data-to-ML Engineer in Boston building applied ML, data engineering, risk analytics, and public-sector AI systems.">
+  <meta name="description" content="Neel Vittal Bharath Vadlamudi - Data Scientist and ML Engineer in Boston building production pipelines, risk models, and applied AI systems.">
   <meta name="author" content="Neel Vittal Bharath Vadlamudi">
-  <meta property="og:title" content="Neel Vadlamudi | Data-to-ML Engineer">
-  <meta property="og:description" content="Applied ML, data engineering, fintech risk analytics, and public-sector AI systems.">
+  <meta property="og:title" content="Neel Vadlamudi | Data Scientist & ML Engineer">
+  <meta property="og:description" content="Production pipelines, risk models, applied AI systems, and stakeholder-ready analytics.">
   <meta property="og:type" content="website">
-  <title>Neel Vadlamudi | Data-to-ML Engineer</title>
+  <title>Neel Vadlamudi | Data Scientist & ML Engineer</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23101820'/%3E%3Ctext x='32' y='39' text-anchor='middle' font-family='Arial,sans-serif' font-size='22' font-weight='700' fill='white'%3ENV%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f7f9fb;
+      --bg: #f6f8fb;
       --surface: #ffffff;
       --surface-2: #eef4f8;
-      --ink: #101820;
-      --muted: #526272;
-      --line: #d8e1e8;
+      --ink: #0f1720;
+      --ink-2: #1f2c39;
+      --muted: #536575;
+      --soft: #748596;
+      --line: #d8e2ea;
+      --line-strong: #c3d1dc;
       --teal: #087f8c;
+      --teal-2: #0f9f9a;
       --blue: #1d4ed8;
       --amber: #b45309;
       --green: #047857;
-      --shadow: 0 18px 50px rgba(16, 24, 32, 0.08);
+      --violet: #6d28d9;
+      --shadow: 0 18px 50px rgba(15, 23, 32, 0.08);
+      --shadow-strong: 0 24px 70px rgba(15, 23, 32, 0.14);
       --radius: 8px;
       --font: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
@@ -37,6 +43,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 92px;
     }
 
     body {
@@ -49,6 +56,10 @@
       text-rendering: optimizeLegibility;
     }
 
+    body::selection {
+      background: rgba(8, 127, 140, 0.18);
+    }
+
     a {
       color: inherit;
     }
@@ -58,22 +69,44 @@
       max-width: 100%;
     }
 
+    button,
+    input {
+      font: inherit;
+    }
+
     .shell {
-      width: min(1120px, calc(100% - 40px));
+      width: min(1160px, calc(100% - 40px));
       margin: 0 auto;
+    }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      z-index: 40;
+      width: 100%;
+      height: 3px;
+      background: rgba(216, 226, 234, 0.6);
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--teal), var(--blue));
+      transform-origin: left;
+      transition: width 120ms linear;
     }
 
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(247, 249, 251, 0.92);
-      border-bottom: 1px solid rgba(216, 225, 232, 0.75);
+      z-index: 30;
+      background: rgba(246, 248, 251, 0.86);
+      border-bottom: 1px solid rgba(216, 226, 234, 0.78);
       backdrop-filter: blur(18px);
     }
 
     .nav {
-      min-height: 68px;
+      min-height: 70px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -100,23 +133,30 @@
       font-family: var(--mono);
       font-size: 0.86rem;
       font-weight: 600;
+      box-shadow: 0 10px 28px rgba(15, 23, 32, 0.2);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 22px;
-      font-size: 0.9rem;
-      font-weight: 600;
+      gap: 8px;
       color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
     }
 
     .nav-links a {
+      position: relative;
+      padding: 8px 10px;
+      border-radius: 8px;
       text-decoration: none;
+      transition: color 160ms ease, background 160ms ease;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a.active {
       color: var(--ink);
+      background: rgba(8, 127, 140, 0.08);
     }
 
     .button {
@@ -130,16 +170,17 @@
       border: 1px solid var(--line);
       text-decoration: none;
       font-size: 0.94rem;
-      font-weight: 700;
+      font-weight: 800;
       background: var(--surface);
       color: var(--ink);
-      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+      cursor: pointer;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease, background 180ms ease;
     }
 
     .button:hover {
-      transform: translateY(-1px);
-      border-color: #b9c7d2;
-      box-shadow: 0 10px 26px rgba(16, 24, 32, 0.08);
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      box-shadow: 0 12px 28px rgba(15, 23, 32, 0.1);
     }
 
     .button.primary {
@@ -159,7 +200,9 @@
     }
 
     .hero {
-      padding: 68px 0 44px;
+      position: relative;
+      overflow: hidden;
+      padding: 74px 0 44px;
       border-bottom: 1px solid var(--line);
       background:
         linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0) 78%),
@@ -168,35 +211,39 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 42px;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 48px;
       align-items: center;
     }
 
-    h1, h2, h3, p {
+    h1,
+    h2,
+    h3,
+    p {
       margin-top: 0;
     }
 
     h1 {
-      margin-bottom: 14px;
-      max-width: 720px;
-      font-size: 3.25rem;
-      line-height: 1.04;
+      margin-bottom: 16px;
+      max-width: 780px;
+      font-size: clamp(2.6rem, 5.2vw, 4.85rem);
+      line-height: 0.98;
+      letter-spacing: -0.035em;
       font-weight: 800;
     }
 
     .hero-title {
       margin: 0 0 22px;
-      max-width: 660px;
-      font-size: 1.38rem;
-      line-height: 1.36;
-      color: #263341;
-      font-weight: 600;
+      max-width: 760px;
+      color: var(--ink-2);
+      font-size: clamp(1.18rem, 2vw, 1.58rem);
+      line-height: 1.34;
+      font-weight: 750;
     }
 
     .hero-copy {
       margin: 0 0 28px;
-      max-width: 650px;
+      max-width: 760px;
       color: var(--muted);
       font-size: 1.04rem;
     }
@@ -205,7 +252,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     .hero-meta {
@@ -214,7 +261,7 @@
       gap: 10px 16px;
       color: var(--muted);
       font-size: 0.94rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .hero-meta span {
@@ -231,24 +278,40 @@
     }
 
     .hero-visual {
+      position: relative;
       overflow: hidden;
       border-radius: 8px;
       border: 1px solid var(--line);
       background: #fff;
       box-shadow: var(--shadow);
+      transform: translateZ(0);
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border: 1px solid rgba(255,255,255,0.65);
+      border-radius: inherit;
     }
 
     .hero-visual img {
       width: 100%;
       aspect-ratio: 16 / 10;
       object-fit: cover;
+      transition: transform 700ms cubic-bezier(.2,.8,.2,1);
+    }
+
+    .hero-visual:hover img {
+      transform: scale(1.035);
     }
 
     .metrics {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 1px;
-      margin-top: 34px;
+      margin-top: 36px;
       overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 8px;
@@ -256,30 +319,31 @@
     }
 
     .metric {
-      min-height: 116px;
-      padding: 20px 18px;
+      min-height: 126px;
+      padding: 20px 17px;
       background: var(--surface);
     }
 
     .metric strong {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       font-family: var(--mono);
-      font-size: 1.48rem;
-      line-height: 1.1;
+      font-size: clamp(1.34rem, 2.2vw, 1.76rem);
+      line-height: 1.05;
       color: var(--ink);
+      letter-spacing: -0.03em;
     }
 
     .metric span {
       display: block;
       color: var(--muted);
-      font-size: 0.86rem;
+      font-size: 0.82rem;
       line-height: 1.35;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     section {
-      padding: 70px 0;
+      padding: 76px 0;
       border-bottom: 1px solid var(--line);
     }
 
@@ -289,52 +353,78 @@
 
     .section-head {
       display: grid;
-      grid-template-columns: 0.84fr 1fr;
-      gap: 36px;
-      margin-bottom: 30px;
+      grid-template-columns: 0.78fr 1fr;
+      gap: 38px;
+      margin-bottom: 32px;
       align-items: end;
     }
 
     h2 {
       margin-bottom: 0;
-      font-size: 2rem;
-      line-height: 1.16;
+      font-size: clamp(1.7rem, 3vw, 2.42rem);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
       font-weight: 800;
     }
 
-    .section-head p {
+    .section-head p,
+    .lead {
       margin-bottom: 0;
       color: var(--muted);
       font-size: 1rem;
     }
 
-    .evidence-table {
+    .evidence-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .evidence-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 245px 1fr 210px;
+      gap: 22px;
+      padding: 24px;
+      overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 8px;
-      overflow: hidden;
       background: var(--surface);
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
     }
 
-    .evidence-row {
-      display: grid;
-      grid-template-columns: 270px 1fr;
-      border-bottom: 1px solid var(--line);
+    .evidence-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow);
     }
 
-    .evidence-row:last-child {
-      border-bottom: 0;
+    .evidence-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: var(--accent, var(--teal));
     }
 
     .evidence-label {
-      padding: 22px;
-      background: var(--surface-2);
-      border-right: 1px solid var(--line);
       font-weight: 800;
     }
 
+    .evidence-label span,
+    .mini-label {
+      display: block;
+      margin-bottom: 9px;
+      font-family: var(--mono);
+      color: var(--accent, var(--teal));
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
     .evidence-copy {
-      padding: 22px;
       color: var(--muted);
+      font-size: 0.96rem;
     }
 
     .evidence-copy strong {
@@ -342,43 +432,103 @@
       font-weight: 800;
     }
 
-    .lane-grid {
+    .evidence-result {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      align-content: center;
+      padding-left: 20px;
+      border-left: 1px solid var(--line);
+      color: var(--ink);
+      font-weight: 800;
     }
 
-    .lane {
-      min-height: 230px;
-      padding: 22px;
+    .lens-wrap {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .lens-controls {
+      display: grid;
+      gap: 10px;
+    }
+
+    .lens-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 54px;
+      padding: 0 16px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--surface);
+      color: var(--ink);
+      font-weight: 800;
+      cursor: pointer;
+      text-align: left;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
     }
 
-    .lane h3,
-    .project h3,
-    .experience h3 {
-      margin-bottom: 10px;
-      font-size: 1.05rem;
-      line-height: 1.25;
+    .lens-button:hover,
+    .lens-button.active {
+      transform: translateX(4px);
+      border-color: rgba(8, 127, 140, 0.42);
+      background: rgba(8, 127, 140, 0.07);
+      box-shadow: 0 14px 34px rgba(8, 127, 140, 0.08);
     }
 
-    .lane p,
-    .project p,
-    .experience p {
-      margin-bottom: 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    .lane-token {
-      display: inline-block;
-      margin-bottom: 16px;
+    .lens-button span {
       font-family: var(--mono);
-      font-size: 0.8rem;
-      font-weight: 600;
       color: var(--teal);
+      font-size: 0.74rem;
+      font-weight: 700;
+    }
+
+    .lens-panel {
+      min-height: 374px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background:
+        linear-gradient(140deg, rgba(8, 127, 140, 0.08), transparent 45%),
+        var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .lens-panel h3 {
+      margin: 0 0 12px;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lens-panel p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .proof-list {
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .proof-list li {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      color: var(--ink-2);
+      font-weight: 650;
+    }
+
+    .proof-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: 8px;
+      border-radius: 99px;
+      background: var(--teal);
     }
 
     .project-grid {
@@ -388,42 +538,108 @@
     }
 
     .project {
+      position: relative;
       display: flex;
       flex-direction: column;
-      min-height: 280px;
+      min-height: 420px;
       padding: 24px;
+      overflow: hidden;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--surface);
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, opacity 220ms ease;
     }
 
-    .project .stack {
+    .project:hover {
+      transform: translateY(-4px);
+      border-color: var(--line-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .project.is-muted {
+      opacity: 0.44;
+    }
+
+    .project h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      line-height: 1.25;
+      letter-spacing: -0.012em;
+    }
+
+    .stack {
       margin: 0 0 16px;
       color: var(--teal);
       font-family: var(--mono);
-      font-size: 0.86rem;
-      font-weight: 600;
-    }
-
-    .project .result {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-      color: var(--ink);
-      font-size: 0.94rem;
+      font-size: 0.82rem;
       font-weight: 700;
     }
 
-    .project a {
-      margin-top: auto;
-      padding-top: 20px;
-      color: var(--blue);
-      font-weight: 800;
-      text-decoration: none;
+    .story-block {
+      margin-bottom: 14px;
     }
 
-    .project a:hover {
-      text-decoration: underline;
+    .story-block strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 0.86rem;
+      text-transform: uppercase;
+      letter-spacing: 0.035em;
+    }
+
+    .story-block p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .project-extra {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 260ms ease;
+    }
+
+    .project-extra > div {
+      overflow: hidden;
+    }
+
+    .project.expanded .project-extra {
+      grid-template-rows: 1fr;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 18px;
+    }
+
+    .text-link,
+    .project-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 36px;
+      padding: 0 11px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--blue);
+      font-size: 0.86rem;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
+    }
+
+    .text-link:hover,
+    .project-toggle:hover {
+      transform: translateY(-1px);
+      border-color: rgba(29, 78, 216, 0.28);
+      background: rgba(29, 78, 216, 0.06);
     }
 
     .experience-list {
@@ -433,12 +649,19 @@
 
     .experience {
       display: grid;
-      grid-template-columns: 290px 1fr;
+      grid-template-columns: 288px 1fr;
       gap: 28px;
       padding: 24px;
       border: 1px solid var(--line);
       border-radius: 8px;
       background: var(--surface);
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+
+    .experience:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      box-shadow: 0 14px 40px rgba(15, 23, 32, 0.07);
     }
 
     .experience-meta {
@@ -474,11 +697,18 @@
     }
 
     .skill-box {
-      min-height: 178px;
+      min-height: 172px;
       padding: 22px;
       border-radius: 8px;
       border: 1px solid var(--line);
       background: var(--surface);
+      transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-2px);
+      border-color: var(--line-strong);
+      box-shadow: 0 14px 36px rgba(15, 23, 32, 0.07);
     }
 
     .skill-box h3 {
@@ -515,50 +745,35 @@
       color: var(--muted);
     }
 
-    .contact {
-      padding: 58px 0;
-      background: var(--ink);
-      color: #fff;
-      border-bottom: 0;
+    .cta-band {
+      padding: 34px;
+      border: 1px solid rgba(8, 127, 140, 0.2);
+      border-radius: 8px;
+      background:
+        linear-gradient(135deg, rgba(8, 127, 140, 0.11), rgba(29, 78, 216, 0.08)),
+        var(--surface);
+      box-shadow: var(--shadow);
     }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .contact h2 {
+    .cta-band h2 {
+      max-width: 850px;
       margin-bottom: 12px;
-      color: #fff;
     }
 
-    .contact p {
-      margin-bottom: 0;
-      max-width: 760px;
-      color: #c8d3dc;
+    .cta-band p {
+      max-width: 880px;
+      margin-bottom: 22px;
+      color: var(--muted);
     }
 
     .contact-actions {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .contact .button {
-      border-color: rgba(255,255,255,0.18);
-    }
-
-    .contact .button.primary {
-      background: #fff;
-      color: var(--ink);
-      border-color: #fff;
     }
 
     .footer {
-      padding: 24px 0;
+      padding: 26px 0;
       background: #0b1118;
       color: #aab6c2;
       font-size: 0.88rem;
@@ -571,40 +786,75 @@
       flex-wrap: wrap;
     }
 
-    @media (max-width: 980px) {
+    .toast {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 50;
+      padding: 12px 14px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #fff;
+      font-weight: 800;
+      box-shadow: var(--shadow-strong);
+      opacity: 0;
+      transform: translateY(14px);
+      pointer-events: none;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .toast.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: translateY(18px);
+      transition: transform 620ms cubic-bezier(.2,.8,.2,1);
+      will-change: transform;
+    }
+
+    .reveal.visible {
+      transform: translateY(0);
+    }
+
+    .reveal[data-delay="1"] { transition-delay: 90ms; }
+    .reveal[data-delay="2"] { transition-delay: 180ms; }
+    .reveal[data-delay="3"] { transition-delay: 270ms; }
+    .reveal[data-delay="4"] { transition-delay: 360ms; }
+
+    @media (max-width: 1040px) {
       .hero-grid,
       .section-head,
-      .experience,
-      .contact-grid {
+      .lens-wrap,
+      .experience {
         grid-template-columns: 1fr;
       }
 
       .metrics {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      .lane-grid,
-      .skills {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .evidence-row {
+      .evidence-card {
         grid-template-columns: 1fr;
       }
 
-      .evidence-label {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
+      .evidence-result {
+        padding-left: 0;
+        padding-top: 16px;
+        border-left: 0;
+        border-top: 1px solid var(--line);
       }
 
-      .contact-actions {
-        justify-content: flex-start;
+      .skills {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       .shell {
-        width: min(100% - 28px, 1120px);
+        width: min(100% - 28px, 1160px);
       }
 
       .nav {
@@ -612,13 +862,13 @@
         padding: 14px 0;
       }
 
-      .brand span {
+      .brand span:not(.brand-mark) {
         display: none;
       }
 
       .nav-links {
-        gap: 12px;
-        font-size: 0.84rem;
+        gap: 4px;
+        font-size: 0.82rem;
       }
 
       .nav-links a:nth-child(2),
@@ -627,48 +877,71 @@
       }
 
       .hero {
-        padding: 44px 0 32px;
+        padding: 48px 0 34px;
       }
 
-      h1 {
-        font-size: 2.38rem;
-      }
-
-      .hero-title {
-        font-size: 1.12rem;
+      .hero-copy {
+        font-size: 0.98rem;
       }
 
       section {
-        padding: 48px 0;
-      }
-
-      h2 {
-        font-size: 1.58rem;
+        padding: 52px 0;
       }
 
       .metrics,
       .project-grid,
-      .lane-grid,
       .skills,
       .education-panel {
         grid-template-columns: 1fr;
       }
 
       .metric {
-        min-height: 96px;
+        min-height: 94px;
       }
 
+      .lens-panel,
       .project,
-      .lane,
+      .evidence-card,
       .experience,
       .skill-box,
-      .edu {
+      .edu,
+      .cta-band {
         padding: 20px;
+      }
+
+      .lens-button:hover,
+      .lens-button.active {
+        transform: none;
+      }
+
+      .footer .shell {
+        display: grid;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
       }
     }
   </style>
 </head>
 <body>
+  <div class="progress" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+
   <header class="site-header">
     <div class="shell nav">
       <a class="brand" href="#top" aria-label="Neel Vadlamudi home">
@@ -688,55 +961,59 @@
     <section class="hero">
       <div class="shell">
         <div class="hero-grid">
-          <div>
+          <div class="reveal visible">
             <h1>Neel Vittal Bharath Vadlamudi</h1>
-            <p class="hero-title">Data-to-ML Engineer for applied ML, data engineering, and risk analytics teams.</p>
-            <p class="hero-copy">I build production-minded data and ML systems: regulatory pipelines, research-grade model evaluation, cloud workspaces, and full-stack analytics products that turn noisy real-world data into decisions.</p>
+            <p class="hero-title">Data Scientist and ML Engineer building production pipelines, risk models, and applied AI systems.</p>
+            <p class="hero-copy">I build data pipelines, ML models, and dashboards that go from raw messy data to something a decision-maker can act on. Past work: regulatory pipelines at scale, government ETL on Databricks, explainable risk classification, and public-health surveillance with LLM-powered querying.</p>
             <div class="hero-actions">
-              <a class="button primary" href="Neel_Vadlamudi_Resume.pdf" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
-                Resume
+              <a class="button primary" href="mailto:v.n.v.bharath@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
+                Email
+              </a>
+              <a class="button" href="https://linkedin.com/in/neel109" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.27V1.73C24 .77 23.2 0 22.23 0Z"></path></svg>
+                LinkedIn
               </a>
               <a class="button" href="https://github.com/NeelVadlamudi" target="_blank" rel="noopener">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.39c.6.11.82-.26.82-.58v-2.23c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.08 1.83 2.82 1.3 3.5.99.11-.78.42-1.3.76-1.6-2.66-.31-5.46-1.34-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.54.12-3.18 0 0 1.01-.32 3.3 1.23a11.4 11.4 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.64.24 2.87.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.62-5.48 5.92.44.38.82 1.12.82 2.26v3.35c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"></path></svg>
                 GitHub
               </a>
-              <a class="button" href="mailto:v.n.v.bharath@gmail.com">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"></path><path d="m4 7 8 6 8-6"></path></svg>
-                Email
-              </a>
             </div>
             <div class="hero-meta">
               <span><span class="dot"></span>Boston, MA</span>
               <span><span class="dot"></span>M.P.S. Data Science, UMBC, May 2026</span>
-              <span><span class="dot"></span>GitHub: NeelVadlamudi</span>
+              <span><span class="dot"></span>STEM OPT authorized</span>
             </div>
           </div>
-          <div class="hero-visual" aria-hidden="true">
+          <div class="hero-visual reveal visible" data-delay="1" aria-hidden="true">
             <img src="assets/data-ml-systems.png" alt="">
           </div>
         </div>
 
-        <div class="metrics" aria-label="Selected impact metrics">
+        <div class="metrics reveal" aria-label="Selected impact metrics">
           <div class="metric">
-            <strong>$2.1M</strong>
+            <strong data-count="2.1" data-prefix="$" data-suffix="M">$2.1M</strong>
             <span>Exposure prevented through data-quality automation</span>
           </div>
           <div class="metric">
-            <strong>500K+</strong>
+            <strong data-count="500" data-suffix="K+">500K+</strong>
             <span>Daily banking records across 8 source systems</span>
           </div>
           <div class="metric">
-            <strong>2.3M+</strong>
-            <span>Multi-agency records processed in Databricks</span>
+            <strong data-count="2.3" data-suffix="M+">2.3M+</strong>
+            <span>Government records processed in Databricks</span>
           </div>
           <div class="metric">
-            <strong>99.7%</strong>
-            <span>Kubernetes workspace uptime for research users</span>
+            <strong data-count="93.4" data-suffix="%">93.4%</strong>
+            <span>SBDR risk classification accuracy</span>
           </div>
           <div class="metric">
-            <strong>15%</strong>
-            <span>Accuracy improvement in transformer experiments</span>
+            <strong data-count="30" data-suffix="K">30K</strong>
+            <span>Customers classified in the SBDR model</span>
+          </div>
+          <div class="metric">
+            <strong data-count="43" data-suffix="%">43%</strong>
+            <span>Pipeline runtime cut from 14h to 8h</span>
           </div>
         </div>
       </div>
@@ -744,101 +1021,198 @@
 
     <section id="evidence" class="alt">
       <div class="shell">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Hiring evidence, not slogans.</h2>
-          <p>The profile is strongest when judged as data-to-ML engineering: pipelines, evaluation, explainability, dashboards, and delivery in regulated or research-heavy environments.</p>
+          <p>The proof is strongest when each story shows what was broken, what I built, and what changed after it shipped.</p>
         </div>
-        <div class="evidence-table">
-          <div class="evidence-row">
-            <div class="evidence-label">Financial data systems</div>
-            <div class="evidence-copy">At <strong>HDFC Bank, Mumbai</strong>, supported Automated Data Flow across 8 source systems and 500K+ daily records, reducing reconciliation errors 60% and preventing $2.1M in exposure.</div>
-          </div>
-          <div class="evidence-row">
-            <div class="evidence-label">Data infrastructure</div>
-            <div class="evidence-copy">At the <strong>AI Institute of South Carolina</strong>, built Azure Databricks Bronze/Silver/Gold workflows across 2.3M+ records from 5 agencies and reduced runtime from 14h to 8h.</div>
-          </div>
-          <div class="evidence-row">
-            <div class="evidence-label">Applied ML research</div>
-            <div class="evidence-copy">In <strong>UMBC research with Meta AI collaboration</strong>, fine-tuned BERT/GPT/T5 across 12+ datasets, improved accuracy 15%, and surfaced 3 systematic bias issues through adversarial evaluation.</div>
-          </div>
-          <div class="evidence-row">
-            <div class="evidence-label">End-to-end ML product</div>
-            <div class="evidence-copy">Built <strong>SBDR</strong>, a customer risk intelligence system over 30,000 customers with 93.4% accuracy, 0.990 AUC-ROC, SHAP/LIME explainability, and demographic fairness auditing.</div>
-          </div>
+        <div class="evidence-grid">
+          <article class="evidence-card reveal" style="--accent: var(--green)">
+            <div class="evidence-label"><span>Financial data systems</span>HDFC Bank</div>
+            <div class="evidence-copy">RBI Automated Data Flow processed <strong>500K+ daily records across 8 source systems</strong> with no automated validation layer. I built Python and SQL reconciliation plus anomaly detection to catch errors same-day.</div>
+            <div class="evidence-result">$2.1M exposure prevented; manual reconciliation cut 60%.</div>
+          </article>
+          <article class="evidence-card reveal" data-delay="1" style="--accent: var(--teal)">
+            <div class="evidence-label"><span>Data infrastructure</span>AI Institute of South Carolina</div>
+            <div class="evidence-copy">Government road-safety research was blocked by a <strong>14-hour ETL run</strong>. I rebuilt it as a Bronze/Silver/Gold medallion pipeline on Azure Databricks across 2.3M+ records from 5 agencies.</div>
+            <div class="evidence-result">Runtime cut 43%; data prep down 70%; Kubernetes workspace at 99.7% uptime.</div>
+          </article>
+          <article class="evidence-card reveal" data-delay="2" style="--accent: var(--blue)">
+            <div class="evidence-label"><span>Applied ML research</span>UMBC x Meta AI Research</div>
+            <div class="evidence-copy">Transformer reasoning models performed well on benchmarks but needed clearer behavior analysis on real data. I fine-tuned <strong>BERT/GPT/T5 across 12+ datasets</strong> and ran adversarial evaluation protocols.</div>
+            <div class="evidence-result">15% accuracy improvement; 3 systematic bias issues surfaced.</div>
+          </article>
+          <article class="evidence-card reveal" data-delay="3" style="--accent: var(--violet)">
+            <div class="evidence-label"><span>End-to-end ML product</span>SBDR</div>
+            <div class="evidence-copy">Banks classify recovery risk with static repayment rules that miss behavioral signals and cannot explain decisions cleanly. I built a three-branch ML system with <strong>FinBERT, BiLSTM, XGBoost, SHAP/LIME, and fairness auditing</strong>.</div>
+            <div class="evidence-result">93.4% accuracy; 0.990 AUC-ROC; 30,000 customers.</div>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="fit">
       <div class="shell">
-        <div class="section-head">
-          <h2>Best-fit lanes.</h2>
-          <p>The same foundation maps into four hiring lanes: applied ML, data engineering, fintech risk, and public-sector analytics.</p>
+        <div class="section-head reveal">
+          <h2>Focus the proof by role.</h2>
+          <p>Different teams care about different signals. The same body of work maps cleanly into applied ML, data engineering, fintech risk, public-sector AI, and technical PM roles.</p>
         </div>
-        <div class="lane-grid">
-          <article class="lane">
-            <span class="lane-token">Applied ML</span>
-            <h3>Applied Data Scientist / ML Engineer</h3>
-            <p>SBDR, CDC Outbreak AI, transformer evaluation, explainability, forecasting, and benchmark-driven model improvement.</p>
-          </article>
-          <article class="lane">
-            <span class="lane-token">Data Engineering</span>
-            <h3>Data Engineer / Analytics Engineer</h3>
-            <p>Databricks, PySpark, medallion ETL, HDFC reconciliation pipelines, multi-source quality checks, and runtime optimization.</p>
-          </article>
-          <article class="lane">
-            <span class="lane-token">Fintech</span>
-            <h3>Risk Analytics / Financial Data</h3>
-            <p>Regulatory automation, customer risk modeling, portfolio analytics, anomaly detection, and executive reporting.</p>
-          </article>
-          <article class="lane">
-            <span class="lane-token">Public Sector</span>
-            <h3>Healthcare / Civic AI</h3>
-            <p>CDC surveillance analytics, IoT air-quality forecasting, transportation safety analytics, and client-facing dashboards.</p>
-          </article>
+        <div class="lens-wrap">
+          <div class="lens-controls reveal" aria-label="Role focus selector">
+            <button class="lens-button active" type="button" data-lens="all">All signals <span>00</span></button>
+            <button class="lens-button" type="button" data-lens="ml">Applied Data Scientist / ML Engineer <span>01</span></button>
+            <button class="lens-button" type="button" data-lens="de">Data Engineer / Analytics Engineer <span>02</span></button>
+            <button class="lens-button" type="button" data-lens="risk">Fintech / Risk Analytics <span>03</span></button>
+            <button class="lens-button" type="button" data-lens="public">Healthcare / Public Sector AI <span>04</span></button>
+            <button class="lens-button" type="button" data-lens="pm">Technical PM / Data PM <span>05</span></button>
+          </div>
+          <div class="lens-panel reveal" data-delay="1" id="lensPanel" aria-live="polite">
+            <span class="mini-label">Current read</span>
+            <h3>Data and ML systems that survive contact with real users.</h3>
+            <p>I am strongest where the job needs both technical execution and translation: messy inputs, reliable pipelines, model evaluation, explainability, dashboards, and cross-functional delivery.</p>
+            <ul class="proof-list">
+              <li>HDFC: Python and SQL validation across 500K+ daily records.</li>
+              <li>South Carolina: Databricks medallion ETL across 2.3M+ records.</li>
+              <li>SBDR: explainable risk classification over 30,000 customers.</li>
+              <li>CDC Outbreak AI: live public-health data, forecasting, and plain-English querying.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="projects" class="alt">
       <div class="shell">
-        <div class="section-head">
-          <h2>Featured systems.</h2>
-          <p>Selected systems that show how I move from problem definition to pipelines, models, evaluation, and delivery.</p>
+        <div class="section-head reveal">
+          <h2>Project stories.</h2>
+          <p>Each card starts with the problem, then the system built, the result, and why that work maps to real hiring needs.</p>
         </div>
         <div class="project-grid">
-          <article class="project">
+          <article class="project reveal" data-lanes="ml public de">
             <h3>CDC Outbreak AI Dashboard</h3>
-            <p class="stack">React, FastAPI, Python, DuckDB, CDC SODA API, LSTM, Plotly, WebGL</p>
-            <p>Converts public-health outbreak data into searchable, forecastable intelligence with time-series modeling, DuckDB analytics, uncertainty estimates, and plain-English access.</p>
-            <p class="result">Outcome: outbreak monitoring workflow with forecasting, analytics, and stakeholder-friendly exploration.</p>
-            <a href="https://github.com/NeelVadlamudi/cdc-outbreak-dashboard" target="_blank" rel="noopener">View repository</a>
+            <p class="stack">Python · FastAPI · DuckDB · LangChain · LSTM · React · CDC SODA API</p>
+            <div class="story-block">
+              <strong>Problem</strong>
+              <p>Public-health analysts had millions of CDC surveillance records but no fast way to query trends, forecast demand, or get answers without waiting for a data pull.</p>
+            </div>
+            <div class="story-block">
+              <strong>Built</strong>
+              <p>FastAPI backend ingesting live CDC SODA data into DuckDB, LSTM hospitalization-surge forecasting, and a LangChain RAG interface for plain-English questions.</p>
+            </div>
+            <div class="project-extra">
+              <div>
+                <div class="story-block">
+                  <strong>Why it matters</strong>
+                  <p>Real-time surveillance plus accessible querying is exactly the category health systems, insurers, and public agencies are trying to operationalize.</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-actions">
+              <button class="project-toggle" type="button" aria-expanded="false">More context</button>
+              <a class="text-link" href="https://github.com/NeelVadlamudi/cdc-outbreak-dashboard" target="_blank" rel="noopener">Repository</a>
+            </div>
           </article>
-          <article class="project">
+
+          <article class="project reveal" data-delay="1" data-lanes="ml risk pm">
             <h3>SBDR: Sentimental-Behavioral Debt Recovery</h3>
-            <p class="stack">FinBERT, BiLSTM, XGBoost, SHAP, LIME, Streamlit</p>
-            <p>Classifies customer recovery risk with explainable ML instead of static repayment rules, combining distress signals, anomaly detection, ensemble modeling, and fairness review.</p>
-            <p class="result">Outcome: 93.4% accuracy, 0.990 AUC-ROC, 26.1% SHAP signal across 30,000 customers.</p>
+            <p class="stack">FinBERT · BiLSTM · XGBoost · SHAP · LIME · Streamlit</p>
+            <div class="story-block">
+              <strong>Problem</strong>
+              <p>Banks use static repayment rules that miss distress signals in customer communication, miss payment anomalies, and cannot explain decisions cleanly to auditors.</p>
+            </div>
+            <div class="story-block">
+              <strong>Built</strong>
+              <p>Three-branch ML system: FinBERT for communication distress scoring, BiLSTM for payment sequence anomalies, and XGBoost for five-tier recovery classification.</p>
+            </div>
+            <div class="project-extra">
+              <div>
+                <div class="story-block">
+                  <strong>Result</strong>
+                  <p>93.4% accuracy, 0.990 AUC-ROC, 26.1% SHAP signal across 30,000 customers, with explainability and demographic fairness review built in.</p>
+                </div>
+                <div class="story-block">
+                  <strong>Note</strong>
+                  <p>Group capstone. My positioning emphasizes the ML pipeline, explainability, risk-classification logic, and analyst-facing delivery.</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-actions">
+              <button class="project-toggle" type="button" aria-expanded="false">More context</button>
+              <a class="text-link" href="https://github.com/RajdeepOfGithub/SBDR" target="_blank" rel="noopener">Repository</a>
+            </div>
           </article>
-          <article class="project">
-            <h3>UMBC SmartShuttle</h3>
-            <p class="stack">Apache Spark, Spark SQL, MLlib, Databricks, Python</p>
-            <p>Predicts shuttle demand and supports event-aware campus transportation decisions through route clustering, peak-load analysis, and sustainability metrics.</p>
-            <p class="result">Outcome: 85% decision-tree accuracy with scalable ridership analytics.</p>
-            <a href="https://github.com/NeelVadlamudi/UMBC-SmartShuttle" target="_blank" rel="noopener">View repository</a>
-          </article>
-          <article class="project">
+
+          <article class="project reveal" data-delay="2" data-lanes="risk ml de">
             <h3>AI Portfolio Risk Analytics Platform</h3>
-            <p class="stack">Python, Flask, SQLite, pandas, scikit-learn, scipy</p>
-            <p>Turns portfolio and market data into risk, return, drawdown, optimization, and reporting metrics for finance-facing analysis workflows.</p>
-            <p class="result">Outcome: VaR/CVaR, Sharpe/Sortino, Monte Carlo simulation, NLP sentiment, and reporting API.</p>
-            <a href="https://github.com/NeelVadlamudi/banking_analytics" target="_blank" rel="noopener">View repository</a>
+            <p class="stack">Python · Flask · SQLite · scikit-learn · scipy · Monte Carlo · VaR/CVaR</p>
+            <div class="story-block">
+              <strong>Problem</strong>
+              <p>Individual investors and small teams have limited access to institutional-grade risk analytics like VaR, stress testing, scenario analysis, and sentiment overlays.</p>
+            </div>
+            <div class="story-block">
+              <strong>Built</strong>
+              <p>Full-stack platform with Monte Carlo simulation, Sharpe/Sortino ratios, historical stress-test scenarios, NLP news sentiment, and reporting through a Flask API.</p>
+            </div>
+            <div class="project-extra">
+              <div>
+                <div class="story-block">
+                  <strong>Why it matters</strong>
+                  <p>Direct signal for quant risk, wealth management, banking analytics, and financial modeling roles.</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-actions">
+              <button class="project-toggle" type="button" aria-expanded="false">More context</button>
+              <a class="text-link" href="https://github.com/NeelVadlamudi/banking_analytics" target="_blank" rel="noopener">Repository</a>
+            </div>
           </article>
-          <article class="project">
+
+          <article class="project reveal" data-delay="3" data-lanes="de public pm">
+            <h3>UMBC SmartShuttle</h3>
+            <p class="stack">Apache Spark · Spark SQL · MLlib · Databricks · Python</p>
+            <div class="story-block">
+              <strong>Problem</strong>
+              <p>Campus transit systems schedule around average demand, then over-provision on normal days and under-provision for events.</p>
+            </div>
+            <div class="story-block">
+              <strong>Built</strong>
+              <p>Predictive demand model on large-scale ridership data using PySpark and Databricks MLlib, with route clustering, peak-load analysis, and sustainability metrics.</p>
+            </div>
+            <div class="project-extra">
+              <div>
+                <div class="story-block">
+                  <strong>Result</strong>
+                  <p>85% decision-tree accuracy on ridership prediction, with architecture that maps to transit, logistics, and operations scheduling teams.</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-actions">
+              <button class="project-toggle" type="button" aria-expanded="false">More context</button>
+              <a class="text-link" href="https://github.com/NeelVadlamudi/UMBC-SmartShuttle" target="_blank" rel="noopener">Repository</a>
+            </div>
+          </article>
+
+          <article class="project reveal" data-lanes="ml public de">
             <h3>Breathe Easy AQI Forecasting</h3>
-            <p class="stack">NodeMCU, PMS5003, MQ-7, LSTM, XGBoost, Python</p>
-            <p>Converts sensor streams into air-quality forecasts and monitoring dashboards with a documented weekly refresh cadence.</p>
-            <p class="result">Outcome: 92%+ forecasting accuracy against pollution-board data.</p>
+            <p class="stack">NodeMCU · PMS5003 · MQ-7 · LSTM · XGBoost · Python</p>
+            <div class="story-block">
+              <strong>Problem</strong>
+              <p>Air-quality monitoring in underserved areas depends on expensive fixed stations, leaving residents without real-time hyper-local insight into what they are breathing.</p>
+            </div>
+            <div class="story-block">
+              <strong>Built</strong>
+              <p>IoT pipeline from NodeMCU sensors through LSTM/XGBoost forecasting to a monitoring dashboard, with weekly refresh cadence and drift checks.</p>
+            </div>
+            <div class="project-extra">
+              <div>
+                <div class="story-block">
+                  <strong>Result</strong>
+                  <p>92%+ forecasting accuracy against official pollution-board readings. Same sensor-to-model-to-dashboard pattern used in industrial IoT, smart city, and environmental monitoring work.</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-actions">
+              <button class="project-toggle" type="button" aria-expanded="false">More context</button>
+            </div>
           </article>
         </div>
       </div>
@@ -846,45 +1220,42 @@
 
     <section id="experience">
       <div class="shell">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Experience.</h2>
-          <p>Banking, research, and public-sector data work with quantified delivery across pipelines, ML evaluation, dashboards, and team execution.</p>
+          <p>Banking, research, and public-sector work with quantified delivery across pipelines, ML evaluation, dashboards, and cross-functional execution.</p>
         </div>
         <div class="experience-list">
-          <article class="experience">
-            <div class="experience-meta">
-              <strong>AI Institute of South Carolina</strong>
-              Data Infrastructure Research Assistant, Term Appointment<br>
-              Remote | May 2025 to Aug 2025
-            </div>
-            <ul class="bullet-list">
-              <li>Built Bronze/Silver/Gold medallion ETL on Azure Databricks over 2.3M+ records across 5 state agencies.</li>
-              <li>Reduced runtime 43% from 14h to 8h and supported Kubernetes infrastructure with 99.7% uptime for research teams.</li>
-              <li>Delivered client-facing dashboards and presentations for road-safety analytics research.</li>
-            </ul>
-          </article>
-          <article class="experience">
-            <div class="experience-meta">
-              <strong>UMBC in collaboration with Meta AI Research</strong>
-              ML Research Assistant, Term Appointment<br>
-              Baltimore, MD | Dec 2024 to Feb 2025
-            </div>
-            <ul class="bullet-list">
-              <li>Extended transformer-based mathematical reasoning findings with Meta AI Research collaboration.</li>
-              <li>Fine-tuned BERT/GPT/T5 across 12+ datasets, improving classification accuracy 15%.</li>
-              <li>Designed adversarial evaluation protocols that surfaced 3 systematic bias issues.</li>
-            </ul>
-          </article>
-          <article class="experience">
+          <article class="experience reveal">
             <div class="experience-meta">
               <strong>HDFC Bank</strong>
               Business Analyst, promoted to Project Lead<br>
               Mumbai, India | Jun 2023 to Jul 2024
             </div>
             <ul class="bullet-list">
-              <li>Supported RBI Automated Data Flow across 500K+ daily records and 8 source systems.</li>
-              <li>Automated anomaly detection and same-day reconciliation, reducing errors 60% and preventing $2.1M exposure.</li>
-              <li>Led CLMS delivery across legal, compliance, QA, vendor, operations, and IT teams with VP IT BSG reporting.</li>
+              <li>Built automated validation and reconciliation layer for RBI Automated Data Flow: 500K+ daily records across 8 source systems, same-day error detection, $2.1M exposure prevented, and 60% manual-effort reduction.</li>
+              <li>Promoted mid-engagement to lead CLMS, a bank-wide legal contract platform, running BRDs, UAT, defect resolution, deployment, and production support across legal, compliance, QA, vendor, ops, and IT.</li>
+            </ul>
+          </article>
+          <article class="experience reveal" data-delay="1">
+            <div class="experience-meta">
+              <strong>AI Institute of South Carolina</strong>
+              Data Infrastructure Research Assistant, Term Appointment<br>
+              Remote | May 2025 to Aug 2025
+            </div>
+            <ul class="bullet-list">
+              <li>Rebuilt government road-safety ETL as Bronze/Silver/Gold medallion pipelines on Azure Databricks, processing 2.3M+ records across 5 agencies and cutting runtime 43% from 14h to 8h.</li>
+              <li>Maintained Kubernetes cloud analytics workspace at 99.7% uptime and delivered client-facing dashboards and presentations for road-safety analytics research.</li>
+            </ul>
+          </article>
+          <article class="experience reveal" data-delay="2">
+            <div class="experience-meta">
+              <strong>UMBC in collaboration with Meta AI Research</strong>
+              ML Research Assistant, Term Appointment<br>
+              Baltimore, MD | Dec 2024 to Feb 2025
+            </div>
+            <ul class="bullet-list">
+              <li>Fine-tuned BERT, GPT, and T5 across 12+ benchmark datasets in collaboration with Meta AI Research scientists, improving classification accuracy 15%.</li>
+              <li>Built reproducible experiment and adversarial evaluation protocols that surfaced 3 systematic bias issues and documented model behavior under adversarial inputs.</li>
             </ul>
           </article>
         </div>
@@ -893,34 +1264,34 @@
 
     <section id="skills" class="alt">
       <div class="shell">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Technical stack.</h2>
-          <p>Tools are grouped by the work they support: pipelines, ML systems, applications, infrastructure, and analytics delivery.</p>
+          <p>Grouped by the work recruiters screen for: SQL, machine learning, data engineering, cloud systems, dashboards, and stakeholder delivery.</p>
         </div>
         <div class="skills">
-          <article class="skill-box">
+          <article class="skill-box reveal">
             <h3>Data Engineering</h3>
             <p>Python, SQL, PySpark, Databricks, Spark SQL, DuckDB, pandas, ETL/ELT, data quality checks, pipeline optimization.</p>
           </article>
-          <article class="skill-box">
+          <article class="skill-box reveal" data-delay="1">
             <h3>Machine Learning</h3>
             <p>PyTorch, Hugging Face, scikit-learn, XGBoost, LSTM, Transformers, SHAP, LIME, forecasting, model evaluation.</p>
           </article>
-          <article class="skill-box">
+          <article class="skill-box reveal" data-delay="2">
             <h3>Applications</h3>
             <p>FastAPI, Flask, Streamlit, React, Plotly, Power BI, Tableau, REST APIs, stakeholder-facing dashboards.</p>
           </article>
-          <article class="skill-box">
+          <article class="skill-box reveal">
             <h3>Cloud and Systems</h3>
             <p>Kubernetes, Azure Databricks, reproducible cloud workspaces, API-backed analytics systems, Git workflows.</p>
           </article>
-          <article class="skill-box">
+          <article class="skill-box reveal" data-delay="1">
             <h3>Analytics</h3>
             <p>Financial risk, anomaly detection, Monte Carlo simulation, VaR/CVaR, scenario analysis, reporting automation.</p>
           </article>
-          <article class="skill-box">
-            <h3>Domains</h3>
-            <p>Fintech risk, healthcare surveillance, road safety, transportation analytics, IoT sensor forecasting, public-sector data.</p>
+          <article class="skill-box reveal" data-delay="2">
+            <h3>Delivery</h3>
+            <p>Stakeholder communication, project lifecycle, BRDs, UAT, dashboard storytelling, model documentation, client-facing presentations.</p>
           </article>
         </div>
       </div>
@@ -928,16 +1299,16 @@
 
     <section id="education">
       <div class="shell">
-        <div class="section-head">
+        <div class="section-head reveal">
           <h2>Education.</h2>
           <p>Graduate training in data science with a computer science foundation from NIT Delhi.</p>
         </div>
         <div class="education-panel">
-          <article class="edu">
+          <article class="edu reveal">
             <h3>University of Maryland, Baltimore County</h3>
             <p>M.P.S. Data Science | GPA: 3.7/4.0 | Full-time STEM graduate program | May 2026</p>
           </article>
-          <article class="edu">
+          <article class="edu reveal" data-delay="1">
             <h3>National Institute of Technology Delhi</h3>
             <p>B.Tech Computer Science and Engineering | GPA: 3.0/4.0 | May 2023</p>
           </article>
@@ -945,15 +1316,17 @@
       </div>
     </section>
 
-    <section id="contact" class="contact">
-      <div class="shell contact-grid">
-        <div>
-          <h2>Useful for teams that need data moved, modeled, tested, and explained.</h2>
-          <p>Best fit: Applied Data Scientist, ML Engineer, Data Engineer, Analytics Engineer, and AI Engineer roles on product, platform, healthcare, public-sector, or fintech teams.</p>
-        </div>
-        <div class="contact-actions">
-          <a class="button primary" href="mailto:v.n.v.bharath@gmail.com">Email Neel</a>
-          <a class="button" href="https://linkedin.com/in/neel109" target="_blank" rel="noopener">LinkedIn</a>
+    <section id="contact" class="alt">
+      <div class="shell">
+        <div class="cta-band reveal">
+          <h2>Open to Data Scientist, ML Engineer, Data Engineer, Analytics Engineer, and AI Engineer roles.</h2>
+          <p>Boston and remote. STEM OPT authorized. Available immediately. Useful for teams that need data moved, modeled, tested, explained, and shipped into workflows people can use.</p>
+          <div class="contact-actions">
+            <a class="button primary" href="mailto:v.n.v.bharath@gmail.com">Email Neel</a>
+            <a class="button" href="https://linkedin.com/in/neel109" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="button" href="https://github.com/NeelVadlamudi" target="_blank" rel="noopener">GitHub</a>
+            <button class="button" type="button" id="copyEmail">Copy email</button>
+          </div>
         </div>
       </div>
     </section>
@@ -965,5 +1338,195 @@
       <span>Boston, MA | v.n.v.bharath@gmail.com | github.com/NeelVadlamudi</span>
     </div>
   </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Email copied</div>
+
+  <script>
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const progressBar = document.getElementById("progressBar");
+    const navLinks = [...document.querySelectorAll(".nav-links a")];
+    const sections = navLinks.map(link => document.querySelector(link.getAttribute("href"))).filter(Boolean);
+    const revealItems = [...document.querySelectorAll(".reveal")];
+    const metrics = [...document.querySelectorAll("[data-count]")];
+    const lensButtons = [...document.querySelectorAll(".lens-button")];
+    const lensPanel = document.getElementById("lensPanel");
+    const projects = [...document.querySelectorAll(".project")];
+    const toast = document.getElementById("toast");
+
+    const lensCopy = {
+      all: {
+        title: "Data and ML systems that survive contact with real users.",
+        body: "I am strongest where the job needs both technical execution and translation: messy inputs, reliable pipelines, model evaluation, explainability, dashboards, and cross-functional delivery.",
+        points: [
+          "HDFC: Python and SQL validation across 500K+ daily records.",
+          "South Carolina: Databricks medallion ETL across 2.3M+ records.",
+          "SBDR: explainable risk classification over 30,000 customers.",
+          "CDC Outbreak AI: live public-health data, forecasting, and plain-English querying."
+        ]
+      },
+      ml: {
+        title: "Applied ML with explainability and evaluation built in.",
+        body: "For ML teams, the signal is SBDR, CDC forecasting, and transformer evaluation: models tied to user decisions, not isolated notebook scores.",
+        points: [
+          "SBDR: 93.4% accuracy and 0.990 AUC-ROC with SHAP/LIME.",
+          "UMBC x Meta AI: BERT/GPT/T5 experiments across 12+ datasets.",
+          "CDC Outbreak AI: LSTM surge forecasting over live public-health data.",
+          "Breathe Easy: LSTM/XGBoost forecasting on sensor streams."
+        ]
+      },
+      de: {
+        title: "Data engineering across messy sources, scale, and runtime pressure.",
+        body: "For data teams, the fit is multi-source ETL, data quality, medallion architecture, runtime reduction, and API-backed analytics.",
+        points: [
+          "Azure Databricks Bronze/Silver/Gold pipeline across 2.3M+ records.",
+          "43% runtime cut from 14h to 8h and 70% prep reduction.",
+          "HDFC: 8 source systems and 500K+ daily records validated same-day.",
+          "DuckDB and FastAPI backend patterns for fast analytics access."
+        ]
+      },
+      risk: {
+        title: "Financial risk analytics with regulatory instincts.",
+        body: "For fintech and banking teams, the strongest proof is HDFC, SBDR, and the portfolio risk platform: data quality, explainability, and model outputs people can defend.",
+        points: [
+          "$2.1M exposure prevented through automated validation.",
+          "SBDR: explainable recovery-risk classification with fairness review.",
+          "Portfolio platform: VaR/CVaR, Monte Carlo, stress testing, and sentiment.",
+          "CLMS delivery across legal, compliance, vendor, ops, QA, and IT."
+        ]
+      },
+      public: {
+        title: "Public-sector and healthcare analytics that turn data into action.",
+        body: "For healthcare, government, and civic teams, the work shows surveillance analytics, road-safety pipelines, IoT monitoring, and dashboards for non-technical users.",
+        points: [
+          "CDC Outbreak AI: public-health data ingestion, forecasting, and RAG.",
+          "South Carolina: road-safety analytics across 5 agencies.",
+          "SmartShuttle: demand prediction and sustainability metrics.",
+          "Breathe Easy: hyper-local air-quality forecasting from sensor data."
+        ]
+      },
+      pm: {
+        title: "Technical PM signal: full lifecycle, cross-functional delivery, measurable outcomes.",
+        body: "For Data PM or Technical PM screens, the proof is CLMS leadership, stakeholder-facing dashboards, UAT/BRD ownership, and translating technical work into decisions.",
+        points: [
+          "Promoted mid-engagement to Project Lead for bank-wide CLMS.",
+          "Coordinated legal, compliance, vendor, ops, QA, and IT teams.",
+          "Owned BRDs, UAT, defect resolution, deployment, and production support.",
+          "Delivered client-facing analytics presentations in public-sector research."
+        ]
+      }
+    };
+
+    function updateProgress() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progressBar.style.width = `${Math.min(100, Math.max(0, pct))}%`;
+    }
+
+    function updateActiveNav() {
+      const current = sections.reduce((acc, section) => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= 130 ? section.id : acc;
+      }, "");
+
+      navLinks.forEach(link => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+      });
+    }
+
+    function formatMetric(value, prefix, suffix) {
+      const number = Number(value);
+      const hasDecimal = String(value).includes(".");
+      return `${prefix}${hasDecimal ? number.toFixed(1) : Math.round(number)}${suffix}`;
+    }
+
+    function animateMetric(el) {
+      if (el.dataset.done === "true") return;
+      el.dataset.done = "true";
+      if (reduceMotion) return;
+      const target = Number(el.dataset.count);
+      const prefix = el.dataset.prefix || "";
+      const suffix = el.dataset.suffix || "";
+      const duration = 1050;
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+        el.textContent = formatMetric(current, prefix, suffix);
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = formatMetric(target, prefix, suffix);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    const revealObserver = "IntersectionObserver" in window
+      ? new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              entry.target.querySelectorAll("[data-count]").forEach(animateMetric);
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08, rootMargin: "0px 0px 120px 0px" })
+      : null;
+
+    revealItems.forEach(item => {
+      if (revealObserver && !item.classList.contains("visible")) revealObserver.observe(item);
+      else item.classList.add("visible");
+    });
+
+    metrics.forEach(metric => {
+      const parent = metric.closest(".reveal");
+      if (!parent && !reduceMotion) animateMetric(metric);
+    });
+
+    function applyLens(lens) {
+      const copy = lensCopy[lens];
+      lensButtons.forEach(button => button.classList.toggle("active", button.dataset.lens === lens));
+      lensPanel.innerHTML = `
+        <span class="mini-label">Current read</span>
+        <h3>${copy.title}</h3>
+        <p>${copy.body}</p>
+        <ul class="proof-list">${copy.points.map(point => `<li>${point}</li>`).join("")}</ul>
+      `;
+
+      projects.forEach(project => {
+        const lanes = project.dataset.lanes.split(" ");
+        project.classList.toggle("is-muted", lens !== "all" && !lanes.includes(lens));
+      });
+    }
+
+    lensButtons.forEach(button => {
+      button.addEventListener("click", () => applyLens(button.dataset.lens));
+    });
+
+    document.querySelectorAll(".project-toggle").forEach(button => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".project");
+        const expanded = card.classList.toggle("expanded");
+        button.setAttribute("aria-expanded", String(expanded));
+        button.textContent = expanded ? "Less context" : "More context";
+      });
+    });
+
+    document.getElementById("copyEmail").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText("v.n.v.bharath@gmail.com");
+        toast.classList.add("visible");
+        window.setTimeout(() => toast.classList.remove("visible"), 1600);
+      } catch {
+        window.location.href = "mailto:v.n.v.bharath@gmail.com";
+      }
+    });
+
+    window.addEventListener("scroll", () => {
+      updateProgress();
+      updateActiveNav();
+    }, { passive: true });
+
+    updateProgress();
+    updateActiveNav();
+  </script>
 </body>
 </html>
