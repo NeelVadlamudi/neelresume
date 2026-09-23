@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/neelresume/">
+  <title>NeelV</title>
+  <meta name="description" content="Neel Vadlamudi. Data analyst in Boston. Maternal health research, bank regulatory checks, three projects.">
+  <meta name="theme-color" content="#F3F0E8">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="fonts/ibm-plex-serif-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+
+  <nav class="spear-nav" aria-label="Chapters">
+    <p id="chapters-help" class="vh">Arrow keys move between chapters.</p>
+    <div class="dial" aria-hidden="true">
+      <svg class="dial-svg" viewBox="0 0 120 120">
+        <circle class="ring" cx="60" cy="60" r="57"></circle>
+        <g class="ticks" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="square">
+          <line data-chapter="start" x1="112" y1="60" x2="117" y2="60" transform="rotate(-76 60 60)"></line>
+          <line data-chapter="lab" x1="112" y1="60" x2="117" y2="60" transform="rotate(-59.11 60 60)"></line>
+          <line data-chapter="bank" x1="112" y1="60" x2="117" y2="60" transform="rotate(-42.22 60 60)"></line>
+          <line data-chapter="institute" x1="112" y1="60" x2="117" y2="60" transform="rotate(-25.33 60 60)"></line>
+          <line data-chapter="pulsepath" x1="112" y1="60" x2="117" y2="60" transform="rotate(-8.44 60 60)"></line>
+          <line data-chapter="fatigue" x1="112" y1="60" x2="117" y2="60" transform="rotate(8.44 60 60)"></line>
+          <line data-chapter="datacenter" x1="112" y1="60" x2="117" y2="60" transform="rotate(25.33 60 60)"></line>
+          <line data-chapter="skills" x1="112" y1="60" x2="117" y2="60" transform="rotate(42.22 60 60)"></line>
+          <line data-chapter="education" x1="112" y1="60" x2="117" y2="60" transform="rotate(59.11 60 60)"></line>
+          <line data-chapter="contact" x1="112" y1="60" x2="117" y2="60" transform="rotate(76 60 60)"></line>
+        </g>
+      </svg>
+      <div class="rotor-spin">
+        <div class="rotor">
+          <svg viewBox="0 0 100 16" aria-hidden="true">
+            <line x1="36" y1="8" x2="84" y2="8" stroke="#1A1A1A" stroke-width="2.15"></line>
+            <polygon points="99,8 84,4.7 84,11.3" fill="#1A1A1A"></polygon>
+          </svg>
+        </div>
+      </div>
+      <div class="hub">NV</div>
+    </div>
+
+    <div class="chapter-scroller">
+      <ol class="chapter-list">
+        <li><a href="#start" data-angle="-76" aria-current="true"><span class="mark mark-ink" aria-hidden="true"></span><span class="num">00</span> <span>Start</span></a></li>
+        <li><a href="#lab" data-angle="-59.11"><span class="mark mark-green" aria-hidden="true"></span><span class="num">01</span> <span>Lab</span></a></li>
+        <li><a href="#bank" data-angle="-42.22"><span class="mark mark-blue" aria-hidden="true"></span><span class="num">02</span> <span>Bank</span></a></li>
+        <li><a href="#institute" data-angle="-25.33"><span class="mark mark-orange" aria-hidden="true"></span><span class="num">03</span> <span>Institute</span></a></li>
+        <li><a href="#pulsepath" data-angle="-8.44"><span class="mark mark-sky" aria-hidden="true"></span><span class="num">04</span> <span>PulsePath</span></a></li>
+        <li><a href="#fatigue" data-angle="8.44"><span class="mark mark-orange" aria-hidden="true"></span><span class="num">05</span> <span>Fatigue</span></a></li>
+        <li><a href="#datacenter" data-angle="25.33"><span class="mark mark-blue" aria-hidden="true"></span><span class="num">06</span> <span>Datacenter</span></a></li>
+        <li><a href="#skills" data-angle="42.22"><span class="mark mark-green" aria-hidden="true"></span><span class="num">07</span> <span>Skills</span></a></li>
+        <li><a href="#education" data-angle="59.11"><span class="mark mark-sky" aria-hidden="true"></span><span class="num">08</span> <span>Education</span></a></li>
+        <li><a href="#contact" data-angle="76"><span class="mark mark-ink" aria-hidden="true"></span><span class="num">09</span> <span>Contact</span></a></li>
+      </ol>
+    </div>
+    <p class="keyhint">Arrow keys move chapters</p>
+  </nav>
+
+  <main id="top">
+    <section id="start" class="chapter hero" aria-labelledby="content">
+      <div class="chapter-inner">
+        <p class="eyebrow">Data Analyst / Data Scientist</p>
+        <h1 id="content" tabindex="-1">Neel<br>Vadlamudi</h1>
+        <p class="legal">Neel Vittal Bharath Vadlamudi</p>
+        <p class="where">Boston, MA</p>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="lede">I got into data analytics to dig into a question until I see what's actually going on. I look at the data, I visualize it, and I leave a path the next person can follow. Power BI, Tableau, SQL, Python, ETL. Whatever the question needs.</p>
+            <p class="lede">I'm becoming a data scientist. I'm interested in machine learning pipelines, machine learning engineering, and LLM training. Day to day I use a model to get an insight. Logistic regression. A recommendation-style system. AI when the question needs it. At Brigham I already do this kind of modeling on maternal health.</p>
+          </div>
+          <div class="hero-side">
+            <p class="now-k"><span class="mark mark-green" aria-hidden="true"></span> Now</p>
+            <p class="now">Research Assistant, Clinical Data Science and Statistical Analysis</p>
+            <p class="now now-org">Brigham and Women’s Hospital / Mass General Brigham</p>
+            <p class="now now-line">Maternal health. Childbirth risk.</p>
+            <ul class="links">
+              <li><a href="mailto:v.n.v.bharath@gmail.com">v.n.v.bharath@gmail.com</a></li>
+              <li><a href="https://linkedin.com/in/neel109" target="_blank" rel="noopener noreferrer">LinkedIn<span class="vh"> (opens in a new tab)</span></a></li>
+              <li><a href="https://github.com/NeelVadlamudi" target="_blank" rel="noopener noreferrer">GitHub<span class="vh"> (opens in a new tab)</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+        <ul class="interests">
+          <li><span class="mark mark-green" aria-hidden="true"></span> Clinical AI, maternal health</li>
+          <li><span class="mark mark-blue" aria-hidden="true"></span> Financial risk QC</li>
+          <li><span class="mark mark-orange" aria-hidden="true"></span> Sports and ops analytics</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lab" class="chapter" aria-labelledby="lab-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <div>
+            <p class="eyebrow"><span class="mark mark-green" aria-hidden="true"></span> Stage 01 / Lab</p>
+            <h2 class="outcome" id="lab-title">Clinical data analysis for maternal health</h2>
+          </div>
+          <div class="facts">
+            <p class="org">Brigham and Women’s Hospital / Mass General Brigham</p>
+            <p class="role">Research Assistant, Clinical Data Science and Statistical Analysis</p>
+            <p class="when">Jun 2026–Present</p>
+          </div>
+        </header>
+        <dl class="star">
+          <div>
+            <dt>Given</dt>
+            <dd>The problems that land on me are messy pregnancy and delivery data. Bleeding and transfusion risk. Ultrasound orders that need a quality check. Note sets for physicians to review. Maternal-risk models the lab has to be able to reuse.</dd>
+          </div>
+          <div>
+            <dt>Did</dt>
+            <dd>I write Python and SQL pipelines, and the rules for the clinical numbers. I clean and QC large pregnancy-scale tables. I rebuild an analysis so the adjusted risks and the intervals are honest. I build review files clinicians can use. I use machine learning models for maternal-risk insight, and I refactored a preeclampsia model so the team can reuse it.</dd>
+          </div>
+          <div>
+            <dt>Delivered</dt>
+            <dd>Reusable pipelines, QC and audit tables, clean order files, physician-review packages, and maternal-risk model code the lab keeps using.</dd>
+          </div>
+          <div>
+            <dt>Impact</dt>
+            <dd>Cleaner data for the decisions the lab makes. Pipelines and models the team can reuse, and analysis clinicians can trust.</dd>
+          </div>
+        </dl>
+        <ul class="scale">
+          <li>
+            <p class="v">~160,000</p>
+            <p class="k">Pregnancy rows on bleeding</p>
+          </li>
+          <li>
+            <p class="v">~15,000</p>
+            <p class="k">Bleed-type screen</p>
+          </li>
+          <li>
+            <p class="v">~160,000</p>
+            <p class="k">Ultrasound orders checked</p>
+          </li>
+          <li>
+            <p class="v">~1,000</p>
+            <p class="k">Pregnancies for physician review</p>
+          </li>
+        </ul>
+        <div class="chapter-end">
+          <p class="yield"><span class="label">For a team</span> Cleaner data, and work the lab can reuse.</p>
+          <p class="tools"><span class="label">Tools</span> Python, SQL, PostgreSQL, REDCap, Excel, TensorFlow, GPU workflows</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="bank" class="chapter" aria-labelledby="bank-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <div>
+            <p class="eyebrow"><span class="mark mark-blue" aria-hidden="true"></span> Stage 02 / Bank</p>
+            <h2 class="outcome" id="bank-title">HDFC Bank. Regulatory reporting, then contract systems.</h2>
+          </div>
+          <div class="facts">
+            <p class="org">HDFC Bank</p>
+            <p class="role">Financial Systems Analyst, Jul 2022–Feb 2024</p>
+            <p class="role">Business Analyst, Project Manager, Jul 2023–Jun 2024</p>
+            <p class="when">Jul 2022–Jun 2024 · Mumbai</p>
+          </div>
+        </header>
+
+        <section class="beat" aria-labelledby="adf-title">
+          <h3 id="adf-title">Money-market returns</h3>
+          <dl class="star">
+            <div>
+              <dt>Given</dt>
+              <dd>The RBI Automated Data Flow app was already in production. Regulatory returns had to leave the bank clean. Source systems to the regulator, no manual mash-up.</dd>
+            </div>
+            <div>
+              <dt>Did</dt>
+              <dd>Daily checks, tickets, and meetings with business users. One user flagged a bad number. The old SQL pull was mixing money-market figures. I traced day-before, day-of, day-after, and till-date in PySpark and SQL Server, rewrote the pull, and closed it live on a call. Power BI and Tableau for the reports. Jira through to the production push.</dd>
+            </div>
+            <div>
+              <dt>Delivered</dt>
+              <dd>A corrected SQL pull, validation scripts, and the reports.</dd>
+            </div>
+            <div>
+              <dt>Impact</dt>
+              <dd>Data accuracy up about 30%. Manual reporting down about 40%. Turnaround down about 25% once the Jira path was tight.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section class="beat" aria-labelledby="clms-title">
+          <h3 id="clms-title">Contracts and litigation</h3>
+          <dl class="star">
+            <div>
+              <dt>Given</dt>
+              <dd>The bank was building its own contract and litigation system. Vendors were PracticeLink and Fintelix.</dd>
+            </div>
+            <div>
+              <dt>Did</dt>
+              <dd>I sat between the vendors and IT Business Solutions. BRDs, test cases, SAT and UAT, through business sign-off. Power BI for compliance numbers. About 50 operational issues a month, ticketed in Jira and pushed to production. Signed contracts went into the system. Litigation had legal and ops metrics you could drill into.</dd>
+            </div>
+            <div>
+              <dt>Delivered</dt>
+              <dd>Signed-off releases, compliance dashboards, and a path from a signed document into the system.</dd>
+            </div>
+            <div>
+              <dt>Impact</dt>
+              <dd>Project execution up about 30%. Time to a decision down about 20%. 50+ issues a month cleared.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <div class="chapter-end">
+          <p class="yield"><span class="label">For a team</span> A regulatory file you can send, and a contract system with a signed-off release.</p>
+          <p class="tools"><span class="label">Tools</span> SQL, PySpark, SQL Server, AWS, Power BI, Jira</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="institute" class="chapter" aria-labelledby="institute-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <div>
+            <p class="eyebrow"><span class="mark mark-orange" aria-hidden="true"></span> Stage 03 / Institute</p>
+            <h2 class="outcome" id="institute-title">Research internship. Road-safety data pipelines.</h2>
+          </div>
+          <div class="facts">
+            <p class="org">AI Institute of South Carolina</p>
+            <p class="role">Data Engineering Research Intern</p>
+            <p class="when">May 2025–Aug 2025</p>
+          </div>
+        </header>
+        <dl class="star">
+          <div>
+            <dt>Given</dt>
+            <dd>Road-safety numbers took fourteen hours a cycle, across five state-agency sources.</dd>
+          </div>
+          <div>
+            <dt>Did</dt>
+            <dd>I rebuilt the path in layers on Azure Databricks, from raw files to tables the team could read.</dd>
+          </div>
+          <div>
+            <dt>Delivered</dt>
+            <dd>A pipeline with a place for each record, dashboards, and findings presentations. The Kubernetes research workspace stayed near 99.7% uptime.</dd>
+          </div>
+          <div>
+            <dt>Impact</dt>
+            <dd>2.3M+ records. Runtime down about 43%, from 14 hours to 8. Data prep down about 70%.</dd>
+          </div>
+        </dl>
+        <div class="chapter-end">
+          <p class="yield"><span class="label">For a team</span> The run finishes inside a workday.</p>
+          <p class="tools"><span class="label">Tools</span> Azure Databricks, Kubernetes</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="pulsepath" class="chapter" aria-labelledby="pulse-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <div>
+            <p class="eyebrow"><span class="mark mark-sky" aria-hidden="true"></span> Stage 04 / PulsePath</p>
+            <h2 class="outcome" id="pulse-title">PulsePath. 89 more activated members per 1,000 signups.</h2>
+          </div>
+          <div class="facts">
+            <p class="org">PulsePath</p>
+            <p class="role">Selected work, 01 / 03</p>
+            <p class="when">Fictional wearable membership case study</p>
+          </div>
+        </header>
+        <dl class="star">
+          <div>
+            <dt>Given</dt>
+            <dd>A wearable membership. The question was whether guided onboarding should be the default.</dd>
+          </div>
+          <div>
+            <dt>Did</dt>
+            <dd>I measured activation, then day-60 paid retention, on synthetic data, with a comparison group.</dd>
+          </div>
+          <div>
+            <dt>Delivered</dt>
+            <dd>The notebook path and a small dashboard. The open retention number stays on the page.</dd>
+          </div>
+          <div>
+            <dt>Impact</dt>
+            <dd>About 89 more activated members per 1,000 signups. Day-60 paid did not clear the bar. Staged rollout. The data is synthetic.</dd>
+          </div>
+        </dl>
+        <div class="chapter-end">
+          <p class="yield"><span class="label">For a team</span> A staged rollout, with day-60 paid still open.</p>
+          <p class="tools"><span class="label">Tools</span> Python, SQL, React dashboard, notebooks, pytest</p>
+          <p class="repo"><a href="https://github.com/NeelVadlamudi/pulsepath-member-analytics" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="fatigue" class="chapter" aria-labelledby="fatigue-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <div>
+            <p class="eyebrow"><span class="mark mark-orange" aria-hidden="true"></span> Stage 05 / Fatigue</p>
+            <h2 class="outcome" id="fatigue-title">Pitcher fatigue. No supported 1 mph drop.</h2>
+          </div>
+          <div class="facts">
+            <p class="org">Pitcher Fatigue</p>
+            <p class="role">Selected work, 02 / 03</p>
+            <p class="when">Logan Webb, 2024</p>
+          </div>
+        </header>
+        <dl class="star">
+          <div>
+            <dt>Given</dt>
+            <dd>Fatigue charts like a clean 1 mph drop. I checked whether Webb 2024 actually shows one.</dd>
+          </div>
+          <div>
+            <dt>Did</dt>
+            <dd>Within a start: velocity and pitch quality, by pitch type and game context. Held out by game.</dd>
+          </div>
+          <div>
+            <dt>Delivered</dt>
+            <dd>A profile with the test count next to the number.</dd>
+          </div>
+          <div>
+            <dt>Impact</dt>
+            <dd>No supported 1 mph break. 33 eligible starts. 0.75 mph held-out error. 23 tests. 75% coverage. A historical look. Not an injury call.</dd>
+          </div>
+        </dl>
+        <div class="chapter-end">
+          <p class="yield"><span class="label">For a team</span> A fatigue number with the test count beside it.</p>
+          <p class="tools"><span class="label">Tools</span> Python, Streamlit, Statcast</p>
+          <p class="repo"><a href="https://github.com/NeelVadlamudi/pitcher-fatigue-profile" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="datacenter" class="chapter" aria-labelledby="data-title">
+      <div class="chapter-inner">
+        <header class="chapter-head">
+          <div>
+            <p class="eyebrow"><span class="mark mark-blue" aria-hidden="true"></span> Stage 06 / Datacenter</p>
+            <h2 class="outcome" id="data-title">Datacenter markets. The rank moves when power weighs more.</h2>
+          </div>
+          <div class="facts">
+            <p class="org">Datacenter</p>
+            <p class="role">Selected work, 03 / 03</p>
+            <p class="when">Market-screening model</p>
+          </div>
+        </header>
+        <dl class="star">
+          <div>
+            <dt>Given</dt>
+            <dd>A demand ranking is not a build decision.</dd>
+          </div>
+          <div>
+            <dt>Did</dt>
+            <dd>I split demand, feasibility, and risk. Three weights: base, power-first, inference-first. Public sources. Assumptions on the page.</dd>
+          </div>
+          <div>
+            <dt>Delivered</dt>
+            <dd>A screen that shows when the ranking moves.</dd>
+          </div>
+          <div>
+            <dt>Impact</dt>
+            <dd>Base order: Northern Virginia, Atlanta, Hillsboro/Portland. More weight on power, and the order moves.</dd>
+          </div>
+        </dl>
+        <div class="chapter-end">
+          <p class="yield"><span class="label">For a team</span> A screen with the assumptions on the page.</p>
+          <p class="tools"><span class="label">Tools</span> Public sources, explicit assumptions, scenario weights</p>
+          <p class="repo"><a href="https://github.com/NeelVadlamudi/microsoft_datacenter_market_model" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="chapter" aria-labelledby="skills-title">
+      <div class="chapter-inner">
+        <p class="eyebrow"><span class="mark mark-green" aria-hidden="true"></span> Stage 07 / Skills</p>
+        <h2 class="outcome" id="skills-title">Python, SQL, and the stack I use.</h2>
+        <dl class="skills skills-lead">
+          <div>
+            <dt><span class="mark mark-blue" aria-hidden="true"></span> Day to day</dt>
+            <dd>Python, SQL, PostgreSQL, REDCap, Microsoft Excel, Terminal / CLI, GPU workflows. <span class="stack-note">Terminal work is ls, mkdir, and the GPU command line.</span></dd>
+          </div>
+          <div>
+            <dt><span class="mark mark-orange" aria-hidden="true"></span> With Python</dt>
+            <dd>TensorFlow, NumPy, Seaborn. Regression, predictive modeling, deep learning.</dd>
+          </div>
+        </dl>
+        <p class="skills-also">Also used</p>
+        <dl class="skills skills-quiet">
+          <div>
+            <dt><span class="mark mark-blue" aria-hidden="true"></span> SQL also</dt>
+            <dd>T-SQL</dd>
+          </div>
+          <div>
+            <dt><span class="mark mark-green" aria-hidden="true"></span> Platforms</dt>
+            <dd>Azure Databricks, Apache Airflow, Snowflake, Microsoft Fabric, Alteryx</dd>
+          </div>
+          <div>
+            <dt><span class="mark mark-sky" aria-hidden="true"></span> Cloud</dt>
+            <dd>AWS, Azure, GCP</dd>
+          </div>
+          <div>
+            <dt><span class="mark mark-blue" aria-hidden="true"></span> Visualization</dt>
+            <dd>Power BI, Tableau, Power Apps</dd>
+          </div>
+          <div>
+            <dt><span class="mark mark-orange" aria-hidden="true"></span> Automation</dt>
+            <dd>n8n, Power Automate, Zapier, Make, UiPath</dd>
+          </div>
+          <div>
+            <dt><span class="mark mark-green" aria-hidden="true"></span> Collaboration</dt>
+            <dd>Jira, GitHub, GitLab, Git</dd>
+          </div>
+          <div>
+            <dt><span class="mark mark-sky" aria-hidden="true"></span> Business analysis, HDFC</dt>
+            <dd>Requirements, BRDs, process improvement, UAT, metrics, cross-functional delivery, project coordination</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="education" class="chapter" aria-labelledby="edu-title">
+      <div class="chapter-inner">
+        <p class="eyebrow"><span class="mark mark-sky" aria-hidden="true"></span> Stage 08 / Education</p>
+        <div class="degrees">
+          <article>
+            <h2 class="degree-title" id="edu-title">M.P.S. Data Science, UMBC.</h2>
+            <p class="when">Aug 2024–May 2026 · GPA 3.7/4.0</p>
+          </article>
+          <article>
+            <h2 class="degree-title">B.Tech Computer Science, NIT Delhi.</h2>
+            <p class="when">Aug 2019–May 2023 · GPA 3.0/4.0</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="chapter" aria-labelledby="contact-title">
+      <div class="chapter-inner reach">
+        <p class="eyebrow"><span class="mark mark-ink" aria-hidden="true"></span> Stage 09 / Contact</p>
+        <div class="reach-grid">
+          <div class="reach-invite">
+            <h2 class="outcome" id="contact-title">Write me.</h2>
+            <p class="reach-line">The work is on the page. Mail is the direct line.</p>
+          </div>
+          <ul class="reach-list">
+            <li class="reach-row reach-mail">
+              <svg class="reach-spear" viewBox="0 0 100 16" aria-hidden="true">
+                <path class="spear-shaft" d="M8 8 H78" pathLength="1" fill="none" stroke="currentColor" stroke-width="1.6"></path>
+                <polygon points="96,8 78,4.2 78,11.8" fill="currentColor"></polygon>
+              </svg>
+              <a class="reach-open" href="mailto:v.n.v.bharath@gmail.com">
+                <svg class="reach-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5.5" width="18" height="13" fill="none" stroke="currentColor" stroke-width="1.4"></rect>
+                  <path d="M3.5 6.2 12 12.2 20.5 6.2" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+                </svg>
+                <span class="reach-name">
+                  <span class="reach-k">v.n.v.bharath@gmail.com</span>
+                </span>
+              </a>
+              <button class="copy" type="button" data-copy="v.n.v.bharath@gmail.com" data-label="Copy email address" aria-label="Copy email address">
+                <span class="copy-glyph" aria-hidden="true">
+                  <svg class="glyph-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.4"></rect><path d="M5 15 V5 H15" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg>
+                  <svg class="glyph-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7.5" fill="none" stroke="currentColor" stroke-width="1.6"></path></svg>
+                </span>
+                <span class="copy-label">Copy</span>
+              </button>
+            </li>
+            <li class="reach-row">
+              <a class="reach-open" href="https://www.linkedin.com/in/neel109" target="_blank" rel="noopener noreferrer">
+                <svg class="reach-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3.5" y="3.5" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.4"></rect>
+                  <path d="M8 10.5 V16.5 M8 7.6 V7.7 M12 16.5 V12.2 A2.2 2.2 0 0 1 16.4 12.2 V16.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"></path>
+                </svg>
+                <span class="reach-name">
+                  <span class="reach-k">LinkedIn</span>
+                  <span class="reach-url">linkedin.com/in/neel109</span>
+                </span>
+                <span class="vh"> (opens in a new tab)</span>
+              </a>
+              <button class="copy" type="button" data-copy="https://www.linkedin.com/in/neel109" data-label="Copy LinkedIn URL" aria-label="Copy LinkedIn URL">
+                <span class="copy-glyph" aria-hidden="true">
+                  <svg class="glyph-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.4"></rect><path d="M5 15 V5 H15" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg>
+                  <svg class="glyph-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7.5" fill="none" stroke="currentColor" stroke-width="1.6"></path></svg>
+                </span>
+                <span class="copy-label">Copy</span>
+              </button>
+            </li>
+            <li class="reach-row">
+              <a class="reach-open" href="https://github.com/NeelVadlamudi" target="_blank" rel="noopener noreferrer">
+                <svg class="reach-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="7" cy="7" r="2.1" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
+                  <circle cx="17" cy="12" r="2.1" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
+                  <circle cx="8" cy="17.5" r="2.1" fill="none" stroke="currentColor" stroke-width="1.4"></circle>
+                  <path d="M9 8.2 15 11 M9 16.4 15 13.2" fill="none" stroke="currentColor" stroke-width="1.4"></path>
+                </svg>
+                <span class="reach-name">
+                  <span class="reach-k">GitHub</span>
+                  <span class="reach-url">github.com/NeelVadlamudi</span>
+                </span>
+                <span class="vh"> (opens in a new tab)</span>
+              </a>
+              <button class="copy" type="button" data-copy="https://github.com/NeelVadlamudi" data-label="Copy GitHub URL" aria-label="Copy GitHub URL">
+                <span class="copy-glyph" aria-hidden="true">
+                  <svg class="glyph-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.4"></rect><path d="M5 15 V5 H15" fill="none" stroke="currentColor" stroke-width="1.4"></path></svg>
+                  <svg class="glyph-check" viewBox="0 0 24 24"><path d="M5 12.5 10 17.5 19 7.5" fill="none" stroke="currentColor" stroke-width="1.6"></path></svg>
+                </span>
+                <span class="copy-label">Copy</span>
+              </button>
+            </li>
+          </ul>
+        </div>
+        <p class="vh" id="copy-status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="colophon">
+    <div class="colophon-inner">
+      <p>Neel Vadlamudi</p>
+      <ul>
+        <li><a href="mailto:v.n.v.bharath@gmail.com">v.n.v.bharath@gmail.com</a></li>
+        <li><a href="https://linkedin.com/in/neel109" target="_blank" rel="noopener noreferrer">LinkedIn<span class="vh"> (opens in a new tab)</span></a></li>
+        <li><a href="https://github.com/NeelVadlamudi" target="_blank" rel="noopener noreferrer">GitHub<span class="vh"> (opens in a new tab)</span></a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
