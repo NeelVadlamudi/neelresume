@@ -720,16 +720,16 @@ h1:focus-visible {
 .degrees {
   display: flex;
   flex-direction: column;
-  gap: 1.85rem;
+  gap: 2.75rem;
   margin-top: 1.75rem;
-  max-width: 40rem;
+  max-width: 44rem;
 }
 
 .degree {
   display: grid;
   grid-template-columns: 3.5rem minmax(0, 1fr);
   gap: 0.35rem 1.15rem;
-  align-items: center;
+  align-items: start;
 }
 
 .edu-mark {
@@ -737,6 +737,7 @@ h1:focus-visible {
   height: 3.5rem;
   object-fit: contain;
   display: block;
+  margin-top: 0.2rem;
 }
 
 .degree-title {
@@ -757,10 +758,26 @@ h1:focus-visible {
 }
 
 .degrees .when {
-  margin-top: 0.8rem;
+  margin-top: 0.55rem;
   font-family: var(--serif);
-  font-size: 0.8125rem;
-  letter-spacing: 0.04em;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.edu-copy {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  max-width: 38rem;
+}
+
+.edu-copy p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.55;
   color: var(--muted);
 }
 
