@@ -568,23 +568,53 @@ h1:focus-visible {
   line-height: 1.35;
 }
 
+.facts .affiliate {
+  margin-top: 0.28rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.facts .place,
 .facts .role,
+.facts .pi,
 .facts .when {
   color: var(--muted);
 }
 
+.facts .place {
+  margin-top: 0.28rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
 .facts .role {
-  margin-top: 0.35rem;
+  margin-top: 0.55rem;
   font-size: 0.98rem;
   line-height: 1.4;
 }
 
+.facts .pi {
+  margin-top: 0.28rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
 .facts .when {
-  margin-top: 0.8rem;
+  margin-top: 0.7rem;
   font-family: var(--serif);
   font-size: 0.75rem;
   letter-spacing: 0.03em;
   line-height: 1.5;
+}
+
+.lab-brand {
+  max-width: 40rem;
+  margin: 1.35rem 0 0;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--muted);
 }
 
 .prose {
