@@ -718,27 +718,42 @@ h1:focus-visible {
 }
 
 .degrees {
-  display: grid;
-  gap: clamp(2.5rem, 7vh, 4.25rem);
-  margin-top: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.85rem;
+  margin-top: 1.75rem;
+  max-width: 40rem;
 }
 
-@media (min-width: 960px) {
-  .degrees {
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(2rem, 4vw, 4.5rem);
-    align-items: start;
-    margin-top: 1.25rem;
-  }
+.degree {
+  display: grid;
+  grid-template-columns: 3.5rem minmax(0, 1fr);
+  gap: 0.35rem 1.15rem;
+  align-items: center;
+}
 
-  .degree-title {
-    font-size: clamp(2.2rem, 3.5vw, 3.55rem);
-  }
+.edu-mark {
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  display: block;
 }
 
 .degree-title {
-  font-size: clamp(2.4rem, 4.5vw, 4.15rem);
-  max-width: 16em;
+  font-size: clamp(1.4rem, 2.3vw, 1.95rem);
+  max-width: 18em;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.degree-title a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}
+
+.degree-title a:hover {
+  text-decoration-thickness: 2px;
 }
 
 .degrees .when {
