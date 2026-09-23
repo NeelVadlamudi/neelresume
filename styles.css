@@ -609,12 +609,65 @@ h1:focus-visible {
   line-height: 1.5;
 }
 
-.lab-brand {
+.lab-head {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 0;
+}
+
+.lab-lead {
   max-width: 40rem;
-  margin: 1.35rem 0 0;
-  font-size: 1.05rem;
-  line-height: 1.55;
+}
+
+#lab .outcome {
+  font-size: clamp(2.05rem, 3.6vw, 3.35rem);
+  max-width: 14em;
+}
+
+#lab .facts {
+  margin-top: 1rem;
+  max-width: 34rem;
+}
+
+#lab .facts .org {
+  font-size: 0.98rem;
+}
+
+#lab .facts .affiliate {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+#lab .facts .place,
+#lab .facts .pi {
+  font-size: 0.86rem;
+}
+
+#lab .facts .role {
+  margin-top: 0.45rem;
+  font-size: 0.92rem;
+}
+
+#lab .facts .when {
+  margin-top: 0.55rem;
+  font-size: 0.72rem;
+}
+
+.lab-brand {
+  max-width: 36rem;
+  margin: 0.85rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--muted);
+}
+
+#lab .star {
+  margin-top: 1.75rem;
+}
+
+#lab .star dd {
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .prose {
