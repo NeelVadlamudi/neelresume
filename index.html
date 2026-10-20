@@ -141,16 +141,16 @@
         </dl>
         <ul class="scale">
           <li>
-            <p class="v">~160,000</p>
-            <p class="k">Pregnancy rows on bleeding</p>
+            <p class="v">160,000+</p>
+            <p class="k">Pregnancy records prepared for analysis</p>
           </li>
           <li>
-            <p class="v">~15,000</p>
-            <p class="k">Bleed-type screen</p>
+            <p class="v">4</p>
+            <p class="k">Studies: PPH, PDPH, preeclampsia, patient-AI familiarity</p>
           </li>
           <li>
-            <p class="v">~160,000</p>
-            <p class="k">Ultrasound orders checked</p>
+            <p class="v">4</p>
+            <p class="k">Data types: EHR, clinical notes, ultrasound, patient-reported</p>
           </li>
           <li>
             <p class="v">40,000+</p>
@@ -169,7 +169,7 @@
         <header class="chapter-head">
           <div>
             <p class="eyebrow"><span class="mark mark-blue" aria-hidden="true"></span> Stage 02 / Bank</p>
-            <h2 class="outcome" id="bank-title">HDFC Bank. Regulatory reporting, then contract systems.</h2>
+            <h2 class="outcome" id="bank-title">HDFC Bank. Financial data, then a compliance platform to production.</h2>
           </div>
           <div class="facts">
             <p class="org">HDFC Bank</p>
@@ -180,23 +180,23 @@
         </header>
 
         <section class="beat" aria-labelledby="adf-title">
-          <h3 id="adf-title">Money-market returns</h3>
+          <h3 id="adf-title">Giga project data</h3>
           <dl class="star">
             <div>
               <dt>Given</dt>
-              <dd>The RBI Automated Data Flow app was already in production. Regulatory returns had to leave the bank clean. Source systems to the regulator, no manual mash-up.</dd>
+              <dd>Large datasets from the Giga project had to reach finance, compliance and operations clean, with reporting that didn’t depend on manual work.</dd>
             </div>
             <div>
               <dt>Did</dt>
-              <dd>Daily checks, tickets, and meetings with business users. One user flagged a bad number. The old SQL pull was mixing money-market figures. I traced day-before, day-of, day-after, and till-date in PySpark and SQL Server, rewrote the pull, and closed it live on a call. Power BI and Tableau for the reports. Jira through to the production push.</dd>
+              <dd>I analyzed the data in SQL and Python to find trends and inconsistencies. I automated reporting in Power BI and Excel. I wrote validation scripts in Python and SQL across finance, compliance and operations. I tightened Jira workflows with custom dashboards and automated task dependencies.</dd>
             </div>
             <div>
               <dt>Delivered</dt>
-              <dd>A corrected SQL pull, validation scripts, and the reports.</dd>
+              <dd>Validation scripts, automated reports, and Jira dashboards.</dd>
             </div>
             <div>
               <dt>Impact</dt>
-              <dd>Data accuracy up about 30%. Manual reporting down about 40%. Turnaround down about 25% once the Jira path was tight.</dd>
+              <dd>Data accuracy up about 30%. Manual reporting down about 40%. Turnaround down about 25%.</dd>
             </div>
           </dl>
         </section>
@@ -206,26 +206,26 @@
           <dl class="star">
             <div>
               <dt>Given</dt>
-              <dd>The bank was building its own contract and litigation system. Vendors were PracticeLink and Fintelix.</dd>
+              <dd>The bank’s contract and litigation compliance platform (CLMS) was paused. It had to reach production.</dd>
             </div>
             <div>
               <dt>Did</dt>
-              <dd>I sat between the vendors and IT Business Solutions. BRDs, test cases, SAT and UAT, through business sign-off. Power BI for compliance numbers. About 50 operational issues a month, ticketed in Jira and pushed to production. Signed contracts went into the system. Litigation had legal and ops metrics you could drill into.</dd>
+              <dd>I took ownership of the project. BRDs and test cases, with requirements across 6 cross-functional teams. 2 external vendor teams, operational issues resolved every month within governance policy. End-to-end SAT and UAT for CLMS and the LegalSign e-signature feature across 8 integrated source systems, through business sign-off. Power BI dashboards with real-time compliance KPIs.</dd>
             </div>
             <div>
               <dt>Delivered</dt>
-              <dd>Signed-off releases, compliance dashboards, and a path from a signed document into the system.</dd>
+              <dd>The paused platform in production in seven months, signed-off releases, and compliance dashboards tracking 2,500+ active legal cases.</dd>
             </div>
             <div>
               <dt>Impact</dt>
-              <dd>Project execution up about 30%. Time to a decision down about 20%. 50+ issues a month cleared.</dd>
+              <dd>Project execution up about 30%. Time to a decision down about 20%. 2,500+ active legal cases tracked.</dd>
             </div>
           </dl>
         </section>
 
         <div class="chapter-end">
-          <p class="yield"><span class="label">For a team</span> A regulatory file you can send, and a contract system with a signed-off release.</p>
-          <p class="tools"><span class="label">Tools</span> SQL, PySpark, SQL Server, AWS, Power BI, Jira</p>
+          <p class="yield"><span class="label">For a team</span> Data you can report on, and a compliance platform with a signed-off release.</p>
+          <p class="tools"><span class="label">Tools</span> SQL, Python, Power BI, Excel, Jira</p>
         </div>
       </div>
     </section>
@@ -235,7 +235,7 @@
         <header class="chapter-head">
           <div>
             <p class="eyebrow"><span class="mark mark-orange" aria-hidden="true"></span> Stage 03 / Institute</p>
-            <h2 class="outcome" id="institute-title">Research internship. Road-safety data pipelines.</h2>
+            <h2 class="outcome" id="institute-title">Research internship. Kubernetes analytics workspace and Spark pipelines.</h2>
           </div>
           <div class="facts">
             <p class="org">University of South Carolina · AI Institute</p>
@@ -246,24 +246,24 @@
         <dl class="star">
           <div>
             <dt>Given</dt>
-            <dd>Road-safety numbers took fourteen hours a cycle, across five state-agency sources.</dd>
+            <dd>PhD researchers and data pipelines on Azure Databricks needed a stable, reproducible workspace for government-partnered research.</dd>
           </div>
           <div>
             <dt>Did</dt>
-            <dd>I rebuilt the path in layers on Azure Databricks, from raw files to tables the team could read.</dd>
+            <dd>I deployed, managed and maintained the cloud analytics workspace on Kubernetes, and worked on the Python and Apache Spark ETL pipelines.</dd>
           </div>
           <div>
             <dt>Delivered</dt>
-            <dd>A pipeline with a place for each record, dashboards, and findings presentations. The Kubernetes research workspace stayed near 99.7% uptime.</dd>
+            <dd>A Kubernetes workspace with version-controlled code and documentation kept to academic reproducibility standards.</dd>
           </div>
           <div>
             <dt>Impact</dt>
-            <dd>2.3M+ records. Runtime down about 43%, from 14 hours to 8. Data prep down about 70%.</dd>
+            <dd>99.7% uptime. Stable, reproducible environments for researchers and pipelines.</dd>
           </div>
         </dl>
         <div class="chapter-end">
-          <p class="yield"><span class="label">For a team</span> The run finishes inside a workday.</p>
-          <p class="tools"><span class="label">Tools</span> Azure Databricks, Kubernetes</p>
+          <p class="yield"><span class="label">For a team</span> A workspace that stays up and reruns the same way.</p>
+          <p class="tools"><span class="label">Tools</span> Kubernetes, Azure Databricks, Apache Spark, Python</p>
         </div>
       </div>
     </section>
