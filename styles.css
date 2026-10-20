@@ -1411,3 +1411,76 @@ h1:focus-visible {
     forced-color-adjust: auto;
   }
 }
+
+/* Project cards: tight two-column layout */
+.project { --accent: var(--ink); }
+#lantern, #demandpulse { --accent: var(--green); }
+#cdc, #pulsepath { --accent: var(--sky); }
+#mirage, #fatigue { --accent: var(--orange); }
+#datacenter { --accent: var(--blue); }
+
+.project .chapter-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12.5rem, 15rem);
+  grid-template-areas: "head head" "star facts" "star end";
+  grid-template-rows: auto auto 1fr;
+  column-gap: clamp(1.75rem, 4vw, 3.5rem);
+}
+.project .chapter-head { display: contents; }
+.project .chapter-head > div:first-child { grid-area: head; }
+.project .outcome { max-width: 16em; }
+.project .facts {
+  grid-area: facts;
+  align-self: start;
+  margin-top: 1.5rem;
+  padding-top: 0.8rem;
+  border-top: 2px solid var(--accent);
+}
+.project .star { grid-area: star; max-width: none; }
+.project .star div:last-child dd { font-weight: 500; }
+.project .chapter-end {
+  grid-area: end;
+  align-self: start;
+  margin-top: 1.25rem;
+}
+
+.outcome .stat {
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 0.07em;
+  text-underline-offset: 0.12em;
+  text-decoration-skip-ink: none;
+}
+
+.project .repo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.project .repo .sep { display: none; }
+.project .repo a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.75rem;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+.project .repo a::after { content: "\2197"; color: var(--muted); }
+.project .repo a:hover,
+.project .repo a:focus-visible { border-color: var(--ink); }
+
+@media (max-width: 959px) {
+  .project .chapter-inner {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "head" "facts" "star" "end";
+    grid-template-rows: auto;
+  }
+  .project .facts { margin-top: 1.25rem; max-width: none; }
+  .project .chapter-end { margin-top: 1.5rem; max-width: 28rem; }
+}
