@@ -6,11 +6,16 @@
   <base href="/neelresume/">
   <title>NeelV</title>
   <meta name="description" content="Neel Vadlamudi. Data analyst in Boston. Maternal health research, bank regulatory checks, four projects.">
-  <meta name="theme-color" content="#F3F0E8">
+  <meta name="theme-color" content="#F2EAD8">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="fonts/ibm-plex-serif-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="vintage.css">
   <script src="main.js" defer></script>
+  <script src="vendor/gsap.min.js" defer></script>
+  <script src="vendor/ScrollTrigger.min.js" defer></script>
+  <script src="vendor/lenis.min.js" defer></script>
+  <script src="vintage.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
@@ -76,6 +81,8 @@
         <h1 id="content" tabindex="-1">Neel<br>Vadlamudi</h1>
         <p class="legal">Neel Vittal Bharath Vadlamudi</p>
         <p class="where">Boston, MA</p>
+        <p class="value">Data analyst who builds data pipelines and live dashboards you can check: <span class="v-stat">93.8%</span> of numbers right on a 60-question test, a Walmart sales plan within <span class="v-stat">0.67%</span>, and <span class="v-stat">22.5%</span> of one store’s empty shelves found.</p>
+        <p class="hero-actions"><a class="btn-live" href="#lantern">See projects</a> <a class="btn-ghost" href="#contact">Contact</a></p>
 
         <div class="hero-grid">
           <div class="hero-copy">
@@ -273,7 +280,7 @@
         <header class="chapter-head">
           <div>
             <p class="eyebrow"><span class="mark mark-green" aria-hidden="true"></span> Stage 04 / Lantern</p>
-            <h2 class="outcome" id="lantern-title">Lantern: <span class="stat">about 1 in 8</span> Boston subway runs finish 5+ minutes late</h2>
+            <h2 class="outcome" id="lantern-title">Lantern: <span class="stat">12.0%</span> of Boston subway trips finish 5+ minutes late</h2>
           </div>
           <div class="facts">
             <p class="org">Lantern</p>
@@ -281,6 +288,13 @@
             <p class="when">Real MBTA data, last 90 days.</p>
           </div>
         </header>
+        <figure class="live-shot">
+          <img src="assets/live/lantern.webp" width="1200" height="630" loading="lazy" decoding="async" alt="Screenshot of the live Lantern board, captured Oct 21, 2026">
+          <figcaption>Live site, captured Oct 21, 2026. Live board, refreshes daily, so its counts change.</figcaption>
+        </figure>
+        <div class="chapter-end">
+          <p class="repo"><a href="https://neelvadlamudi.github.io/lantern/" class="btn-live" target="_blank" rel="noopener noreferrer" aria-label="Open live Lantern board (opens in a new tab)">Open live</a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/NeelVadlamudi/lantern" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
+        </div>
         <dl class="star">
           <div>
             <dt>Problem</dt>
@@ -296,12 +310,9 @@
           </div>
           <div>
             <dt>What a company gets</dt>
-            <dd>Where to fix first. 12.0% of runs finished 5+ minutes late (19,108 of 158,795, last 90 days, planned shutdowns excluded).</dd>
+            <dd>Where to fix first. 12.0% of subway trips over the last 90 days finished 5+ minutes late (planned shutdowns excluded).</dd>
           </div>
         </dl>
-        <div class="chapter-end">
-          <p class="repo"><a href="https://neelvadlamudi.github.io/lantern/" target="_blank" rel="noopener noreferrer">View Lantern board<span class="vh"> (opens in a new tab)</span></a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/NeelVadlamudi/lantern" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
-        </div>
       </div>
     </section>
 
@@ -318,6 +329,13 @@
             <p class="when">Public CDC data, refreshed nightly.</p>
           </div>
         </header>
+        <figure class="live-shot">
+          <img src="assets/live/cdc.webp" width="1200" height="630" loading="lazy" decoding="async" alt="Screenshot of the live CDC Outbreak Dashboard, captured Oct 21, 2026">
+          <figcaption>Live site, captured Oct 21, 2026</figcaption>
+        </figure>
+        <div class="chapter-end">
+          <p class="repo"><a href="https://neelvadlamudi.github.io/cdc-outbreak-dashboard/" class="btn-live" target="_blank" rel="noopener noreferrer" aria-label="Open live CDC dashboard (opens in a new tab)">Open live</a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/NeelVadlamudi/cdc-outbreak-dashboard" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
+        </div>
         <dl class="star">
           <div>
             <dt>Problem</dt>
@@ -336,9 +354,6 @@
             <dd>Answers you can check: on a 60-question test, 93.8% of numbers were right and every answer traced to the data (Gemini Flash-Lite, Oct 20, 2026 run).</dd>
           </div>
         </dl>
-        <div class="chapter-end">
-          <p class="repo"><a href="https://neelvadlamudi.github.io/cdc-outbreak-dashboard/" target="_blank" rel="noopener noreferrer">View CDC dashboard<span class="vh"> (opens in a new tab)</span></a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/NeelVadlamudi/cdc-outbreak-dashboard" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
-        </div>
       </div>
     </section>
 
@@ -355,6 +370,13 @@
             <p class="when">Real M5 Walmart sales; simulated inventory.</p>
           </div>
         </header>
+        <figure class="live-shot">
+          <img src="assets/live/demandpulse.webp" width="1200" height="630" loading="lazy" decoding="async" alt="Screenshot of the live Demand Pulse board, captured Oct 21, 2026">
+          <figcaption>Live site, captured Oct 21, 2026</figcaption>
+        </figure>
+        <div class="chapter-end">
+          <p class="repo"><a href="https://neelvadlamudi.github.io/demand-pulse/" class="btn-live" target="_blank" rel="noopener noreferrer" aria-label="Open live Demand Pulse board (opens in a new tab)">Open live</a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/NeelVadlamudi/demand-pulse" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
+        </div>
         <dl class="star">
           <div>
             <dt>Problem</dt>
@@ -373,9 +395,6 @@
             <dd>A plan you can order against: 19.87% off on sales, only 0.67% high overall. 13.8% of items held over a month of stock, so trim there first.</dd>
           </div>
         </dl>
-        <div class="chapter-end">
-          <p class="repo"><a href="https://neelvadlamudi.github.io/demand-pulse/" target="_blank" rel="noopener noreferrer">View Demand Pulse board<span class="vh"> (opens in a new tab)</span></a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/NeelVadlamudi/demand-pulse" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
-        </div>
       </div>
     </section>
 
@@ -384,14 +403,21 @@
         <header class="chapter-head">
           <div>
             <p class="eyebrow"><span class="mark mark-orange" aria-hidden="true"></span> Stage 07 / Mirage</p>
-            <h2 class="outcome" id="mirage-title">Mirage: <span class="stat">22.5%</span> of one club’s shelves empty on the check day</h2>
+            <h2 class="outcome" id="mirage-title">Mirage: <span class="stat">22.5%</span> of one store’s shelves empty on the check day</h2>
           </div>
           <div class="facts">
             <p class="org">Mirage</p>
             <p class="role">Selected work, 04 / 07</p>
-            <p class="when">Synthetic club and DC data.</p>
+            <p class="when">Synthetic store and DC data.</p>
           </div>
         </header>
+        <figure class="live-shot">
+          <img src="assets/live/mirage.webp" width="1200" height="630" loading="lazy" decoding="async" alt="Screenshot of the live Mirage board, captured Oct 21, 2026">
+          <figcaption>Live site, captured Oct 21, 2026</figcaption>
+        </figure>
+        <div class="chapter-end">
+          <p class="repo"><a href="https://neelvadlamudi.github.io/mirage/" class="btn-live" target="_blank" rel="noopener noreferrer" aria-label="Open live Mirage board (opens in a new tab)">Open live</a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/NeelVadlamudi/mirage" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
+        </div>
         <dl class="star">
           <div>
             <dt>Problem</dt>
@@ -399,7 +425,7 @@
           </div>
           <div>
             <dt>What I built</dt>
-            <dd>A board that finds those shelves, names the cause, and splits DC deliveries into whole cases by club need. Synthetic data.</dd>
+            <dd>A board that finds those shelves, names the cause, and splits DC deliveries into whole cases by store need. Synthetic data.</dd>
           </div>
           <div>
             <dt>Tools</dt>
@@ -410,9 +436,6 @@
             <dd>A daily fix list: 22.5% of Everett’s shelves empty on the check day; one 98-case delivery cut items under a week of supply from 40 to 32. An audit agent answers questions about the board and scored 96.7% on a 30-question test.</dd>
           </div>
         </dl>
-        <div class="chapter-end">
-          <p class="repo"><a href="https://neelvadlamudi.github.io/mirage/" target="_blank" rel="noopener noreferrer">View Mirage board<span class="vh"> (opens in a new tab)</span></a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/NeelVadlamudi/mirage" target="_blank" rel="noopener noreferrer">View repository<span class="vh"> (opens in a new tab)</span></a></p>
-        </div>
       </div>
     </section>
 
