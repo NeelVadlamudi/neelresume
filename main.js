@@ -100,6 +100,7 @@
     const tag = event.target && event.target.tagName;
     if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
     if (event.target && event.target.isContentEditable) return;
+    if (event.target && event.target.closest && event.target.closest(".menu-open")) return;
 
     let dir = 0;
     if (event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "PageDown") dir = 1;
@@ -144,10 +145,10 @@
   window.addEventListener("resize", requestSync);
 
   const hashed = location.hash.slice(1);
-  spin.style.transition = "none";
+  if (spin) spin.style.transition = "none";
   setActive(order.includes(hashed) ? hashed : order[0]);
-  spin.getBoundingClientRect();
-  if (!reducedMotion()) spin.style.transition = "";
+  if (spin) spin.getBoundingClientRect();
+  if (spin && !reducedMotion()) spin.style.transition = "";
   requestSync();
 })();
 

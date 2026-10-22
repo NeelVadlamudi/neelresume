@@ -6,54 +6,24 @@
   <base href="/neelresume/">
   <title>NeelV</title>
   <meta name="description" content="Neel Vadlamudi. Data analyst in Boston. Maternal health research, bank regulatory checks, four projects.">
-  <meta name="theme-color" content="#F2EAD8">
+  <meta name="theme-color" content="#16171a">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="vintage.css">
+  <link rel="preload" href="fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fuego.css">
   <script src="main.js" defer></script>
   <script src="vendor/gsap.min.js" defer></script>
   <script src="vendor/ScrollTrigger.min.js" defer></script>
   <script src="vendor/lenis.min.js" defer></script>
-  <script src="vintage.js" defer></script>
+  <script src="fuego.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#content">Skip to content</a>
 
   <nav class="spear-nav" aria-label="Chapters">
     <p id="chapters-help" class="vh">Arrow keys move between chapters.</p>
-    <div class="dial" aria-hidden="true">
-      <svg class="dial-svg" viewBox="0 0 120 120">
-        <circle class="ring" cx="60" cy="60" r="57"></circle>
-        <g class="ticks" fill="none" stroke="currentColor" stroke-width="1.35" stroke-linecap="square">
-          <line data-chapter="start" x1="112" y1="60" x2="117" y2="60" transform="rotate(-76 60 60)"></line>
-          <line data-chapter="lab" x1="112" y1="60" x2="117" y2="60" transform="rotate(-64.3 60 60)"></line>
-          <line data-chapter="bank" x1="112" y1="60" x2="117" y2="60" transform="rotate(-52.6 60 60)"></line>
-          <line data-chapter="institute" x1="112" y1="60" x2="117" y2="60" transform="rotate(-40.9 60 60)"></line>
-          <line data-chapter="lantern" x1="112" y1="60" x2="117" y2="60" transform="rotate(-29.2 60 60)"></line>
-          <line data-chapter="cdc" x1="112" y1="60" x2="117" y2="60" transform="rotate(-17.5 60 60)"></line>
-          <line data-chapter="demandpulse" x1="112" y1="60" x2="117" y2="60" transform="rotate(-5.8 60 60)"></line>
-          <line data-chapter="mirage" x1="112" y1="60" x2="117" y2="60" transform="rotate(5.8 60 60)"></line>
-          <line data-chapter="pulsepath" x1="112" y1="60" x2="117" y2="60" transform="rotate(17.5 60 60)"></line>
-          <line data-chapter="datacenter" x1="112" y1="60" x2="117" y2="60" transform="rotate(29.2 60 60)"></line>
-          <line data-chapter="fatigue" x1="112" y1="60" x2="117" y2="60" transform="rotate(40.9 60 60)"></line>
-          <line data-chapter="skills" x1="112" y1="60" x2="117" y2="60" transform="rotate(52.6 60 60)"></line>
-          <line data-chapter="education" x1="112" y1="60" x2="117" y2="60" transform="rotate(64.3 60 60)"></line>
-          <line data-chapter="contact" x1="112" y1="60" x2="117" y2="60" transform="rotate(76 60 60)"></line>
-        </g>
-      </svg>
-      <div class="rotor-spin">
-        <div class="rotor">
-          <svg viewBox="0 0 100 16" aria-hidden="true">
-            <line x1="36" y1="8" x2="84" y2="8" stroke="#1A1A1A" stroke-width="2.15"></line>
-            <polygon points="99,8 84,4.7 84,11.3" fill="#1A1A1A"></polygon>
-          </svg>
-        </div>
-      </div>
-      <div class="hub">NV</div>
-    </div>
-
-    <div class="chapter-scroller">
+    <a class="brand" href="#start">NEEL V<span aria-hidden="true">.</span></a>
+    <button class="chapters-btn" type="button" aria-expanded="false" aria-controls="chapter-menu">Chapters</button>
+    <div class="chapter-scroller" id="chapter-menu">
       <ol class="chapter-list">
         <li><a href="#start" data-angle="-76" aria-current="true"><span class="mark mark-ink" aria-hidden="true"></span><span class="num">00</span> <span>Start</span></a></li>
         <li><a href="#lab" data-angle="-64.3"><span class="mark mark-green" aria-hidden="true"></span><span class="num">01</span> <span>Lab</span></a></li>
@@ -72,10 +42,13 @@
       </ol>
     </div>
     <p class="keyhint">Arrow keys move chapters</p>
+    <button class="pause" type="button" aria-pressed="false">Pause motion</button>
   </nav>
 
   <main id="top">
-    <section id="start" class="chapter hero" aria-labelledby="content">
+    <section id="start" class="chapter hero band band-light art-right no-art" aria-labelledby="content">
+      <span class="band-tab" aria-hidden="true">00 · Start</span>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <p class="eyebrow">Data Analyst / Data Scientist</p>
         <h1 id="content" tabindex="-1">Neel<br>Vadlamudi</h1>
@@ -111,7 +84,9 @@
       </div>
     </section>
 
-    <section id="lab" class="chapter" aria-labelledby="lab-title">
+    <section id="lab" class="chapter band band-dark art-left no-art" aria-labelledby="lab-title">
+      <span class="band-tab" aria-hidden="true">01 · Lab</span>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <header class="chapter-head lab-head">
           <div class="lab-lead">
@@ -171,7 +146,9 @@
       </div>
     </section>
 
-    <section id="bank" class="chapter" aria-labelledby="bank-title">
+    <section id="bank" class="chapter band band-light art-right no-art" aria-labelledby="bank-title">
+      <span class="band-tab" aria-hidden="true">02 · Bank</span>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <header class="chapter-head">
           <div>
@@ -237,7 +214,9 @@
       </div>
     </section>
 
-    <section id="institute" class="chapter" aria-labelledby="institute-title">
+    <section id="institute" class="chapter band band-dark art-left no-art" aria-labelledby="institute-title">
+      <span class="band-tab" aria-hidden="true">03 · Institute</span>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <header class="chapter-head">
           <div>
@@ -275,7 +254,10 @@
       </div>
     </section>
 
-    <section id="lantern" class="chapter project" aria-labelledby="lantern-title">
+    <section id="lantern" class="chapter project band band-light art-right has-art" aria-labelledby="lantern-title">
+      <span class="band-tab" aria-hidden="true">04 · Lantern</span>
+      <figure class="band-art"><picture><source type="image/avif" srcset="assets/art/lantern-360.avif 360w, assets/art/lantern-640.avif 640w, assets/art/lantern-820.avif 689w" sizes="(max-width: 860px) min(340px, 90vw), 520px"><img src="assets/art/lantern-640.webp" width="689" height="1081" alt="Engraving of a colonial pierced-tin lantern with a lit candle, the kind hung in Boston’s Old North Church in 1775, hanging above a subway car" loading="lazy" decoding="async"></picture></figure>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <header class="chapter-head">
           <div>
@@ -316,7 +298,10 @@
       </div>
     </section>
 
-    <section id="cdc" class="chapter project" aria-labelledby="cdc-title">
+    <section id="cdc" class="chapter project band band-dark art-left has-art" aria-labelledby="cdc-title">
+      <span class="band-tab" aria-hidden="true">05 · CDC</span>
+      <figure class="band-art"><picture><source type="image/avif" srcset="assets/art/cdc-360.avif 360w, assets/art/cdc-640.avif 640w, assets/art/cdc-820.avif 707w" sizes="(max-width: 860px) min(340px, 90vw), 520px"><img src="assets/art/cdc-640.webp" width="707" height="1074" alt="Engraving of an antique brass microscope with a spiked virus particle floating beside its lens" loading="lazy" decoding="async"></picture></figure>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <header class="chapter-head">
           <div>
@@ -357,7 +342,10 @@
       </div>
     </section>
 
-    <section id="demandpulse" class="chapter project" aria-labelledby="demandpulse-title">
+    <section id="demandpulse" class="chapter project band band-light art-right has-art" aria-labelledby="demandpulse-title">
+      <span class="band-tab" aria-hidden="true">06 · Demand Pulse</span>
+      <figure class="band-art"><picture><source type="image/avif" srcset="assets/art/demandpulse-360.avif 360w, assets/art/demandpulse-640.avif 640w, assets/art/demandpulse-820.avif 803w" sizes="(max-width: 860px) min(340px, 90vw), 520px"><img src="assets/art/demandpulse-640.webp" width="803" height="735" alt="Engraving of a supermarket shopping cart with a heartbeat pulse line running through its basket" loading="lazy" decoding="async"></picture></figure>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <header class="chapter-head">
           <div>
@@ -398,7 +386,10 @@
       </div>
     </section>
 
-    <section id="mirage" class="chapter project" aria-labelledby="mirage-title">
+    <section id="mirage" class="chapter project band band-dark art-left has-art" aria-labelledby="mirage-title">
+      <span class="band-tab" aria-hidden="true">07 · Mirage</span>
+      <figure class="band-art"><picture><source type="image/avif" srcset="assets/art/mirage-360.avif 360w, assets/art/mirage-640.avif 640w, assets/art/mirage-820.avif 770w" sizes="(max-width: 860px) min(340px, 90vw), 520px"><img src="assets/art/mirage-640.webp" width="770" height="958" alt="Engraving of warehouse shelving with boxes and several empty gaps, heat-shimmer lines rising from the floor like a mirage" loading="lazy" decoding="async"></picture></figure>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <header class="chapter-head">
           <div>
@@ -439,7 +430,10 @@
       </div>
     </section>
 
-    <section id="pulsepath" class="chapter project" aria-labelledby="pulse-title">
+    <section id="pulsepath" class="chapter project band band-light art-right has-art" aria-labelledby="pulse-title">
+      <span class="band-tab" aria-hidden="true">08 · PulsePath</span>
+      <figure class="band-art"><picture><source type="image/avif" srcset="assets/art/pulsepath-360.avif 360w, assets/art/pulsepath-640.avif 640w, assets/art/pulsepath-820.avif 751w" sizes="(max-width: 860px) min(340px, 90vw), 520px"><img src="assets/art/pulsepath-640.webp" width="751" height="769" alt="Engraving of a fitness smartwatch showing a heartbeat line, with a winding footpath leading away from it" loading="lazy" decoding="async"></picture></figure>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <header class="chapter-head">
           <div>
@@ -476,7 +470,10 @@
       </div>
     </section>
 
-    <section id="datacenter" class="chapter project" aria-labelledby="data-title">
+    <section id="datacenter" class="chapter project band band-dark art-left has-art" aria-labelledby="data-title">
+      <span class="band-tab" aria-hidden="true">09 · Datacenter</span>
+      <figure class="band-art"><picture><source type="image/avif" srcset="assets/art/datacenter-360.avif 360w, assets/art/datacenter-640.avif 640w, assets/art/datacenter-820.avif 820w" sizes="(max-width: 860px) min(340px, 90vw), 520px"><img src="assets/art/datacenter-640.webp" width="820" height="1046" alt="Engraving of a row of datacenter server racks with a high-voltage power pylon and lines behind them" loading="lazy" decoding="async"></picture></figure>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <header class="chapter-head">
           <div>
@@ -513,7 +510,10 @@
       </div>
     </section>
 
-    <section id="fatigue" class="chapter project" aria-labelledby="fatigue-title">
+    <section id="fatigue" class="chapter project band band-light art-right has-art" aria-labelledby="fatigue-title">
+      <span class="band-tab" aria-hidden="true">10 · Pitcher Fatigue</span>
+      <figure class="band-art"><picture><source type="image/avif" srcset="assets/art/fatigue-360.avif 360w, assets/art/fatigue-640.avif 640w, assets/art/fatigue-820.avif 645w" sizes="(max-width: 860px) min(340px, 90vw), 520px"><img src="assets/art/fatigue-640.webp" width="645" height="999" alt="Engraving of a baseball pitcher mid-delivery, leg kicked up and throwing arm cocked back" loading="lazy" decoding="async"></picture></figure>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <header class="chapter-head">
           <div>
@@ -550,7 +550,9 @@
       </div>
     </section>
 
-    <section id="skills" class="chapter" aria-labelledby="skills-title">
+    <section id="skills" class="chapter band band-dark art-left no-art" aria-labelledby="skills-title">
+      <span class="band-tab" aria-hidden="true">11 · Skills</span>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <p class="eyebrow"><span class="mark mark-green" aria-hidden="true"></span> Stage 11 / Skills</p>
         <h2 class="outcome" id="skills-title">Python, SQL, and the stack I use.</h2>
@@ -598,7 +600,9 @@
       </div>
     </section>
 
-    <section id="education" class="chapter" aria-labelledby="edu-title">
+    <section id="education" class="chapter band band-light art-right no-art" aria-labelledby="edu-title">
+      <span class="band-tab" aria-hidden="true">12 · Education</span>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner">
         <p class="eyebrow"><span class="mark mark-sky" aria-hidden="true"></span> Stage 12 / Education</p>
         <div class="degrees">
@@ -630,7 +634,9 @@
       </div>
     </section>
 
-    <section id="contact" class="chapter" aria-labelledby="contact-title">
+    <section id="contact" class="chapter band band-dark art-left no-art" aria-labelledby="contact-title">
+      <span class="band-tab" aria-hidden="true">13 · Contact</span>
+      <div class="dots" aria-hidden="true"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i></div>
       <div class="chapter-inner reach">
         <p class="eyebrow"><span class="mark mark-ink" aria-hidden="true"></span> Stage 13 / Contact</p>
         <div class="reach-grid">
