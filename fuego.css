@@ -212,3 +212,15 @@ html.motion-off .live-shot:hover{transform:none}
   @starting-style{.spear-nav.menu-open .chapter-scroller{opacity:0;transform:scale(.96) translateY(-4px)}}
 }
 @media (max-width:560px){.spear-nav .chapter-scroller{transform-origin:top left}}
+/* ---- Featured projects + compact "Other work" band ---- */
+.how{margin:0 0 1.4rem;max-width:62ch}
+.how .label{display:block;margin-bottom:.35rem;color:var(--dim)}
+.other-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr));gap:2rem 3rem;margin-top:1rem}
+.other-item{display:grid;grid-template-columns:88px minmax(0,1fr);gap:1.2rem;align-items:start;border-top:1px solid var(--line);padding-top:1.2rem}
+.other-art img{width:88px;height:auto;max-height:120px;object-fit:contain;border:1px solid var(--line);padding:4px}
+.other-copy{min-width:0}
+.other-item h3{margin:0 0 .5rem;font-size:.95rem;letter-spacing:.12em;line-height:1.35}
+.other-item p{font-size:.95rem}
+.other-item .when{margin-bottom:.5rem}
+.other-item .repo{margin-top:.4rem}
+@media (max-width:420px){.other-item{grid-template-columns:64px minmax(0,1fr)}.other-art img{width:64px}}
