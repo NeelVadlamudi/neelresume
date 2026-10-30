@@ -4,7 +4,7 @@
   var btn = document.querySelector(".pause");
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var paused = reduced || localStorage.getItem(KEY) === "1";
-  var lenis = null, ctx = null;
+  var ctx = null;
 
   function setUI() {
     document.documentElement.classList.toggle("motion-off", paused);
@@ -12,36 +12,32 @@
   }
 
   function start() {
-    if (!window.gsap || !window.ScrollTrigger || !window.Lenis) return;
+    if (!window.gsap || !window.ScrollTrigger) return;
     gsap.registerPlugin(ScrollTrigger);
-    lenis = new Lenis({ lerp: 0.1, anchors: true });
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add(raf);
-    gsap.ticker.lagSmoothing(0);
     ctx = gsap.context(function () {
       document.querySelectorAll(".band-art img").forEach(function (img) {
         var band = img.closest(".band");
         gsap.fromTo(img, { clipPath: "inset(0 0 100% 0)", opacity: 0.2 },
-          { clipPath: "inset(0 0 0% 0)", opacity: 1, duration: 1.6, ease: "power2.out",
+          { clipPath: "inset(0 0 0% 0)", opacity: 1, duration: 0.8, ease: "power2.out",
             scrollTrigger: { trigger: band, start: "top 75%", once: true } });
         gsap.fromTo(img, { yPercent: 6 }, { yPercent: -6, ease: "none",
           scrollTrigger: { trigger: band, start: "top bottom", end: "bottom top", scrub: true } });
       });
       document.querySelectorAll(".dots i").forEach(function (d, i) {
-        gsap.to(d, { y: (i % 2 ? -1 : 1) * (6 + (i % 4) * 3), x: (i % 3 - 1) * 4, duration: 2.6 + (i % 5) * 0.5,
-          ease: "sine.inOut", repeat: -1, yoyo: true, delay: i * 0.15 });
+        var tw = gsap.to(d, { y: (i % 2 ? -1 : 1) * (6 + (i % 4) * 3), x: (i % 3 - 1) * 4, duration: 2.6 + (i % 5) * 0.5,
+          ease: "sine.inOut", repeat: -1, yoyo: true, delay: i * 0.15, paused: true });
+        // Only drift while the band is on screen (no off-screen work every frame).
+        ScrollTrigger.create({ trigger: d.closest(".band") || d, start: "top bottom", end: "bottom top",
+          onToggle: function (st) { st.isActive ? tw.play() : tw.pause(); } });
       });
       document.querySelectorAll(".band h1, .band h2").forEach(function (h) {
-        gsap.from(h, { clipPath: "inset(0 100% 0 0)", opacity: 0, x: -12, duration: 1.2, ease: "power3.out", clearProps: "clipPath,transform",
+        gsap.from(h, { clipPath: "inset(0 100% 0 0)", opacity: 0, x: -12, duration: 0.6, ease: "power3.out", clearProps: "clipPath,transform",
           scrollTrigger: { trigger: h, start: "top 88%", once: true } });
       });
     });
   }
-  function raf(t) { if (lenis) lenis.raf(t * 1000); }
   function stop() {
     if (ctx) { ctx.revert(); ctx = null; }
-    if (window.gsap) gsap.ticker.remove(raf);
-    if (lenis) { lenis.destroy(); lenis = null; }
   }
 
   setUI();
@@ -59,7 +55,8 @@
   var nav = document.querySelector(".spear-nav"), last = 0;
   window.addEventListener("scroll", function () {
     var y = window.scrollY, off = document.documentElement.classList.contains("motion-off");
-    nav.classList.toggle("is-hidden", !off && y > 200 && y > last);
+    if (Math.abs(y - last) < 6) return; // ignore jitter so the header doesn't flicker
+    nav.classList.toggle("is-hidden", !off && !nav.classList.contains("menu-open") && y > 200 && y > last);
     last = y;
   }, { passive: true });
 })();

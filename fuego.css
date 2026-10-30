@@ -189,3 +189,26 @@ html.motion-off .band:hover .band-art,html.motion-off .band:hover .dots i{transf
 @media (hover:hover) and (min-width:861px){.live-shot:hover{transform:scale(1.6)}}
 @media (prefers-reduced-motion:reduce){.live-shot:hover{transform:none}}
 html.motion-off .live-shot:hover{transform:none}
+/* ---- Apple-skills pass (HIG + fluid-motion review): same look, calmer and more responsive motion ---- */
+/* Hover motion only on real pointers: no sticky "hover" lift after a tap on phones/tablets */
+@media not all and (hover:hover) and (pointer:fine){.band:hover .band-art,.band:hover .dots i,.band:hover .band-tab{transform:none}}
+/* Shorter, ease-out timings for things people point at (UI feedback under ~300ms); ambient art keeps a slower drift */
+.btn-live,.btn-ghost{transition-property:background-color,color!important;transition-duration:.18s!important}
+.band-tab{transition-duration:.3s}
+.live-shot{transition-duration:.35s!important}
+.band-art,.dots i{transition-duration:.5s!important}
+/* Instant press feedback on pointer-down */
+.btn-live,.btn-ghost,.pause,.chapters-btn,.copy{transition:transform .1s ease-out}
+.btn-live:active,.btn-ghost:active,.pause:active,.chapters-btn:active,.copy:active{transform:scale(.97)}
+/* Only the parallax needs a standing GPU layer; clip-path reveal is one-shot */
+.band-art img{will-change:transform}
+/* Respect "Reduce transparency" */
+@media (prefers-reduced-transparency:reduce){.spear-nav{background:var(--char);backdrop-filter:none}}
+.skip{min-height:44px;display:inline-flex;align-items:center}
+/* Chapters menu: quick fade + scale from the button (CSS transitions, so it reverses mid-flight; display stays none when closed) */
+@media (max-width:1799px){
+  .spear-nav .chapter-scroller{opacity:0;transform:scale(.96) translateY(-4px);transform-origin:top right;transition:opacity .15s ease-out,transform .15s ease-out,display .15s allow-discrete}
+  .spear-nav.menu-open .chapter-scroller{opacity:1;transform:none;transition-duration:.18s}
+  @starting-style{.spear-nav.menu-open .chapter-scroller{opacity:0;transform:scale(.96) translateY(-4px)}}
+}
+@media (max-width:560px){.spear-nav .chapter-scroller{transform-origin:top left}}
