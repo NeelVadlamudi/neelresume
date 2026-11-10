@@ -1,5 +1,3 @@
-document.documentElement.classList.add("js");
-
 const reduceQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 function reducedMotion() {
@@ -119,4 +117,7 @@ function initTimeline() {
 
 showLede();
 observeReveals();
+// Hide-until-revealed styles switch on only after the observers are running,
+// so a script error leaves every section visible.
+document.documentElement.classList.add("js");
 initTimeline();
