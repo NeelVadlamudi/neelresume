@@ -155,6 +155,9 @@ a {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   color: var(--fg);
   white-space: nowrap;
 }
@@ -202,6 +205,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 2.75rem;
   padding: 0.7em 1.2em 0.72em;
   font: inherit;
   font-size: 1rem;
