@@ -7,8 +7,12 @@
     "live": "https://neelvadlamudi.github.io/lantern/",
     "repo": "https://github.com/NeelVadlamudi/lantern",
     "shot": "assets/work/lantern",
-    "shotSize": [1600, 508],
-    "alt": "Screenshot of the live Lantern board"
+    "shotSize": [
+      1600,
+      508
+    ],
+    "alt": "Screenshot of the live Lantern board",
+    "fit": "contain"
   },
   {
     "id": "demand-pulse",
@@ -18,7 +22,10 @@
     "live": "https://neelvadlamudi.github.io/demand-pulse/",
     "repo": "https://github.com/NeelVadlamudi/demand-pulse",
     "shot": "assets/work/demand-pulse",
-    "shotSize": [1600, 1000],
+    "shotSize": [
+      1600,
+      1000
+    ],
     "alt": "Screenshot of the live Demand Pulse board"
   },
   {
@@ -29,7 +36,10 @@
     "live": "https://neelvadlamudi.github.io/cdc-outbreak-dashboard/",
     "repo": "https://github.com/NeelVadlamudi/cdc-outbreak-dashboard",
     "shot": "assets/work/cdc",
-    "shotSize": [1600, 1000],
+    "shotSize": [
+      1600,
+      1000
+    ],
     "alt": "Screenshot of the live CDC respiratory virus dashboard"
   },
   {
@@ -40,7 +50,10 @@
     "live": "https://neelvadlamudi.github.io/mirage/",
     "repo": "https://github.com/NeelVadlamudi/mirage",
     "shot": "assets/work/mirage",
-    "shotSize": [1600, 1000],
+    "shotSize": [
+      1600,
+      1000
+    ],
     "alt": "Screenshot of the live Mirage board"
   }
 ]

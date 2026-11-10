@@ -157,6 +157,8 @@ a {
 .brand {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
   min-height: 2.75rem;
   color: var(--fg);
   white-space: nowrap;
@@ -669,6 +671,13 @@ h3 {
   aspect-ratio: 16 / 10;
   object-fit: cover;
   object-position: left top;
+}
+
+/* Lantern's screenshot is a wide strip on parchment: show all of it, padded in its own paper colour. */
+.shot img[data-fit="contain"] {
+  object-fit: contain;
+  object-position: center;
+  background: #f0e7d6;
 }
 
 @media (hover: hover) and (pointer: fine) {

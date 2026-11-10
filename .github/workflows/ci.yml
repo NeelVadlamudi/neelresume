@@ -143,10 +143,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Stage the site
-        run: |
-          mkdir -p _site
-          cp index.html styles.css script.js favicon.svg .nojekyll _site/
-          cp -r fonts assets _site/
+        run: sh scripts/stage-site.sh
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

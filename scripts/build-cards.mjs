@@ -21,6 +21,8 @@ function card(project, index, suffix = '') {
   if (!existsSync(new URL(small, root))) throw new Error(`Missing ${small}. Add an 800px-wide copy of the screenshot.`);
   const lazy = index === 0 ? '' : ' loading="lazy" decoding="async"';
   const name = esc(project.title);
+  // Wide strips are shown whole (letterboxed) instead of cropped.
+  const fit = project.fit === 'contain' ? ' data-fit="contain"' : '';
   return `          <li class="card reveal" id="${esc(project.id)}${suffix}">
             <a class="shot" href="${esc(project.live)}" target="_blank" rel="noopener noreferrer">
               <span class="browser">
@@ -28,7 +30,7 @@ function card(project, index, suffix = '') {
                   <span class="browser-dots"><span></span><span></span><span></span></span>
                   <span class="browser-url">${esc(project.live)}</span>
                 </span>
-                <img src="${esc(project.shot)}.webp" srcset="${esc(small)} 800w, ${esc(project.shot)}.webp 1600w" sizes="(width < 50rem) 100vw, 36rem" width="${width}" height="${height}" alt="${esc(project.alt)}"${lazy}>
+                <img src="${esc(project.shot)}.webp" srcset="${esc(small)} 800w, ${esc(project.shot)}.webp 1600w" sizes="(width < 50rem) 100vw, 36rem" width="${width}" height="${height}" alt="${esc(project.alt)}"${fit}${lazy}>
               </span>
               <span class="sr-only"> Opens in a new tab</span>
             </a>
