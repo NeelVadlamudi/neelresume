@@ -171,6 +171,9 @@ a {
 }
 
 .nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   padding: 0.4rem 0.9rem;
   color: var(--fg);
   border: 1px solid transparent;
@@ -196,9 +199,6 @@ a {
 
 @media (width < 60rem) {
   .nav a {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
     padding-inline: 10px;
   }
 }
