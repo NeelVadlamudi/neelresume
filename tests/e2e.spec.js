@@ -38,7 +38,7 @@ test.beforeEach(async ({ page }, testInfo) => {
     problems.push(`${reason} ${request.url()}`);
   });
   page.on('response', (response) => {
-    if (!response.url().startsWith('http://127.0.0.1:4173')) return;
+    if (!response.url().startsWith(testInfo.project.use.baseURL)) return;
     if (response.status() >= 400) problems.push(`${response.status()} ${response.url()}`);
   });
   await page.goto('/');
@@ -174,11 +174,12 @@ test('every visible number is on the allowlist, and banned figures are absent', 
 
 test('reduced motion removes transitions', async ({ browser }, testInfo) => {
   const context = await browser.newContext({
+    baseURL: testInfo.project.use.baseURL,
     reducedMotion: 'reduce',
     viewport: testInfo.project.use.viewport,
   });
   const page = await context.newPage();
-  await page.goto('http://127.0.0.1:4173/');
+  await page.goto('/');
   const motion = await page.locator('.hero .btn-primary').evaluate((element) => {
     const style = getComputedStyle(element);
     const root = getComputedStyle(document.documentElement);
