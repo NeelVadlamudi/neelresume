@@ -12,7 +12,8 @@
       508
     ],
     "alt": "Screenshot of the live Lantern board",
-    "fit": "contain"
+    "fit": "contain",
+    "category": "analytics-engineering"
   },
   {
     "id": "demand-pulse",
@@ -26,7 +27,8 @@
       1600,
       1000
     ],
-    "alt": "Screenshot of the live Demand Pulse board"
+    "alt": "Screenshot of the live Demand Pulse board",
+    "category": "data-science"
   },
   {
     "id": "cdc",
@@ -40,7 +42,8 @@
       1600,
       1000
     ],
-    "alt": "Screenshot of the live CDC respiratory virus dashboard"
+    "alt": "Screenshot of the live CDC respiratory virus dashboard",
+    "category": "analytics-engineering"
   },
   {
     "id": "mirage",
@@ -54,6 +57,7 @@
       1600,
       1000
     ],
-    "alt": "Screenshot of the live Mirage board"
+    "alt": "Screenshot of the live Mirage board",
+    "category": "business-analysis"
   }
 ]

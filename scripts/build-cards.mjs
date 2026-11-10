@@ -8,6 +8,11 @@ const projects = JSON.parse(readFileSync(new URL('projects.json', root), 'utf8')
 const indexPath = new URL('index.html', root);
 const start = '<!-- cards:start -->';
 const end = '<!-- cards:end -->';
+const categories = {
+  'analytics-engineering': 'Analytics engineering',
+  'data-science': 'Data science',
+  'business-analysis': 'Business analysis',
+};
 
 const esc = (value) => String(value)
   .replaceAll('&', '&amp;')
@@ -21,6 +26,8 @@ function card(project, index, suffix = '') {
   if (!existsSync(new URL(small, root))) throw new Error(`Missing ${small}. Add an 800px-wide copy of the screenshot.`);
   const lazy = index === 0 ? '' : ' loading="lazy" decoding="async"';
   const name = esc(project.title);
+  if (!Object.hasOwn(categories, project.category)) throw new Error(`Unsupported category for ${project.id}: ${project.category}`);
+  const category = categories[project.category];
   // Wide strips are shown whole (letterboxed) instead of cropped.
   const fit = project.fit === 'contain' ? ' data-fit="contain"' : '';
   return `          <li class="card reveal" id="${esc(project.id)}${suffix}">
@@ -35,6 +42,7 @@ function card(project, index, suffix = '') {
               <span class="sr-only"> Opens in a new tab</span>
             </a>
             <div class="card-body">
+              <span class="category-tag" data-category="${esc(project.category)}">${esc(category)}</span>
               <h3 class="card-title">${name}</h3>
               <p class="card-line">${esc(project.line)}</p>
               <p class="meta">${esc(project.source)}</p>
