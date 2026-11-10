@@ -19,7 +19,7 @@ export default defineConfig({
   },
   projects: [
     { name: 'desktop', use: { viewport: desktop } },
-    { name: 'mobile', use: { viewport: mobile } },
+    { name: 'mobile', testIgnore: '**/devices.spec.js', use: { viewport: mobile } },
   ],
   webServer: {
     command: 'sh scripts/stage-site.sh && python3 -m http.server 4174 --bind 127.0.0.1 -d _site',
