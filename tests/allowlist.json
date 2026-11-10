@@ -37,6 +37,9 @@
     { "value": "2023", "source": "Current portfolio, HDFC Bank dates and the NIT Delhi degree." },
     { "value": "2024", "source": "Current portfolio, HDFC Bank dates and the UMBC degree." },
     { "value": "2025", "source": "Current portfolio, research internship dates." },
-    { "value": "2019", "source": "Current portfolio, NIT Delhi degree start." }
+    { "value": "2019", "source": "Current portfolio, NIT Delhi degree start." },
+    { "value": "96.7%", "source": "Mirage evaluation, Oct 20, 2026 run, 30-question test." },
+    { "value": "30", "source": "Mirage evaluation, 30-question test." },
+    { "value": "20", "source": "Mirage evaluation run date, Oct 20, 2026." }
   ]
 }
