@@ -10,6 +10,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://neelvadlamudi.github.io/neelresume/">
   <meta property="og:title" content="Neel Vadlamudi">
@@ -39,27 +40,89 @@
 
   <main id="content" tabindex="-1">
     <section class="hero section" id="top" aria-labelledby="hero-title">
-      <div class="container">
-        <h1 id="hero-title">Neel Vadlamudi</h1>
-        <p class="lede">I build tested data pipelines and live dashboards that refresh on their own.</p>
-        <p class="where">Boston</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="#work">See the work</a>
-          <a class="btn btn-secondary" href="mailto:v.n.v.bharath@gmail.com">Email</a>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">Neel Vadlamudi</h1>
+          <p class="lede"><span class="lede-type">I build tested data pipelines and live dashboards that refresh on their own.</span><span class="caret" aria-hidden="true"></span></p>
+          <p class="where">Boston</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#work">See the work</a>
+            <a class="btn btn-secondary" href="mailto:v.n.v.bharath@gmail.com">Email</a>
+          </div>
+        </div>
+        <div class="pipe" aria-hidden="true">
+          <div class="pipe-node">sources</div>
+          <span class="pipe-edge"><span class="pipe-flow"><span class="pipe-dot"></span></span><span class="pipe-flow is-late"><span class="pipe-dot"></span></span></span>
+          <div class="pipe-node">staging</div>
+          <span class="pipe-edge"><span class="pipe-flow"><span class="pipe-dot"></span></span><span class="pipe-flow is-late"><span class="pipe-dot"></span></span></span>
+          <div class="pipe-node">marts</div>
+          <span class="pipe-edge"><span class="pipe-flow"><span class="pipe-dot"></span></span><span class="pipe-flow is-late"><span class="pipe-dot"></span></span></span>
+          <div class="pipe-node is-tests">
+            <span>tests</span>
+            <svg class="pipe-check" viewBox="0 0 16 16" focusable="false">
+              <path d="M3.5 8.5 6.5 11.5 12.5 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span class="pipe-edge"><span class="pipe-flow"><span class="pipe-dot"></span></span><span class="pipe-flow is-late"><span class="pipe-dot"></span></span></span>
+          <div class="pipe-node">dashboard</div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="work" aria-labelledby="work-title">
+    <section class="tools" aria-label="Tools">
+      <div class="tools-mask">
+        <div class="tools-track">
+          <ul class="tools-list">
+              <li>dbt</li>
+              <li>DuckDB</li>
+              <li>SQL</li>
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>React</li>
+              <li>Tableau</li>
+              <li>T-SQL</li>
+              <li>GitHub Actions</li>
+              <li>MapLibre</li>
+          </ul>
+          <ul class="tools-list" aria-hidden="true">
+              <li>dbt</li>
+              <li>DuckDB</li>
+              <li>SQL</li>
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>React</li>
+              <li>Tableau</li>
+              <li>T-SQL</li>
+              <li>GitHub Actions</li>
+              <li>MapLibre</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section work-section" id="work" aria-labelledby="work-title">
       <div class="container">
         <h2 id="work-title">Selected work</h2>
         <p class="shot-note">Screenshots captured November 10, 2026.</p>
 
-        <article class="work" id="lantern">
+        <article class="work reveal" id="lantern">
+            <div class="work-index" aria-hidden="true">
+            <svg class="work-index-mark" viewBox="0 0 114.09 82" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M34.68 81.07Q25.77 81.07 19.49 76.24Q13.21 71.41 9.88 62.26Q6.55 53.1 6.55 40.05Q6.55 27.06 9.91 17.88Q13.26 8.7 19.54 3.81Q25.83 -1.07 34.68 -1.07Q43.54 -1.07 49.85 3.81Q56.16 8.7 59.49 17.88Q62.82 27.06 62.82 40.05Q62.82 53.05 59.52 62.23Q56.21 71.41 49.93 76.24Q43.65 81.07 34.68 81.07ZM34.68 72.16Q40.54 72.16 44.62 68.35Q48.7 64.54 50.85 57.37Q52.99 50.2 52.99 40.05Q52.99 29.85 50.85 22.63Q48.7 15.41 44.62 11.6Q40.54 7.79 34.68 7.79Q28.83 7.79 24.75 11.62Q20.67 15.46 18.52 22.66Q16.38 29.85 16.38 40.05Q16.38 50.2 18.52 57.37Q20.67 64.54 24.75 68.35Q28.83 72.16 34.68 72.16Z"/>
+              <path fill="currentColor" d="M104.43 0V80H94.39V9.45H93.85L74.52 23.79V12.83L91.92 0Z"/>
+            </svg>
+            </div>
           <div class="work-copy">
             <h3>Lantern</h3>
             <p>Which hours run late most often, and which stations cost riders the most time. A daily MBTA reliability board, built with dbt and DuckDB. Tests gate each refresh. From August 11 to November 8, 2026, measured as run time over schedule, 11.8% of train runs across all days and 12.6% on weekdays were late. Planned service changes are left out.</p>
             <p class="meta">Real MBTA data. dbt, DuckDB, SQL, GitHub Actions, MapLibre.</p>
+            <ul class="tags">
+              <li>dbt</li>
+              <li>DuckDB</li>
+              <li>SQL</li>
+              <li>GitHub Actions</li>
+              <li>MapLibre</li>
+            </ul>
             <div class="actions">
               <a class="btn btn-primary" href="https://neelvadlamudi.github.io/lantern/" target="_blank" rel="noopener noreferrer">Open live<span class="sr-only"> Lantern (opens in a new tab)</span></a>
               <a class="btn btn-ghost" href="https://github.com/NeelVadlamudi/lantern" target="_blank" rel="noopener noreferrer">Repository<span class="sr-only"> for Lantern (opens in a new tab)</span></a>
@@ -67,13 +130,25 @@
           </div>
           <div class="work-media">
             <a class="shot" href="https://neelvadlamudi.github.io/lantern/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/work/lantern.webp" width="1600" height="508" alt="Screenshot of the live Lantern board">
+              <span class="browser">
+                <span class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dots"><span></span><span></span><span></span></span>
+                  <span class="browser-url">https://neelvadlamudi.github.io/lantern/</span>
+                </span>
+                <img src="assets/work/lantern.webp" width="1600" height="508" alt="Screenshot of the live Lantern board">
+              </span>
               <span class="sr-only"> Opens in a new tab</span>
             </a>
           </div>
         </article>
 
-        <article class="work is-reversed" id="demand-pulse">
+        <article class="work is-reversed reveal" id="demand-pulse">
+            <div class="work-index" aria-hidden="true">
+            <svg class="work-index-mark" viewBox="0 0 136.43 82" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M34.68 81.07Q25.77 81.07 19.49 76.24Q13.21 71.41 9.88 62.26Q6.55 53.1 6.55 40.05Q6.55 27.06 9.91 17.88Q13.26 8.7 19.54 3.81Q25.83 -1.07 34.68 -1.07Q43.54 -1.07 49.85 3.81Q56.16 8.7 59.49 17.88Q62.82 27.06 62.82 40.05Q62.82 53.05 59.52 62.23Q56.21 71.41 49.93 76.24Q43.65 81.07 34.68 81.07ZM34.68 72.16Q40.54 72.16 44.62 68.35Q48.7 64.54 50.85 57.37Q52.99 50.2 52.99 40.05Q52.99 29.85 50.85 22.63Q48.7 15.41 44.62 11.6Q40.54 7.79 34.68 7.79Q28.83 7.79 24.75 11.62Q20.67 15.46 18.52 22.66Q16.38 29.85 16.38 40.05Q16.38 50.2 18.52 57.37Q20.67 64.54 24.75 68.35Q28.83 72.16 34.68 72.16Z"/>
+              <path fill="currentColor" d="M77.64 80V72.64L104.21 43.81Q108.67 38.98 111.62 35.33Q114.58 31.68 116.08 28.38Q117.58 25.07 117.58 21.37Q117.58 17.18 115.6 14.12Q113.61 11.06 110.23 9.42Q106.85 7.79 102.55 7.79Q97.99 7.79 94.63 9.64Q91.28 11.49 89.45 14.85Q87.62 18.2 87.62 22.71H77.85Q77.85 15.62 81.13 10.26Q84.4 4.89 90.04 1.91Q95.68 -1.07 102.82 -1.07Q109.96 -1.07 115.46 1.91Q120.97 4.89 124.11 9.93Q127.25 14.98 127.25 21.26Q127.25 25.61 125.69 29.72Q124.13 33.83 120.21 39.03Q116.3 44.24 109.21 51.76L91.7 70.39V71.03H128.59V80Z"/>
+            </svg>
+            </div>
           <div class="work-copy">
             <h3>Demand Pulse</h3>
             <p>Walmart sales forecasting and inventory planning, using real M5 sales and simulated inventory. On the holdout from April 25 to May 22, 2016, the plan missed sales by 19.87% and ran 0.67% high. Average cover was 3.25 weeks. On the simulated inventory, 13.8% of items had more than four weeks of cover.</p>
@@ -85,17 +160,36 @@
           </div>
           <div class="work-media">
             <a class="shot" href="https://neelvadlamudi.github.io/demand-pulse/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/work/demand-pulse.webp" width="1600" height="1000" alt="Screenshot of the live Demand Pulse board" loading="lazy" decoding="async">
+              <span class="browser">
+                <span class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dots"><span></span><span></span><span></span></span>
+                  <span class="browser-url">https://neelvadlamudi.github.io/demand-pulse/</span>
+                </span>
+                <img src="assets/work/demand-pulse.webp" width="1600" height="1000" alt="Screenshot of the live Demand Pulse board" loading="lazy" decoding="async">
+              </span>
               <span class="sr-only"> Opens in a new tab</span>
             </a>
           </div>
         </article>
 
-        <article class="work" id="cdc">
+        <article class="work reveal" id="cdc">
+            <div class="work-index" aria-hidden="true">
+            <svg class="work-index-mark" viewBox="0 0 137.29 82" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M34.68 81.07Q25.77 81.07 19.49 76.24Q13.21 71.41 9.88 62.26Q6.55 53.1 6.55 40.05Q6.55 27.06 9.91 17.88Q13.26 8.7 19.54 3.81Q25.83 -1.07 34.68 -1.07Q43.54 -1.07 49.85 3.81Q56.16 8.7 59.49 17.88Q62.82 27.06 62.82 40.05Q62.82 53.05 59.52 62.23Q56.21 71.41 49.93 76.24Q43.65 81.07 34.68 81.07ZM34.68 72.16Q40.54 72.16 44.62 68.35Q48.7 64.54 50.85 57.37Q52.99 50.2 52.99 40.05Q52.99 29.85 50.85 22.63Q48.7 15.41 44.62 11.6Q40.54 7.79 34.68 7.79Q28.83 7.79 24.75 11.62Q20.67 15.46 18.52 22.66Q16.38 29.85 16.38 40.05Q16.38 50.2 18.52 57.37Q20.67 64.54 24.75 68.35Q28.83 72.16 34.68 72.16Z"/>
+              <path fill="currentColor" d="M103.46 81.07Q95.62 81.07 89.56 78.39Q83.49 75.7 79.92 70.93Q76.35 66.15 76.08 59.81H86.39Q86.71 63.62 88.99 66.39Q91.28 69.15 95.01 70.63Q98.74 72.11 103.3 72.11Q108.35 72.11 112.24 70.36Q116.13 68.62 118.39 65.45Q120.64 62.28 120.64 58.15Q120.64 53.8 118.47 50.5Q116.3 47.19 112.16 45.32Q108.03 43.44 102.07 43.44H95.57V34.58H102.07Q106.74 34.58 110.31 32.89Q113.88 31.19 115.87 28.13Q117.85 25.07 117.85 20.94Q117.85 16.97 116.11 14.01Q114.36 11.06 111.14 9.42Q107.92 7.79 103.57 7.79Q99.49 7.79 95.92 9.26Q92.35 10.74 90.07 13.48Q87.79 16.21 87.62 20.13H77.8Q78.01 13.85 81.56 9.07Q85.1 4.3 90.93 1.61Q96.75 -1.07 103.79 -1.07Q111.25 -1.07 116.64 1.93Q122.04 4.94 124.94 9.83Q127.84 14.71 127.84 20.4Q127.84 27.17 124.27 31.89Q120.7 36.62 114.58 38.44V39.09Q119.68 39.89 123.3 42.52Q126.93 45.15 128.83 49.18Q130.74 53.21 130.74 58.26Q130.74 64.81 127.19 69.96Q123.65 75.11 117.48 78.09Q111.3 81.07 103.46 81.07Z"/>
+            </svg>
+            </div>
           <div class="work-copy">
             <h3>CDC</h3>
             <p>Respiratory illness monitoring on public CDC data, with answers traceable to the underlying data. The dashboard refreshes nightly.</p>
             <p class="meta">Public CDC data. Python, FastAPI, DuckDB, React, GitHub Actions.</p>
+            <ul class="tags">
+              <li>Python</li>
+              <li>FastAPI</li>
+              <li>DuckDB</li>
+              <li>React</li>
+              <li>GitHub Actions</li>
+            </ul>
             <div class="actions">
               <a class="btn btn-primary" href="https://neelvadlamudi.github.io/cdc-outbreak-dashboard/" target="_blank" rel="noopener noreferrer">Open live<span class="sr-only"> CDC (opens in a new tab)</span></a>
               <a class="btn btn-ghost" href="https://github.com/NeelVadlamudi/cdc-outbreak-dashboard" target="_blank" rel="noopener noreferrer">Repository<span class="sr-only"> for CDC (opens in a new tab)</span></a>
@@ -103,17 +197,35 @@
           </div>
           <div class="work-media">
             <a class="shot" href="https://neelvadlamudi.github.io/cdc-outbreak-dashboard/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/work/cdc.webp" width="1600" height="1000" alt="Screenshot of the live CDC respiratory virus dashboard" loading="lazy" decoding="async">
+              <span class="browser">
+                <span class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dots"><span></span><span></span><span></span></span>
+                  <span class="browser-url">https://neelvadlamudi.github.io/cdc-outbreak-dashboard/</span>
+                </span>
+                <img src="assets/work/cdc.webp" width="1600" height="1000" alt="Screenshot of the live CDC respiratory virus dashboard" loading="lazy" decoding="async">
+              </span>
               <span class="sr-only"> Opens in a new tab</span>
             </a>
           </div>
         </article>
 
-        <article class="work is-reversed" id="mirage">
+        <article class="work is-reversed reveal" id="mirage">
+            <div class="work-index" aria-hidden="true">
+            <svg class="work-index-mark" viewBox="0 0 140.40 82" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M34.68 81.07Q25.77 81.07 19.49 76.24Q13.21 71.41 9.88 62.26Q6.55 53.1 6.55 40.05Q6.55 27.06 9.91 17.88Q13.26 8.7 19.54 3.81Q25.83 -1.07 34.68 -1.07Q43.54 -1.07 49.85 3.81Q56.16 8.7 59.49 17.88Q62.82 27.06 62.82 40.05Q62.82 53.05 59.52 62.23Q56.21 71.41 49.93 76.24Q43.65 81.07 34.68 81.07ZM34.68 72.16Q40.54 72.16 44.62 68.35Q48.7 64.54 50.85 57.37Q52.99 50.2 52.99 40.05Q52.99 29.85 50.85 22.63Q48.7 15.41 44.62 11.6Q40.54 7.79 34.68 7.79Q28.83 7.79 24.75 11.62Q20.67 15.46 18.52 22.66Q16.38 29.85 16.38 40.05Q16.38 50.2 18.52 57.37Q20.67 64.54 24.75 68.35Q28.83 72.16 34.68 72.16Z"/>
+              <path fill="currentColor" d="M75.81 63.73V55.41L110.82 0H116.99V12.78H112.86L86.71 54.12V54.77H134.07V63.73ZM113.45 80V61.26L113.5 57.34V0H123.22V80Z"/>
+            </svg>
+            </div>
           <div class="work-copy">
             <h3>Mirage</h3>
             <p>A shelf-availability and replenishment board. It diagnoses gaps and allocates deliveries in whole cases. The store and distribution-center data is synthetic. On the September 22, 2026 snapshot, 22.5% of shelves at the Everett store were empty (9 of 40). Its question-answering layer scored 96.7% on a 30-question test (Oct 20, 2026 run).</p>
             <p class="meta">Synthetic store and distribution-center data. SQL, T-SQL, Python, Tableau.</p>
+            <ul class="tags">
+              <li>SQL</li>
+              <li>T-SQL</li>
+              <li>Python</li>
+              <li>Tableau</li>
+            </ul>
             <div class="actions">
               <a class="btn btn-primary" href="https://neelvadlamudi.github.io/mirage/" target="_blank" rel="noopener noreferrer">Open live<span class="sr-only"> Mirage (opens in a new tab)</span></a>
               <a class="btn btn-ghost" href="https://github.com/NeelVadlamudi/mirage" target="_blank" rel="noopener noreferrer">Repository<span class="sr-only"> for Mirage (opens in a new tab)</span></a>
@@ -121,7 +233,13 @@
           </div>
           <div class="work-media">
             <a class="shot" href="https://neelvadlamudi.github.io/mirage/" target="_blank" rel="noopener noreferrer">
-              <img src="assets/work/mirage.webp" width="1600" height="1000" alt="Screenshot of the live Mirage board" loading="lazy" decoding="async">
+              <span class="browser">
+                <span class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dots"><span></span><span></span><span></span></span>
+                  <span class="browser-url">https://neelvadlamudi.github.io/mirage/</span>
+                </span>
+                <img src="assets/work/mirage.webp" width="1600" height="1000" alt="Screenshot of the live Mirage board" loading="lazy" decoding="async">
+              </span>
               <span class="sr-only"> Opens in a new tab</span>
             </a>
           </div>
@@ -132,55 +250,80 @@
     <section class="section" id="experience" aria-labelledby="experience-title">
       <div class="container">
         <h2 id="experience-title">Experience</h2>
-        <div class="roles">
-          <article class="role">
-            <div class="role-top">
-              <h3>Brigham and Women’s Hospital, Kovacheva Lab</h3>
-              <p class="when">Jun 2026–Present</p>
+        <div class="timeline">
+          <svg class="timeline-svg" aria-hidden="true" focusable="false"></svg>
+
+          <article class="tl-item tl-work reveal" data-step="bwh">
+            <span class="tl-node is-current" aria-hidden="true"></span>
+            <div class="tl-card">
+              <div class="role-top">
+                <h3>Brigham and Women’s Hospital, Kovacheva Lab</h3>
+                <p class="when">Jun 2026–Present</p>
+              </div>
+              <p class="meta">Research Assistant I · Boston · Longwood Medical Area</p>
+              <p>I build Python and SQL pipelines, run clinical data QC, prepare clinician review files, and keep maternal-risk model code reusable. The work is under Dr. Vesela P. Kovacheva, MD, PhD. The lab is Harvard Medical School affiliated and part of Mass General Brigham. It includes 40,000+ clinical notes turned into review data, on postpartum hemorrhage, post-dural puncture headache, preeclampsia, and patient-AI familiarity. The data types are EHR, clinical notes, ultrasound, and patient-reported. Tools include Python, SQL, PostgreSQL, REDCap, Excel, TensorFlow, and GPU workflows.</p>
             </div>
-            <p class="meta">Research Assistant I · Boston · Longwood Medical Area</p>
-            <p>I build Python and SQL pipelines, run clinical data QC, prepare clinician review files, and keep maternal-risk model code reusable. The work is under Dr. Vesela P. Kovacheva, MD, PhD. The lab is Harvard Medical School affiliated and part of Mass General Brigham. It includes 40,000+ clinical notes turned into review data, on postpartum hemorrhage, post-dural puncture headache, preeclampsia, and patient-AI familiarity. The data types are EHR, clinical notes, ultrasound, and patient-reported. Tools include Python, SQL, PostgreSQL, REDCap, Excel, TensorFlow, and GPU workflows.</p>
           </article>
 
-          <article class="role">
-            <div class="role-top">
-              <h3>University of South Carolina · AI Institute</h3>
-              <p class="when">May 2025–Aug 2025</p>
+          <article class="tl-item tl-work reveal" data-step="usc">
+            <span class="tl-node" aria-hidden="true"></span>
+            <div class="tl-card">
+              <div class="role-top">
+                <h3>University of South Carolina · AI Institute</h3>
+                <p class="when">May 2025–Aug 2025</p>
+              </div>
+              <p class="meta">Data Infrastructure Research Assistant, internship</p>
+              <p>I maintained a Kubernetes analytics workspace and Python and Apache Spark ETL pipelines on Azure Databricks, and wrote the documentation researchers need to rerun the work.</p>
             </div>
-            <p class="meta">Data Infrastructure Research Assistant, internship</p>
-            <p>I maintained a Kubernetes analytics workspace and Python and Apache Spark ETL pipelines on Azure Databricks, and wrote the documentation researchers need to rerun the work.</p>
           </article>
 
-          <article class="role">
-            <div class="role-top">
-              <h3>HDFC Bank</h3>
-              <p class="when">Jun 2023–Jul 2024 · Mumbai</p>
+          <article class="tl-item tl-work reveal" data-step="hdfc">
+            <span class="tl-node" aria-hidden="true"></span>
+            <div class="tl-card">
+              <div class="role-top">
+                <h3>HDFC Bank</h3>
+                <p class="when">Jun 2023–Jul 2024 · Mumbai</p>
+              </div>
+              <div class="tl-subs">
+                <div class="tl-sub">
+                  <span class="tl-node is-sub" aria-hidden="true"></span>
+                  <p class="meta">Financial Systems Analyst, Jun 2023–Dec 2023</p>
+                </div>
+                <div class="tl-sub">
+                  <span class="tl-node is-sub" aria-hidden="true"></span>
+                  <p class="meta">Business Analyst, Project Manager, Jan 2024–Jul 2024</p>
+                </div>
+              </div>
+              <p>I built SQL and Python validation and Power BI and Excel reporting for finance, compliance, and operations: data accuracy up about 30%, manual reporting down about 40%, and turnaround down about 25%. I then coordinated requirements, SAT and UAT, and the release of the contracts and litigation compliance platform. Dashboards for that release tracked 2,500+ active legal cases. Project execution improved about 30%, and time to a decision fell about 20%.</p>
             </div>
-            <p class="meta">Financial Systems Analyst, Jun 2023–Dec 2023</p>
-            <p class="meta">Business Analyst, Project Manager, Jan 2024–Jul 2024</p>
-            <p>I built SQL and Python validation and Power BI and Excel reporting for finance, compliance, and operations: data accuracy up about 30%, manual reporting down about 40%, and turnaround down about 25%. I then coordinated requirements, SAT and UAT, and the release of the contracts and litigation compliance platform, which reached production in seven months. Dashboards for that release tracked 2,500+ active legal cases. Project execution improved about 30%, and time to a decision fell about 20%.</p>
           </article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" id="education" aria-labelledby="education-title">
-      <div class="container">
-        <h2 id="education-title">Education</h2>
-        <div class="roles">
-          <article class="role">
-            <div class="role-top">
-              <h3>University of Maryland Baltimore County</h3>
-              <p class="when">Aug 2024–May 2026</p>
+          <div class="tl-edu-head" id="education">
+            <h2 id="education-title">Education</h2>
+          </div>
+
+          <article class="tl-item tl-edu reveal" data-step="umbc">
+            <span class="tl-node is-edu" aria-hidden="true"></span>
+            <div class="tl-card">
+              <p class="tl-kicker" aria-hidden="true">Education</p>
+              <div class="role-top">
+                <h3>University of Maryland Baltimore County</h3>
+                <p class="when">Aug 2024–May 2026</p>
+              </div>
+              <p class="meta">Master of Professional Studies in Data Science</p>
             </div>
-            <p class="meta">Master of Professional Studies in Data Science</p>
           </article>
-          <article class="role">
-            <div class="role-top">
-              <h3>National Institute of Technology Delhi</h3>
-              <p class="when">Aug 2019–May 2023</p>
+
+          <article class="tl-item tl-edu reveal" data-step="nit">
+            <span class="tl-node is-edu" aria-hidden="true"></span>
+            <div class="tl-card">
+              <p class="tl-kicker" aria-hidden="true">Education</p>
+              <div class="role-top">
+                <h3>National Institute of Technology Delhi</h3>
+                <p class="when">Aug 2019–May 2023</p>
+              </div>
+              <p class="meta">Bachelor of Technology in Computer Science and Engineering</p>
             </div>
-            <p class="meta">Bachelor of Technology in Computer Science and Engineering</p>
           </article>
         </div>
       </div>
