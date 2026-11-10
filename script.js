@@ -25,10 +25,15 @@ function observeReveals() {
         observer.unobserve(entry.target);
       }
     },
-    { threshold: 0.16, rootMargin: "0px 0px -10% 0px" },
+    { threshold: 0 },
   );
 
   items.forEach((item, index) => {
+    const box = item.getBoundingClientRect();
+    if (box.top < window.innerHeight && box.bottom > 0) {
+      item.setAttribute("data-visible", "");
+      return;
+    }
     item.style.transitionDelay = `${(index % 5) * 50}ms`;
     observer.observe(item);
   });
