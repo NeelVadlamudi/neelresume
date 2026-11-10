@@ -198,3 +198,14 @@ test('reduced motion removes transitions', async ({ browser }, testInfo) => {
   })).toBe(true);
   await context.close();
 });
+
+test('nothing on the first screen stays hidden without scrolling', async ({ page }) => {
+  await page.waitForTimeout(1200);
+  const hidden = await page.evaluate(() => [...document.querySelectorAll('.reveal')]
+    .filter((element) => {
+      const box = element.getBoundingClientRect();
+      return box.top < window.innerHeight && box.bottom > 0 && Number.parseFloat(getComputedStyle(element).opacity) < 0.99;
+    })
+    .map((element) => element.id || element.className));
+  expect(hidden).toEqual([]);
+});
