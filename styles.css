@@ -16,7 +16,7 @@
 
   /* Okabe-Ito sky blue, bluish green and orange, toned for small chips. */
   --tag-analytics-engineering: #719cb4;
-  --tag-data-science: #479b80;
+  --tag-data-science: #52a98c;
   --tag-business-analysis: #b89a58;
   --tag-text: var(--bg);
 
@@ -1030,7 +1030,7 @@ h3 {
   line-height: 1.4;
   color: var(--tag-text);
   background: var(--tag-bg);
-  border: 1px solid currentcolor;
+  border: 1px solid var(--tag-bg);
   border-radius: 999px;
 }
 
