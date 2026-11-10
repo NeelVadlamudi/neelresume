@@ -285,6 +285,34 @@ a {
   }
 }
 
+@media (width < 26rem) {
+  .header-bar {
+    gap: 0;
+  }
+
+  .nav a {
+    padding-inline: 7px;
+  }
+
+  .header-bar .btn {
+    margin-left: 2px;
+  }
+}
+
+@media (width < 24rem) {
+  .site-header .header-bar {
+    padding-inline: 16px;
+  }
+
+  .nav a {
+    padding-inline: 5px;
+  }
+
+  .brand {
+    font-size: 0.875rem;
+  }
+}
+
 main {
   padding-top: var(--header-h);
 }
