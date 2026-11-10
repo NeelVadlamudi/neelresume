@@ -15,6 +15,9 @@
   --header-h: 4rem;
   --g: 0.75rem;
   --v: 1.5rem;
+  --pad-x: clamp(1.25rem, 5vw, 2.5rem);
+  --section-y: clamp(3.5rem, 9vw, 7rem);
+  --gap: clamp(1rem, 2.5vw, 1.75rem);
   --duration: 160ms;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
@@ -123,7 +126,7 @@ a {
   width: 100%;
   max-width: var(--max);
   margin-inline: auto;
-  padding-inline: calc(var(--g) * 2.25);
+  padding-inline: var(--pad-x);
 }
 
 .site-header {
@@ -285,40 +288,12 @@ a {
   }
 }
 
-@media (width < 26rem) {
-  .header-bar {
-    gap: 0;
-  }
-
-  .nav a {
-    padding-inline: 7px;
-  }
-
-  .header-bar .btn {
-    margin-left: 2px;
-  }
-}
-
-@media (width < 24rem) {
-  .site-header .header-bar {
-    padding-inline: 16px;
-  }
-
-  .nav a {
-    padding-inline: 5px;
-  }
-
-  .brand {
-    font-size: 0.875rem;
-  }
-}
-
 main {
   padding-top: var(--header-h);
 }
 
 .section {
-  padding-block: calc(var(--v) * 4.5);
+  padding-block: var(--section-y);
 }
 
 h1,
@@ -516,11 +491,6 @@ h3 {
   to { transform: translateX(100%); }
 }
 
-@keyframes pipe-flow-y {
-  from { transform: translateY(0); }
-  to { transform: translateY(100%); }
-}
-
 @keyframes pipe-dot-fade {
   0%,
   8% { opacity: 0; }
@@ -534,35 +504,27 @@ h3 {
 
 @media (width < 60rem) {
   .pipe {
-    flex-direction: column;
-    max-width: 11rem;
-    margin-top: 2.25rem;
+    max-width: 34rem;
+    margin-top: clamp(1.75rem, 5vw, 2.5rem);
     margin-inline: auto;
   }
+}
 
+@media (width < 40rem) {
   .pipe-node {
-    font-size: 0.6875rem;
-    padding-inline: 0.6rem;
+    padding: 0.32rem 0.45rem;
+    font-size: 0.625rem;
+    letter-spacing: 0.02em;
+  }
+
+  .pipe-check {
+    width: 0.7rem;
+    height: 0.7rem;
   }
 
   .pipe-edge {
-    flex: 0 0 1.85rem;
-    width: 0.5rem;
-    min-width: 0;
-    height: 1.85rem;
-    align-self: center;
-  }
-
-  .pipe-edge::before {
-    inset: 0 auto 0 50%;
-    width: 0;
-    height: auto;
-    border-top: 0;
-    border-left: 1.5px dotted color-mix(in oklab, var(--fg) 28%, transparent);
-  }
-
-  .pipe-flow {
-    animation-name: pipe-flow-y;
+    flex-basis: 0.75rem;
+    min-width: 0.35rem;
   }
 }
 
@@ -596,7 +558,7 @@ h3 {
 }
 
 .tools-mask {
-  padding-inline: calc(var(--g) * 2.25);
+  padding-inline: var(--pad-x);
 }
 
 .tools-track {
@@ -647,65 +609,6 @@ h3 {
   pointer-events: none;
   content: "";
   background: radial-gradient(ellipse at 50% 18%, color-mix(in oklab, var(--accent) 11%, transparent), transparent 68%);
-}
-
-.work {
-  position: relative;
-  display: grid;
-  gap: 1.15rem;
-  align-items: start;
-  margin-top: calc(var(--v) * 3.25);
-}
-
-.work-index {
-  position: absolute;
-  top: -0.4rem;
-  left: -0.15rem;
-  z-index: 0;
-  width: 6.4rem;
-  color: var(--fg);
-  pointer-events: none;
-  opacity: 0.09;
-}
-
-.work-index-mark {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.work-copy,
-.work-media {
-  position: relative;
-  z-index: 1;
-  min-width: 0;
-}
-
-.work-copy p {
-  max-width: 62ch;
-  margin-top: calc(var(--v) * 0.75);
-}
-
-.work-copy .actions {
-  margin-top: var(--v);
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: 0.85rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.tags li {
-  padding: 0.25rem 0.65rem;
-  font-size: 0.75rem;
-  color: var(--muted);
-  letter-spacing: 0.02em;
-  border: 1px solid var(--line);
-  border-radius: 999px;
 }
 
 .shot {
@@ -759,46 +662,23 @@ h3 {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: left top;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .shot {
+  .card {
     transition:
       transform 200ms var(--ease-out),
+      border-color 200ms var(--ease-out),
       box-shadow 200ms var(--ease-out);
   }
 
-  .shot:hover {
-    box-shadow: 0 26px 52px rgb(0 0 0 / 0.42);
-    transform: translateY(-5px) scale(1.012);
-  }
-
-  .shot:active {
-    transform: scale(0.985);
-  }
-}
-
-@media (width >= 60rem) {
-  .work {
-    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.28fr);
-    gap: 1.25rem 3rem;
-  }
-
-  .work.is-reversed {
-    grid-template-columns: minmax(0, 1.28fr) minmax(0, 0.92fr);
-  }
-
-  .work.is-reversed .work-copy {
-    order: 2;
-  }
-
-  .work.is-reversed .work-media {
-    order: 1;
-  }
-
-  .work.is-reversed .work-index {
-    right: -0.15rem;
-    left: auto;
+  .card:hover {
+    border-color: var(--line-strong);
+    box-shadow: 0 22px 48px rgb(0 0 0 / 0.38);
+    transform: translateY(-3px);
   }
 }
 
@@ -1068,5 +948,98 @@ h3 {
     opacity: 1;
     clip-path: none;
     transform: none;
+  }
+}
+
+/* Project cards: one template, any number of projects, any width. */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
+  gap: var(--gap);
+  margin: clamp(1.75rem, 4vw, 2.5rem) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: card;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  counter-increment: card;
+}
+
+.card .shot {
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: clamp(1.1rem, 3vw, 1.5rem);
+}
+
+.card-body::before {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  content: counter(card, decimal-leading-zero);
+}
+
+.card-title {
+  font-size: clamp(1.15rem, 0.6vw + 1rem, 1.3rem);
+}
+
+.card-line {
+  display: -webkit-box;
+  min-height: calc(1.55em * 4);
+  overflow: hidden;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+}
+
+.card .meta {
+  display: -webkit-box;
+  min-height: calc(1.5em * 2);
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.card .actions {
+  margin-top: auto;
+  padding-top: 0.4rem;
+}
+
+/* Phones: short brand mark so the header never crowds. */
+.brand-short {
+  display: none;
+  letter-spacing: 0.04em;
+}
+
+@media (width < 40rem) {
+  .brand-full {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .brand-short {
+    display: inline;
   }
 }
