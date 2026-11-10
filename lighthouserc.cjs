@@ -1,5 +1,8 @@
 const settings = {
-  chromeFlags: ['--no-sandbox', '--disable-gpu', '--headless=new'],
+  // A string, not an array. LHCI concatenates this onto the Chrome command,
+  // and an array turns into one comma-joined token, so --no-sandbox never
+  // arrives. GitHub's runners refuse to start Chrome without it.
+  chromeFlags: '--no-sandbox --disable-gpu --disable-dev-shm-usage',
   onlyCategories: ['performance', 'accessibility', 'best-practices', 'seo'],
 };
 
