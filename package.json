@@ -1,0 +1,22 @@
+{
+  "name": "neelresume",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate:html": "html-validate index.html",
+    "lint:css": "stylelint styles.css",
+    "check:links": "node scripts/check-links.mjs",
+    "test:a11y": "playwright test tests/a11y.spec.js",
+    "test:e2e": "playwright test tests/e2e.spec.js",
+    "lhci": "lhci autorun",
+    "check": "npm run validate:html && npm run lint:css && npm run check:links && npm run test:a11y && npm run test:e2e && npm run lhci"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.56.1",
+    "html-validate": "^9.7.1",
+    "stylelint": "^16.25.0",
+    "stylelint-config-standard": "^38.0.0"
+  }
+}

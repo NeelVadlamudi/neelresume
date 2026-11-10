@@ -1,0 +1,9 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "media-feature-range-notation": "context",
+    "font-family-name-quotes": "always-where-recommended",
+    "property-no-vendor-prefix": null,
+    "alpha-value-notation": "number"
+  }
+}

@@ -1,21 +1,25 @@
 # neelresume
 
-My portfolio site: [neelvadlamudi.github.io/neelresume](https://neelvadlamudi.github.io/neelresume/)
+Portfolio site: [neelvadlamudi.github.io/neelresume](https://neelvadlamudi.github.io/neelresume/)
 
-It covers my work in data and analytics engineering, my experience at Brigham and Women's Hospital (Harvard Medical School) and HDFC Bank, and my projects, starting with Lantern, a dbt and DuckDB pipeline on daily MBTA subway data.
-
-## How it's built
-
-Plain HTML, CSS and JavaScript with no build step, served by GitHub Pages from `main`. Fonts and the GSAP animation library are stored in the repo, so the site doesn't depend on outside CDNs. Animations turn off when a visitor's system asks for reduced motion.
+Plain HTML and CSS, served by GitHub Pages. The type is [Inter](https://github.com/rsms/inter), self-hosted, under the SIL Open Font License (`fonts/OFL-Inter.txt`).
 
 ## Run it locally
 
 ```
-python3 -m http.server 8000
+python3 -m http.server 4173
 ```
 
-Then open http://localhost:8000.
+Then open http://127.0.0.1:4173.
 
-## Contact
+## Checks
 
-[LinkedIn](https://www.linkedin.com/in/neel109) · [GitHub](https://github.com/NeelVadlamudi)
+```
+npm ci
+npx playwright install --with-deps chromium
+npm run check
+```
+
+GitHub Actions runs HTML validation, CSS lint, the link checker, axe, Lighthouse, and Playwright on every pull request and push. The Pages deploy job runs only after those checks pass on `main`.
+
+Publishing through that job needs the repository Pages source set to GitHub Actions. Until then, GitHub still publishes the `main` branch directly.
