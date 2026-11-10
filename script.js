@@ -6,47 +6,8 @@ function reducedMotion() {
   return reduceQuery.matches;
 }
 
-function typeLede() {
-  const lede = document.querySelector(".lede");
-  const textEl = document.querySelector(".lede-type");
-  if (!lede || !textEl) return;
-  if (reducedMotion()) {
-    lede.classList.add("is-ready");
-    return;
-  }
-
-  const text = textEl.textContent;
-  const chars = Array.from(text);
-  textEl.textContent = "";
-  for (const char of chars) {
-    const span = document.createElement("span");
-    span.className = "ch";
-    span.textContent = char;
-    textEl.append(span);
-  }
-  lede.classList.add("is-typing");
-
-  const spans = [...textEl.children];
-  const duration = 1050;
-  const start = performance.now();
-  const easeOut = (time) => 1 - (1 - time) ** 3;
-
-  const frame = (now) => {
-    const time = Math.min(1, (now - start) / duration);
-    const count = Math.round(easeOut(time) * spans.length);
-    for (let index = 0; index < spans.length; index += 1) {
-      spans[index].classList.toggle("is-on", index < count);
-    }
-    if (time < 1) {
-      requestAnimationFrame(frame);
-      return;
-    }
-    textEl.textContent = text;
-    lede.classList.remove("is-typing");
-    lede.classList.add("is-ready");
-  };
-
-  requestAnimationFrame(frame);
+function showLede() {
+  document.querySelector(".lede")?.classList.add("is-ready");
 }
 
 function observeReveals() {
@@ -156,6 +117,6 @@ function initTimeline() {
   window.addEventListener("resize", layoutTimeline);
 }
 
-typeLede();
+showLede();
 observeReveals();
 initTimeline();
